@@ -1,5 +1,6 @@
 import Head from "next/head";
 import styled from "styled-components";
+import HeroSection from "../components/sections/HeroSection";
 import { H1 } from "../components/styles/TextStyles";
 
 const Wrapper = styled.div`
@@ -18,7 +19,7 @@ export default function Home() {
         <title>Code Shape - Home</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <PageName>Home Page</PageName>
+      <HeroSection />
     </Wrapper>
   );
 }

@@ -8,7 +8,7 @@ import MenuTooltip from "../tooltips/MenuTooltip";
 
 const Wrapper = styled.div`
   position: absolute;
-  top: 40px;
+  top: 10px;
   display: grid;
   grid-template-columns: 44px auto;
   width: 100%;
