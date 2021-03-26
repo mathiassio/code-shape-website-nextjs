@@ -1,8 +1,12 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans");
-@import url("https://fonts.googleapis.com/css2?family=Handlee&display=swap");
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
 
-body,
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap");
+
 html,
+body,
 div,
 span,
 applet,
@@ -88,6 +92,7 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  box-sizing: border-box;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -103,42 +108,23 @@ nav,
 section {
   display: block;
 }
-
-html,
 body {
-  position: relative;
-  overflow-x: hidden;
   line-height: 1;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 16px;
+  /* font-family: "Open Sans", sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 ol,
 ul {
-  display: block;
-  list-style-type: disc;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-left: 0;
-  margin-right: 0;
-  padding-left: 40px;
-  font-size: 20px;
+  list-style: none;
 }
-
-li {
-  display: list-item;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
 blockquote,
 q {
   quotes: none;
 }
-
 blockquote:before,
 blockquote:after,
 q:before,
@@ -146,49 +132,12 @@ q:after {
   content: "";
   content: none;
 }
-
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
 a {
-  color: #543dca;
+  color: #3913b8;
   font-weight: 600;
   text-decoration: none;
-}
-
-pre {
-  background: #f4f4f4;
-  border: 1px solid #ddd;
-  border-left: 3px solid #f36d33;
-  color: #666;
-  page-break-inside: avoid;
-  font-family: monospace;
-  font-size: 15px;
-  line-height: 1.6;
-  margin-bottom: 1.6em;
-  max-width: 100%;
-  overflow: auto;
-  padding: 1em 1.5em;
-  display: block;
-  word-wrap: break-word;
-}
-
-code {
-  display: block;
-  background-color: #151515;
-  color: white;
-  border-radius: 1.25rem;
-  padding: 1rem;
-}
-
-iframe {
-  width: 100%;
-  min-height: 20rem;
-  border-radius: 1.25rem;
-}
-
-strong {
-  font-weight: 900;
 }

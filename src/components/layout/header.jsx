@@ -7,14 +7,18 @@ import Image from "next/image";
 import MenuTooltip from "../tooltips/MenuTooltip";
 
 const Wrapper = styled.div`
-  position: relative;
-  top: 10px;
+  position: absolute;
+  top: 40px;
   display: grid;
   grid-template-columns: 44px auto;
-  width: 100;
+  width: 100%;
   justify-content: space-between;
   padding: 0 30px;
   align-items: center;
+`;
+
+const Logo = styled.div`
+  width: 100px;
 `;
 
 const MenuWrapper = styled.div`
@@ -22,22 +26,20 @@ const MenuWrapper = styled.div`
   gap: 30px;
   grid-template-columns: repeat(${(props) => props.count}, auto);
 
-  @media (max-width: 1000px) {
+  @media (max-width: 768px) {
+    > p {
+      display: none;
+    }
     grid-template-columns: auto;
-    display: none;
   }
 `;
 
 const HamburgerWrapper = styled.div`
   display: none;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 768px) {
     display: block;
   }
-`;
-
-const Logo = styled.div`
-  width: 100px;
 `;
 
 export default function Header() {
@@ -70,22 +72,25 @@ export default function Header() {
 
   return (
     <Wrapper>
-      <Link href="/">
-        <Logo>
+      <Logo>
+        <Link href="/">
           <Image
             src="/images/logos/logo.png"
             alt="Logo"
             width={120}
             height={100}
           />
-        </Logo>
-      </Link>
+        </Link>
+      </Logo>
       <MenuWrapper count={menuData.length} ref={ref}>
         {menuData.map((item, index) => (
           <MenuButton key={index} item={item} />
         ))}
         <HamburgerWrapper onClick={(event) => handleClick(event)}>
-          {/* <MenuButton item={{ icon: "/images/icons/hamburger.svg" }} /> */}
+          <MenuButton
+            item={{ title: "", icon: "/images/icons/hamburger.svg", link: "/" }}
+            onClick={(event) => handleClick(event)}
+          />
         </HamburgerWrapper>
       </MenuWrapper>
       <div ref={tooltipRef}>

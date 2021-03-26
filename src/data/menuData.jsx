@@ -15,12 +15,8 @@ export const menuData = [
     icon: "/images/icons/business02_light.svg",
     link: "/entrepreneurs",
   },
-  // {
-  //   title: "Members area",
-  //   icon: "/images/icons/business02_light.svg",
-  //   link: "/app/login",
-  // },
 ];
+
 export const footerMenuData = [
   { title: "Learn", icon: "/images/icons/learner02_dm.svg", link: "/learn" },
   {

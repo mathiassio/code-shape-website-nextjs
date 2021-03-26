@@ -1,21 +1,22 @@
 import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
-import { Caption } from "../styles/TextStyles";
+import { MediumText } from "../styles/TextStyles";
+import Image from "next/image";
 
 export default function MenuButton(props) {
   const { item } = props;
   return (
     <Link href={item.link} onClick={props.onClick} key={props}>
       <MenuItem hasTitle={!item.title ? false : true}>
-        <img src={item.icon} />
+        <Image src={item.icon} width={120} height={100} />
         {item.title}
       </MenuItem>
     </Link>
   );
 }
 
-const MenuItem = styled(Caption)`
+const MenuItem = styled(MediumText)`
   color: white;
   display: grid;
   grid-template-columns: 24px auto;
