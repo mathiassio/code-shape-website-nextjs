@@ -16,7 +16,7 @@ export default function MenuButton(props) {
   );
 }
 
-const MenuItem = styled(MediumText)`
+const MenuItem = styled.a`
   color: white;
   display: grid;
   grid-template-columns: 24px auto;
@@ -27,6 +27,9 @@ const MenuItem = styled(MediumText)`
   padding: 10px;
   border-radius: 10px;
   transition: 0.5s ease-out;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 130%;
 
   :hover {
     background: rgba(255, 255, 255, 0.1);
