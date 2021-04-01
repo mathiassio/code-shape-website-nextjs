@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
-import Image from "next/image";
 
 const MenuItem = styled.a`
   color: white;
@@ -30,7 +29,7 @@ export default function MenuButton(props) {
   return (
     <Link href={item.link} onClick={props.onClick} key={props}>
       <MenuItem hasTitle={!item.title ? false : true}>
-        <Image src={item.icon} width={120} height={100} />
+        <img src={item.icon} width={25} height={25} />
         {item.title}
       </MenuItem>
     </Link>
