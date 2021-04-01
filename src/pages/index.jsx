@@ -13,6 +13,13 @@ export default function Home() {
       <Head>
         <title>Code Shape - Home</title>
         <link rel="icon" href="/favicon.ico" />
+        <script
+          type="text/javascript"
+          id="hs-script-loader"
+          async
+          defer
+          src="//js.hs-scripts.com/8205013.js"
+        ></script>
       </Head>
       <HeroSection />
     </Wrapper>
