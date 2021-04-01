@@ -73,8 +73,8 @@ export default function Footer() {
         </MenuWrapper>
         <TextWrapper>
           <Description>
-            This site is created using React, Gatsby, GraphCMS and deployed with
-            Netlify.
+            This site is created using React, NextJS, Contentful and deployed
+            with Netlify.
           </Description>
           <Copyright>
             Copyright © {new Date().getFullYear()} Code Shape. All rights
