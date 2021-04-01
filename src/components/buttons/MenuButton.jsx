@@ -10,7 +10,7 @@ const MenuItem = styled.a`
     return props.hasTitle ? "10px" : "0px";
   }};
   align-items: center;
-  padding: 10px;
+  padding: 10px 20px;
   border-radius: 10px;
   transition: 0.5s ease-out;
   font-weight: normal;
