@@ -1,24 +1,25 @@
-import Head from "next/head";
+import React from "react";
 import styled from "styled-components";
-import { H1 } from "../components/styles/TextStyles";
+import GlassGradientIntro from "../components/intros/GlassGradientIntro";
+import CommunityIntro from "../components/intros/CommunityIntro";
+import HeaderBackground from "../components/backgrounds/HeaderBackground";
 
 const Wrapper = styled.div`
-  margin-top: 10rem;
+  max-width: 70rem;
+  margin: 0 auto;
+  padding-top: 6rem;
 `;
 
-const PageName = styled(H1)`
-  text-align: center;
-  padding: 1rem;
-`;
-
-export default function Community() {
+export default function CommunityPage() {
   return (
     <Wrapper>
-      <Head>
-        <title>Code Shape - Community</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <PageName>Community Page</PageName>
+      <HeaderBackground image="../images/blobs/HeaderBlob03.svg" />
+      <GlassGradientIntro
+        title="People at it's core"
+        description="We believe that we can create better products together. Join our community and make an impact on learning and sharing everyday."
+        gradientColor="-webkit-linear-gradient(left, #F89929, #F5217B)"
+      />
+      <CommunityIntro />
     </Wrapper>
   );
 }
