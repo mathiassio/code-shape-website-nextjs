@@ -88,7 +88,7 @@ export default function Header() {
         ))}
         <HamburgerWrapper onClick={(event) => handleClick(event)}>
           <MenuButton
-            item={{ title: "", icon: "/images/icons/hamburger.svg", link: "/" }}
+            item={{ title: "", icon: "/images/icons/hamburger.svg", link: "" }}
             onClick={(event) => handleClick(event)}
           />
         </HamburgerWrapper>
