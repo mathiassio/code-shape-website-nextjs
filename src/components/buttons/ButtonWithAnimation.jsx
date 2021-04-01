@@ -3,23 +3,6 @@ import Link from "next/link";
 import styled from "styled-components";
 import { Caption2, SmallText } from "../styles/TextStyles";
 
-export default function ButtonWithAnimation(props) {
-  const { title, subtitle, link, icon } = props;
-  return (
-    <Link href={link || "/"} key={props}>
-      <Wrapper>
-        <IconWrapper>
-          <Icon src={icon || "/images/icons/image.svg"} className="icon" />
-        </IconWrapper>
-        <TextWrapper>
-          <Title>{title || "Get Started"}</Title>
-          <Subtitle>{subtitle || "Be Creative"}</Subtitle>
-        </TextWrapper>
-      </Wrapper>
-    </Link>
-  );
-}
-
 const Wrapper = styled.div`
   max-width: 240px;
   min-height: 50px;
@@ -101,3 +84,20 @@ const IconWrapper = styled.div`
     }
   }
 `;
+
+export default function ButtonWithAnimation(props) {
+  const { title, subtitle, link, icon } = props;
+  return (
+    <Link href={link || "/"} key={props}>
+      <Wrapper>
+        <IconWrapper>
+          <Icon src={icon || "/images/icons/image.svg"} className="icon" />
+        </IconWrapper>
+        <TextWrapper>
+          <Title>{title || "Get Started"}</Title>
+          <Subtitle>{subtitle || "Be Creative"}</Subtitle>
+        </TextWrapper>
+      </Wrapper>
+    </Link>
+  );
+}

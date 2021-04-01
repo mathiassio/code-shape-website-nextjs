@@ -4,28 +4,6 @@ import styled from "styled-components";
 import ChatFlowContent from "../animated/ChatFlowContent";
 import ButtonWithAnimation from "../buttons/ButtonWithAnimation";
 
-export default function HeroSection() {
-  return (
-    <Wrapper>
-      <Blob src="/images/blobs/HeroSectionBlob.svg"></Blob>
-      <ContentWrapper>
-        <TextWrapper>
-          <Title>Learn how to create great apps</Title>
-          <Description>
-            We bring people forward through technology, and learning is the best
-            way to introduce insanely cool new things.
-          </Description>
-          <ButtonWithAnimation
-            icon="/images/icons/learner02_dm.svg"
-            link="/learn"
-          />
-        </TextWrapper>
-        <ChatFlowContent />
-      </ContentWrapper>
-    </Wrapper>
-  );
-}
-
 const Wrapper = styled.div``;
 
 const ContentWrapper = styled.div`
@@ -49,3 +27,25 @@ const Blob = styled.img`
   top: 0;
   z-index: -1;
 `;
+
+export default function HeroSection() {
+  return (
+    <Wrapper>
+      <Blob src="/images/blobs/HeroSectionBlob.svg"></Blob>
+      <ContentWrapper>
+        <TextWrapper>
+          <Title>Learn how to create great apps</Title>
+          <Description>
+            We bring people forward through technology, and learning is the best
+            way to introduce insanely cool new things.
+          </Description>
+          <ButtonWithAnimation
+            icon="/images/icons/learner02_dm.svg"
+            link="/learn"
+          />
+        </TextWrapper>
+        <ChatFlowContent />
+      </ContentWrapper>
+    </Wrapper>
+  );
+}

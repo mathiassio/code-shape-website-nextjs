@@ -3,29 +3,6 @@ import Link from "next/link";
 import styled from "styled-components";
 import { BodyMain, MediumText } from "../styles/TextStyles";
 
-export default function MessageNotification(props) {
-  const { name, text, image, link, nameColor, borderColor } = props;
-  return (
-    <Link href={link || "/"} key={props}>
-      <Wrapper>
-        <ImageWrapper>
-          <Image
-            borderColor={borderColor || "3px solid white"}
-            src={image || "/images/profiles/logo.png"}
-            className="icon"
-          />
-        </ImageWrapper>
-        <TextWrapper>
-          <Name nameColor={nameColor}>{name || "Mr. Awesome"}</Name>
-          <Text>
-            {text || "Can you help me learn how to engage my audience? 👋🏼"}
-          </Text>
-        </TextWrapper>
-      </Wrapper>
-    </Link>
-  );
-}
-
 const Wrapper = styled.div`
   padding: 1rem;
   display: grid;
@@ -117,3 +94,26 @@ const Text = styled(MediumText)`
     color: white;
   }
 `;
+
+export default function MessageNotification(props) {
+  const { name, text, image, link, nameColor, borderColor } = props;
+  return (
+    <Link href={link || "/"} key={props}>
+      <Wrapper>
+        <ImageWrapper>
+          <Image
+            borderColor={borderColor || "3px solid white"}
+            src={image || "/images/profiles/logo.png"}
+            className="icon"
+          />
+        </ImageWrapper>
+        <TextWrapper>
+          <Name nameColor={nameColor}>{name || "Mr. Awesome"}</Name>
+          <Text>
+            {text || "Can you help me learn how to engage my audience? 👋🏼"}
+          </Text>
+        </TextWrapper>
+      </Wrapper>
+    </Link>
+  );
+}

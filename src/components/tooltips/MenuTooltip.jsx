@@ -3,17 +3,6 @@ import styled from "styled-components";
 import { tooltipData } from "../../data/menuData";
 import MenuButton from "../buttons/MenuButton";
 
-export default function MenuTooltip(props) {
-  const { isOpen } = props;
-  return (
-    <Wrapper isOpen={isOpen}>
-      {tooltipData.map((item, index) => (
-        <MenuButton item={item} key={index} />
-      ))}
-    </Wrapper>
-  );
-}
-
 const Wrapper = styled.div`
   background-color: rgba(242, 242, 242, 0.7);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
@@ -55,3 +44,14 @@ const Wrapper = styled.div`
     display: none;
   }
 `;
+
+export default function MenuTooltip(props) {
+  const { isOpen } = props;
+  return (
+    <Wrapper isOpen={isOpen}>
+      {tooltipData.map((item, index) => (
+        <MenuButton item={item} key={index} />
+      ))}
+    </Wrapper>
+  );
+}

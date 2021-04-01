@@ -3,17 +3,6 @@ import React from "react";
 import styled from "styled-components";
 import { BodyMain } from "../styles/TextStyles";
 
-export default function GlassButton(props) {
-  const { link, title, titleColor } = props;
-  return (
-    <Link href={link || "/"} target="_blank" key={props}>
-      <Wrapper>
-        <Title titleColor={titleColor}>{title || "Join Now!"}</Title>
-      </Wrapper>
-    </Link>
-  );
-}
-
 const Wrapper = styled.div`
   max-width: 15rem;
   min-height: 3rem;
@@ -61,3 +50,14 @@ const Title = styled(BodyMain)`
   font-weight: 900;
   color: ${(props) => props.titleColor || "white"};
 `;
+
+export default function GlassButton(props) {
+  const { link, title, titleColor } = props;
+  return (
+    <Link href={link || "/"} target="_blank" key={props}>
+      <Wrapper>
+        <Title titleColor={titleColor}>{title || "Join Now!"}</Title>
+      </Wrapper>
+    </Link>
+  );
+}

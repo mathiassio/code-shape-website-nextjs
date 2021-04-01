@@ -7,11 +7,6 @@ const Wrapper = styled.div`
   margin-top: 10rem;
 `;
 
-const PageName = styled(H1)`
-  text-align: center;
-  padding: 1rem;
-`;
-
 export default function Home() {
   return (
     <Wrapper>
