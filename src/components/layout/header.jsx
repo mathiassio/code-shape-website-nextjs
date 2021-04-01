@@ -84,7 +84,11 @@ export default function Header() {
       </Logo>
       <MenuWrapper count={menuData.length} ref={ref}>
         {menuData.map((item, index) => (
-          <MenuButton key={index} item={item} />
+          <MenuButton
+            item={item}
+            key={index}
+            onClick={(event) => handleClick(event)}
+          />
         ))}
         <HamburgerWrapper onClick={(event) => handleClick(event)}>
           <MenuButton
