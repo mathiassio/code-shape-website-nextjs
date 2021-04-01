@@ -73,7 +73,7 @@ export default function Header() {
   return (
     <Wrapper>
       <Logo>
-        <Link href="">
+        <Link href="/">
           <Image
             src="/images/logos/logo.png"
             alt="Logo"
