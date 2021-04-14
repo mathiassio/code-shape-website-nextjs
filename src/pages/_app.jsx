@@ -1,5 +1,5 @@
 import "../components/layout/layout.css"
-import Header from "../components/layout/Header"
+import Header from "../components/layout/header"
 import { GlobalStyle } from "../components/styles/GlobalStyle"
 import Footer from "../components/layout/Footer"
 import SideBarMenu from "../components/layout/Navigation/SidebarMenu"
