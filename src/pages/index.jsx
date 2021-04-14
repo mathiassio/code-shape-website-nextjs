@@ -1,7 +1,7 @@
-import Head from "next/head";
-import styled from "styled-components";
-import HeroSection from "../components/sections/HeroSection";
-import { H1 } from "../components/styles/TextStyles";
+import Head from "next/head"
+import styled from "styled-components"
+import HeroSection from "../components/sections/HeroSection"
+
 
 const Wrapper = styled.div`
   margin-top: 10rem;
