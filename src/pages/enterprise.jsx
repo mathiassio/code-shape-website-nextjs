@@ -11,14 +11,14 @@ const PageName = styled(H1)`
   padding: 1rem;
 `;
 
-export default function Entrepreneurs() {
+export default function Enterprise() {
   return (
     <Wrapper>
       <Head>
-        <title>Code Shape - Entrepreneurs</title>
+        <title>Code Shape - Enterprise</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <PageName>Entrepreneurs Page</PageName>
+      <PageName>Enterprise Page</PageName>
     </Wrapper>
   );
 }
