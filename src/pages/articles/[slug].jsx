@@ -1,65 +1,67 @@
-
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import { BLOCKS } from "@contentful/rich-text-types"
-import Image from "next/image"
+import Head from "next/head"
 import styled from "styled-components"
-import { H2 } from "../../components/styles/TextStyles"
+import { H2, H3 } from "../../components/styles/TextStyles"
+import { getListings, getListing } from "../../../utils/contentful"
+import Image from "next/image"
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS } from "@contentful/rich-text-types"
 
-let client = require("contentful").createClient({
-    space: process.env.NEXT_CONTENTFUL_SPACE_ID,
-    accessToken: process.env.NEXT_CONTENTFUL_ACCESS_TOKEN,
-  })
+
 
 export async function getStaticPaths() {
-    let data = await client.getEntries({
-        content_type: "articlePost",
-    })
+    const data = await getListings()
 
     return {
-        paths: data.items.map((item) => ({
-            params: { slug: item.fields.slug },
-        })),
-        fallback: true,
+        paths: data.articlePostCollection.items.map((listing) => ({ params: {slug: listing.slug } })),
+        fallback: false,
     }
 }
 
-export async function getStaticProps({ params }) {
-    let data = await client.getEntries({
-        content_type: "articlePost",
-        "fields.slug": params.slug,
-    })
+export async function getStaticProps(context) {
+  const data = await getListing(context.params.slug)
 
-    return {
-        props: {
-            article: data.items[0],
-        }
-    }
+  return {
+    props:  { listing: data.articlePostCollection.items[0] }
+  }
 }
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+  margin-top: 10rem;
+`
 
-const Title = styled(H2)``
+const Date = styled(H3)`
+  text-align: center;
+`
+
+const FeaturedImage = styled.div`
+`
+
+const Title = styled(H2)`
+  text-align: center;
+`
 
 const Content = styled.div``
 
-export default function Article({ article }) {
-
+export default function ArticlesPost({ listing }) {
     return (
-    <Wrapper>
-        <Title>{article.fields.title}</Title>
+      <Wrapper>
+        <Head>
+          <title>Code Shape - Articles</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <Date>{listing.date}</Date>
+        <Title>{listing.title}</Title>
+        <FeaturedImage>
+          <Image
+          src={listing.featuredImage.url}
+          alt={listing.featuredImage.title}
+          width={listing.featuredImage.width}
+          height={listing.featuredImage.height}
+          />
+        </FeaturedImage>
         <Content>
-         {documentToReactComponents(article.fields.content, {
-            renderNode: {
-             [BLOCKS.EMBEDDED_ASSET]: (node) => (
-                <Image 
-                    src={"https:" + node.data.target.fields.file.url} 
-                    width={node.data.target.fields.file.details.image.width} 
-                    height={node.data.target.fields.file.details.image.height}
-                />
-              )
-            }
-        })}
-      </Content>
-    </Wrapper>
- )
-}
+         {documentToReactComponents(listing.content.json)}
+        </Content>
+      </Wrapper>
+    );
+  }

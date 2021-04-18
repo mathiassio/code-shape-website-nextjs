@@ -1,52 +1,66 @@
 import Head from "next/head"
-import Link from "next/link"
 import styled from "styled-components"
-import { H1 } from "../components/styles/TextStyles"
+import { getListings } from "../../utils/contentful"
+import Link from "next/link"
+import { H2, MediumText } from "../components/styles/TextStyles"
 
 const Wrapper = styled.div`
-  margin-top: 10rem;
+  padding-top: 10rem;
 `
 
-const PageName = styled(H1)`
-  text-align: center;
-  padding: 1rem;
+const Main = styled.main`
+display: grid; 
+grid-gap: 1.875rem;
 `
 
-let client = require("contentful").createClient({
-  space: process.env.NEXT_CONTENTFUL_SPACE_ID,
-  accessToken: process.env.NEXT_CONTENTFUL_ACCESS_TOKEN,
-})
+const Content = styled.div`
+display: grid; 
+grid-gap: 1.875rem;
+max-width: 30rem;
+border: 1px solid white;
+`
+
+const Title = styled(H2)`
+display: grid; 
+grid-gap: 1.875rem;
+`
+
+const Excerpt = styled(MediumText)`
+display: grid; 
+grid-gap: 1.875rem;
+color: #fff;
+`
 
 export async function getStaticProps() {
-  let data = await client.getEntries({
-    content_type: "articlePost"
-  })
+  const data = await getListings()
 
   return {
-    props: {
-      articles: data.items
-    }
+    props:  { listings: data.articlePostCollection.items }
   }
 }
 
-export default function Articles({ articles }) {
+export default function Articles({ listings }) {
   return (
     <Wrapper>
       <Head>
         <title>Code Shape - Articles</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <ul>
-          {articles.map(article => (
-            <li key={article.sys.id}>
-              <Link href={"/articles/" + article.fields.slug}>
-                <a>{article.fields.title}</a>
+      <Main>
+          {listings.map((listing) => (
+            <Content>
+              <Link 
+                key={listing.slug} 
+                href={`/articles/${listing.slug}`}
+              >
+                <a>
+                  <Title>{listing.title}</Title>
+                  <Excerpt>{listing.excerpt}</Excerpt>
+                </a>
               </Link>
-            </li>
+            </Content>
           ))}
-        </ul>
-      </main>
+      </Main>
     </Wrapper>
   );
 }
