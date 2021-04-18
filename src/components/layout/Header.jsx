@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import styled from "styled-components";
-import Link from "next/link";
-import { menuData } from "../../data/menuData";
-import MenuButton from "../buttons/MenuButton.jsx";
-import Image from "next/image";
-import MenuTooltip from "../tooltips/MenuTooltip";
+import styled from "styled-components"
+import Link from "next/link"
+import Image from "next/image"
+import { menuData } from "./navigation/menuData"
+import MenuButton from "./navigation/MenuButton"
+import MenuTooltip from "./navigation/menuTooltip"
 
 const Wrapper = styled.div`
   position: absolute;
@@ -86,7 +86,8 @@ export default function Header() {
         ))}
         <HamburgerWrapper onClick={(event) => handleClick(event)}>
           <MenuButton
-            item={{ title: "", icon: "/images/icons/hamburger.svg", link: "/" }}
+            item={{ title: "", icon: "/images/icons/hamburger.svg", link: "#" }}
+            
             onClick={(event) => handleClick(event)}
           />
         </HamburgerWrapper>

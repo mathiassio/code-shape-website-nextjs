@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { footerMenuData } from "../../data/menuData";
+import { footerMenuData } from "./navigation/menuData"
 import FooterMenuButton from "../buttons/FooterMenuButton";
 import { MediumText } from "../styles/TextStyles";
 
