@@ -11,10 +11,10 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   grid-gap: 1.25rem;
-  border-radius: 1.25rem;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   margin-left: 1rem;
   margin-right: 1rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 
   @supports (backdrop-filter: blur(40px)) or
     (-webkit-backdrop-filter: blur(40px)) {

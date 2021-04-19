@@ -7,32 +7,40 @@ const Wrapper = styled.div`
   max-width: 240px;
   min-height: 50px;
   padding: 12px;
-  background: linear-gradient(180deg, #ffffff 0%, #d9dfff 100%);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1),
-    0px 20px 40px rgba(23, 0, 102, 0.2),
-    inset 0px 0px 0px 0.5px rgba(255, 255, 255, 0.5);
   border-radius: 20px;
   border: 0px;
   display: grid;
   grid-template-columns: 53px auto;
   align-content: center;
   gap: 20px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+  @supports (backdrop-filter: blur(40px)) or
+    (-webkit-backdrop-filter: blur(40px)) {
+    opacity: 0, 5;
+    background-color: transparent;
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  @-moz-document url-prefix() {
+    background-color: rgba(242, 242, 242, 0.7);
+    @media (prefers-color-scheme: dark) {
+      background-color: rgba(50, 50, 52, 0.7);
+    }
+  }
 
   *,
   & {
     transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 
-  @media only screen and (min-width: 600px) {
-    :hover {
-      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1),
-        0px 30px 60px rgba(23, 0, 102, 0.5),
-        inset 0px 0px 0px 0.5px rgba(255, 255, 255, 0.5);
-      transform: translateY(-3px);
+  :hover {
+    transform: translateY(-3px);
 
-      .icon {
-        transform: scale(1.2);
-      }
+    .icon {
+      transform: scale(1.2);
     }
   }
 `;
@@ -42,12 +50,9 @@ const TextWrapper = styled.div`
   gap: 4px;
 `;
 
-const Title = styled(Caption2)`
-  color: black;
-`;
+const Title = styled(Caption2)``;
 
 const Subtitle = styled(SmallText)`
-  color: black;
   opacity: 0.7;
 `;
 
