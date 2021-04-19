@@ -1,7 +1,7 @@
 import React from "react";
 import { H1, BodyIntro } from "../styles/TextStyles";
 import styled from "styled-components";
-import ChatFlowContent from "../animated/ChatFlowContent";
+import ChatFlowContent from "../animations/ChatFlowContent";
 import ButtonWithAnimation from "../buttons/ButtonWithAnimation";
 import { motion } from "framer-motion";
 

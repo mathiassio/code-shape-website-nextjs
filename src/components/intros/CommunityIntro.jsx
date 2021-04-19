@@ -20,6 +20,16 @@ const ContentWrapper = styled.div`
 const ImageWrapper = styled.div`
   display: grid;
   align-content: center;
+  position: absolute;
+  right: -300px;
+  top: 100px;
+  z-index: -1;
+
+  @media screen and (max-width: 1300px) {
+    position: relative;
+    right: 0px;
+    top: 0px;
+  }
 `;
 
 const ButtonWrapper = styled.div`
@@ -40,10 +50,10 @@ export default function CommunityWithImage() {
         />
         <ImageWrapper>
           <Image
-            src="/images/screenshots/discord_community.png"
+            src="/images/screenshots/mac_iphone_discord.png"
             alt="Discord App"
-            width={600}
-            height={400}
+            width={1200}
+            height={600}
           />
         </ImageWrapper>
       </ContentWrapper>
