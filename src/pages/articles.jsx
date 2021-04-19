@@ -3,9 +3,11 @@ import styled from "styled-components"
 import { getListings } from "../../utils/contentful"
 import Link from "next/link"
 import { H2, MediumText } from "../components/styles/TextStyles"
+import HeaderBackground from "../components/backgrounds/HeaderBackground"
+import GlassGradientIntro from "../components/intros/GlassGradientIntro"
 
 const Wrapper = styled.div`
-  padding-top: 10rem;
+  padding-top: 6rem;
 `
 
 const Main = styled.main`
@@ -46,6 +48,12 @@ export default function Articles({ listings }) {
         <title>Code Shape - Articles</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <HeaderBackground image="../images/blobs/HeaderBlob02.svg" />
+      <GlassGradientIntro
+        title="Reading is making Meaning"
+        description="We believe we can create amazing things together by keeping our knowledge up to date. Therefore we will do our best to deliver that to you every week."
+        gradientColor="-webkit-linear-gradient(left, #F89929, #F5217B)"
+      />
       <Main>
           {listings.map((listing) => (
             <Content>

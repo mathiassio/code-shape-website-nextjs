@@ -7,17 +7,17 @@ const Wrapper = styled.div`
   padding-top: 6rem;
 `
 
-export default function Learn() {
+export default function Updates() {
   return (
     <Wrapper>
       <Head>
-        <title>Code Shape - Learn</title>
+        <title>Code Shape - Updates</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HeaderBackground image="../images/blobs/HeaderBlob01.svg" />
       <GlassGradientIntro
-        title="Learning is part of life"
-        description="Keep practice every day, and you will be able to accomplish amazing things in life. It's never too late to start learning a new skill."
+        title="Follow the Journey with us"
+        description="We want to bring you the most incredible tools and learning experiences no matter where in the world you are. Let us do this together!"
         gradientColor="-webkit-linear-gradient(left, #F89929, #F5217B)"
       />
     </Wrapper>
