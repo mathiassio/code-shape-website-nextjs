@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { footerMenuData } from "./navigation/menuData"
-import FooterMenuButton from "../buttons/FooterMenuButton";
+import { footerMenuData } from "./navigation/menuData";
+import MenuButton from "./navigation/MenuButton";
 import { MediumText } from "../styles/TextStyles";
 
 const Wrapper = styled.div`
@@ -68,7 +68,7 @@ export default function Footer() {
       <ContentWrapper>
         <MenuWrapper count={footerMenuData.length}>
           {footerMenuData.map((item, index) => (
-            <FooterMenuButton key={index} item={item} />
+            <MenuButton key={index} item={item} />
           ))}
         </MenuWrapper>
         <TextWrapper>

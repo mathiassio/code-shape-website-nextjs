@@ -1,11 +1,11 @@
-import Head from "next/head"
-import styled from "styled-components"
-import HeaderBackground from "../components/backgrounds/HeaderBackground"
-import GlassGradientIntro from "../components/intros/GlassGradientIntro"
+import Head from "next/head";
+import styled from "styled-components";
+import HeaderBackground from "../components/backgrounds/HeaderBackground";
+import GlassGradientIntro from "../components/intros/GlassGradientIntro";
 
 const Wrapper = styled.div`
   padding-top: 6rem;
-`
+`;
 
 export default function Help() {
   return (

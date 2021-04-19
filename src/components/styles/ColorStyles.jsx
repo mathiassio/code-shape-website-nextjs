@@ -55,4 +55,4 @@ export const themes = {
       backgroundColorFull: `rgba(15, 14, 71, 1)`,
     },
   },
-}
+};

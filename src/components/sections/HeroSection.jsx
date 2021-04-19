@@ -38,23 +38,23 @@ export default function HeroSection() {
         <TextWrapper>
           <Title>
             <motion.h1
-                initial={{ scale: 0.5, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                className="title has-text-weight-bold is-1 is-size-2-mobile is-spaced"
-                layoutId="title"
-              >
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              className="title has-text-weight-bold is-1 is-size-2-mobile is-spaced"
+              layoutId="title"
+            >
               Learn how to create great apps
             </motion.h1>
           </Title>
           <Description>
-          <motion.h1
-                initial={{ scale: 0.5, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                className="title has-text-weight-bold is-1 is-size-2-mobile is-spaced"
-                layoutId="title"
-              >
-            We bring people forward through technology, and learning is the best
-            way to introduce insanely cool new things.
+            <motion.h1
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              className="title has-text-weight-bold is-1 is-size-2-mobile is-spaced"
+              layoutId="title"
+            >
+              We bring people forward through technology, and learning is the
+              best way to introduce insanely cool new things.
             </motion.h1>
           </Description>
           <ButtonWithAnimation

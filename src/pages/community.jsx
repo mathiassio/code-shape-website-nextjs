@@ -1,8 +1,8 @@
-import React from "react"
-import styled from "styled-components"
-import GlassGradientIntro from "../components/intros/GlassGradientIntro"
-import CommunityIntro from "../components/intros/CommunityIntro"
-import HeaderBackground from "../components/backgrounds/HeaderBackground"
+import React from "react";
+import styled from "styled-components";
+import GlassGradientIntro from "../components/intros/GlassGradientIntro";
+import CommunityIntro from "../components/intros/CommunityIntro";
+import HeaderBackground from "../components/backgrounds/HeaderBackground";
 
 const Wrapper = styled.div`
   max-width: 70rem;
