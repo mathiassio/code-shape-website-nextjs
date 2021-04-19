@@ -43,7 +43,7 @@ export default function ChatFlowContent() {
   return (
     <Wrapper>
       <NotificationsWrapper>
-        <NotificationOne animate={{ x: -470 }} className="Overflow">
+        <NotificationOne animate={{ x: -470 }} transition={{ duration: 0.5 }}>
           <MessageNotification
             link="enterprise"
             name="Julius"
@@ -53,7 +53,7 @@ export default function ChatFlowContent() {
             borderColor="3px solid#6058fc"
           />
         </NotificationOne>
-        <NotificationTwo animate={{ x: -550 }} transition={{ delay: 0.1 }}>
+        <NotificationTwo animate={{ x: -550 }} transition={{ duration: 0.7 }}>
           <MessageNotification
             link="community"
             name="Andreas"
@@ -63,7 +63,7 @@ export default function ChatFlowContent() {
             borderColor="3px solid #ad48ff"
           />
         </NotificationTwo>
-        <NotificationThree animate={{ x: -480 }} transition={{ delay: 0.3 }}>
+        <NotificationThree animate={{ x: -480 }} transition={{ duration: 0.9 }}>
           <MessageNotification
             link="learn"
             name="Melanie"
@@ -73,7 +73,7 @@ export default function ChatFlowContent() {
             borderColor="3px solid#E7286F"
           />
         </NotificationThree>
-        <NotificationFour animate={{ x: -550 }} transition={{ delay: 0.4 }}>
+        <NotificationFour animate={{ x: -550 }} transition={{ duration: 1.1 }}>
           <MessageNotificationReverted
             link="help"
             name="Code Shape"
