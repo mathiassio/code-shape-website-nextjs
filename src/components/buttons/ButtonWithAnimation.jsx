@@ -4,8 +4,8 @@ import styled from "styled-components";
 import { Caption2, SmallText } from "../styles/TextStyles";
 
 const Wrapper = styled.div`
-  max-width: 240px;
-  min-height: 50px;
+  width: 240px;
+  height: 80px;
   padding: 12px;
   border-radius: 20px;
   border: 0px;
@@ -14,22 +14,9 @@ const Wrapper = styled.div`
   align-content: center;
   gap: 20px;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-
-  @supports (backdrop-filter: blur(40px)) or
-    (-webkit-backdrop-filter: blur(40px)) {
-    opacity: 0, 5;
-    background-color: transparent;
-    -webkit-backdrop-filter: blur(40px);
-    backdrop-filter: blur(40px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-  }
-
-  @-moz-document url-prefix() {
-    background-color: rgba(242, 242, 242, 0.7);
-    @media (prefers-color-scheme: dark) {
-      background-color: rgba(50, 50, 52, 0.7);
-    }
-  }
+  background: linear-gradient(#fff 10%, #6058FC 200%);
+  position: relative;
+  overflow: hidden;
 
   *,
   & {
@@ -47,18 +34,23 @@ const Wrapper = styled.div`
 
 const TextWrapper = styled.div`
   display: grid;
-  gap: 4px;
+  text-align: center;
+  align-self: center;
+  grid-gap: 4px;
 `;
 
-const Title = styled(Caption2)``;
+const Title = styled(Caption2)`
+color: #000;
+`;
 
 const Subtitle = styled(SmallText)`
   opacity: 0.7;
+  color: #000;
 `;
 
 const Icon = styled.img`
-  width: 29px;
-  height: 29px;
+  width: 70px;
+  height: 70px;
 `;
 const Ring = styled.img`
   position: absolute;
@@ -73,15 +65,14 @@ const Ring = styled.img`
 `;
 
 const IconWrapper = styled.div`
-  width: 45px;
-  min-height: 45px;
-  background: linear-gradient(200.44deg, #4316db 13.57%, #9076e7 98.38%);
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(200.44deg, #4F1EC0 13.57%, #AD4BDE 98.38%);
   border-radius: 50%;
   display: grid;
   justify-content: center;
   align-content: center;
   justify-self: center;
-  position: relative;
 
   @media only screen and (min-width: 600px) {
     ${Wrapper}:hover & {
