@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Caption2, SmallText } from "../styles/TextStyles";
 
 const Wrapper = styled.div`
-  width: 220px;
+  width: 230px;
   height: 70px;
   padding: 12px;
   border-radius: 20px;
