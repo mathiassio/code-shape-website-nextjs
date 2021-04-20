@@ -17,7 +17,7 @@ export default function Utterances({
   crossOrigin = "anonymous",
   async = true,
 }) {
-  const rootElm = React.createRef();
+  const rootElm = React.createRef<HTMLDivElement>();
 
   React.useEffect(() => {
     const utterances = document.createElement("script");
