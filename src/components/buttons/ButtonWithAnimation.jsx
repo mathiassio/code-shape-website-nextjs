@@ -4,8 +4,8 @@ import styled from "styled-components";
 import { Caption2, SmallText } from "../styles/TextStyles";
 
 const Wrapper = styled.div`
-  width: 240px;
-  height: 80px;
+  width: 220px;
+  height: 70px;
   padding: 12px;
   border-radius: 20px;
   border: 0px;
@@ -49,8 +49,8 @@ const Subtitle = styled(SmallText)`
 `;
 
 const Icon = styled.img`
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
 `;
 const Ring = styled.img`
   position: absolute;

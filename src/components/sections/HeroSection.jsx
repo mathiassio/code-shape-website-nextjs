@@ -19,7 +19,19 @@ const TextWrapper = styled.div`
   gap: 1.875rem;
   z-index: -1;
 `;
-const Title = styled(H1)``;
+const Title = styled(H1)`
+.learn{
+  color: #F89B29;
+}
+
+.create{
+  color: #F51D7E;
+}
+
+.apps{
+  color: #AD4BDE;
+}
+`;
 
 const Description = styled(BodyIntro)``;
 
@@ -43,7 +55,7 @@ export default function HeroSection() {
               className="title has-text-weight-bold is-1 is-size-2-mobile is-spaced"
               layoutId="title"
             >
-              Learn how to create great apps
+              <span className="learn">Learn</span> how to <span className="create">create</span> great <span className="apps">apps</span>
             </motion.h1>
           </Title>
           <Description>
