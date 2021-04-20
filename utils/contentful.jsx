@@ -11,7 +11,7 @@ const graphQLClient = new GraphQLClient(endpoint, {
 export async function getListings() {
   const listingsQuery = gql`
     {
-      articlePostCollection {
+      articleCollection {
         items {
           title
           slug
@@ -30,16 +30,39 @@ export async function getListings() {
   return graphQLClient.request(listingsQuery);
 }
 
-export async function getListing(slug) {
-  const listingsQuery = gql`
-    query getListing($slug: String!) {
-      articlePostCollection(where: { slug: $slug }) {
+export async function getProjects() {
+  const projectsQuery = gql`
+    {
+      projectCollection {
         items {
           title
           slug
           excerpt
           date
           featuredImage {
+            title
+            url
+            width
+            height
+          }
+        }
+      }
+    }
+  `;
+  return graphQLClient.request(projectsQuery);
+}
+
+export async function getListing(slug) {
+  const listingsQuery = gql`
+    query getListing($slug: String!) {
+      articleCollection(where: { slug: $slug }) {
+        items {
+          title
+          slug
+          excerpt
+          date
+          featuredImage {
+            title
             url
             width
             height
@@ -53,6 +76,34 @@ export async function getListing(slug) {
   `;
 
   return graphQLClient.request(listingsQuery, {
+    slug,
+  });
+}
+
+export async function getProject(slug) {
+  const projectQuery = gql`
+    query getListing($slug: String!) {
+      projectCollection(where: { slug: $slug }) {
+        items {
+          title
+          slug
+          excerpt
+          date
+          featuredImage {
+            title
+            url
+            width
+            height
+          }
+          content {
+            json
+          }
+        }
+      }
+    }
+  `;
+
+  return graphQLClient.request(projectQuery, {
     slug,
   });
 }

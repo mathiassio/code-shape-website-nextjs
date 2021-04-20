@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   padding-top: 6rem;
 `;
 
-export default function Learn() {
+export default function LearnPage() {
   return (
     <Wrapper>
       <Head>

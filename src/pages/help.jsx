@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   padding-top: 6rem;
 `;
 
-export default function Help() {
+export default function HelpPage() {
   return (
     <Wrapper>
       <Head>
