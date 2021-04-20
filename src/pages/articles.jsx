@@ -2,6 +2,7 @@ import Head from "next/head";
 import styled from "styled-components";
 import { getListings } from "../../utils/contentful";
 import Link from "next/link";
+import Image from "next/image";
 import { H2, MediumText } from "../components/styles/TextStyles";
 import HeaderBackground from "../components/backgrounds/HeaderBackground";
 import GlassGradientIntro from "../components/intros/GlassGradientIntro";
@@ -22,7 +23,7 @@ const Main = styled.main`
   align-content: center;
 `;
 
-const Content = styled.div`
+const Card = styled.div`
   min-height: 100%;
   display: flex;
   flex-direction: column;
@@ -67,8 +68,16 @@ const Content = styled.div`
   }
 `;
 
-const TextWrapper = styled.a`
-  padding: 1rem;
+const FeaturedImage = styled.a``;
+
+const Content = styled.div`
+  display: grid;
+`;
+
+const TextWrapper = styled(H2)`
+  display: grid;
+  grid-gap: 1.875rem;
+  padding: 1.5rem;
 `;
 
 const Title = styled(H2)`
@@ -106,14 +115,25 @@ export default function Articles({ listings }) {
       <CategorySection />
       <Main>
         {listings.map((listing) => (
-          <Content>
+          <Card key={listing.slug}>
             <Link key={listing.slug} href={`/articles/${listing.slug}`}>
-              <TextWrapper>
-                <Title>{listing.title}</Title>
-                <Excerpt>{listing.excerpt}</Excerpt>
-              </TextWrapper>
+              <Content>
+                <FeaturedImage>
+                  <Image
+                    src={listing.featuredImage.url}
+                    alt={listing.featuredImage.title}
+                    width="400"
+                    height="200"
+                    layout="responsive"
+                  />
+                </FeaturedImage>
+                <TextWrapper>
+                  <Title>{listing.title}</Title>
+                  <Excerpt>{listing.excerpt}</Excerpt>
+                </TextWrapper>
+              </Content>
             </Link>
-          </Content>
+          </Card>
         ))}
       </Main>
     </Wrapper>
