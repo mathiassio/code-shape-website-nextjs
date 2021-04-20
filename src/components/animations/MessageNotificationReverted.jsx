@@ -11,6 +11,7 @@ const Wrapper = styled.div`
   gap: 1.25rem;
   border-radius: 1.25rem;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transform: rotateY(20deg) perspective(500px);
 
   @supports (backdrop-filter: blur(40px)) or
     (-webkit-backdrop-filter: blur(40px)) {

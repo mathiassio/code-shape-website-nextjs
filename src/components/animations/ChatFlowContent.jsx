@@ -10,8 +10,8 @@ const Wrapper = styled.div`
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25.625rem, 1fr));
-  top: 6rem;
-  right: -30rem;
+  top: 15rem;
+  right: -25rem;
 
   @media screen and (max-width: 53.125rem) {
     display: none;
@@ -21,23 +21,36 @@ const Wrapper = styled.div`
 const NotificationsWrapper = styled.div`
   max-width: 22.5rem;
   display: grid;
-  gap: 1rem;
+  gap: 2rem;
   justify-self: center;
   align-items: center;
 `;
 
-const NotificationOne = styled(motion.div)``;
+const NotificationOne = styled(motion.div)`
+`;
 
-const NotificationTwo = styled(motion.div)``;
+const NotificationTwo = styled(motion.div)`
+`;
 
-const NotificationThree = styled(motion.div)``;
+const NotificationThree = styled(motion.div)`
+`;
 
-const NotificationFour = styled(motion.div)``;
+const NotificationFour = styled(motion.div)`
+`;
 
 const variants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1 },
 };
+
+const Background = styled.div`
+position: absolute;
+right: -25rem;
+top: -35rem;
+z-index: -1;
+opacity: .35;
+transform: scale(0.5) rotateX(20deg) rotateY(-20deg) perspective(500px);
+`
 
 export default function ChatFlowContent() {
   return (
@@ -73,7 +86,7 @@ export default function ChatFlowContent() {
             borderColor="3px solid#E7286F"
           />
         </NotificationThree>
-        <NotificationFour animate={{ x: -550 }} transition={{ duration: 1.1 }}>
+        <NotificationFour animate={{ x: -650 }} transition={{ duration: 1.1 }}>
           <MessageNotificationReverted
             link="help"
             name="Code Shape"
@@ -84,6 +97,9 @@ export default function ChatFlowContent() {
           />
         </NotificationFour>
       </NotificationsWrapper>
+      <Background>
+        <img src="images/screenshots/discord_community.png" />
+      </Background>
     </Wrapper>
   );
 }

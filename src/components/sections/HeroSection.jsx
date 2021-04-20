@@ -20,16 +20,49 @@ const TextWrapper = styled.div`
   z-index: -1;
 `;
 const Title = styled(H1)`
-.learn{
-  color: #F89B29;
+span {
+  position: absolute;
+  margin-left: 20px;
+  // animation: wordswap 9s ease infinite;
+  opacity: 0;
 }
 
-.create{
-  color: #F51D7E;
+@keyframes wordswap {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  2% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  18% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  20% {
+    opacity: 0;
+    transform: translateY(50px)
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
 }
 
 .apps{
+  color: #F89B29;
+  animation-delay: 0s;
+}
+
+.websites{
+  color: #F51D7E;
+  animation-delay: 3s;
+}
+
+.games{
   color: #AD4BDE;
+  animation-delay: 6s;
 }
 `;
 
@@ -55,7 +88,7 @@ export default function HeroSection() {
               className="title has-text-weight-bold is-1 is-size-2-mobile is-spaced"
               layoutId="title"
             >
-              <span className="learn">Learn</span> how to <span className="create">create</span> great <span className="apps">apps</span>
+              Learn how to create great <span className="apps">apps</span><span className="websites">websites</span><span className="games">games</span>
             </motion.h1>
           </Title>
           <Description>

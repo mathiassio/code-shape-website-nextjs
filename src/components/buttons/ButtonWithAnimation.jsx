@@ -8,7 +8,6 @@ const Wrapper = styled.div`
   height: 70px;
   padding: 12px;
   border-radius: 20px;
-  border: 0px;
   display: grid;
   grid-template-columns: 53px auto;
   align-content: center;
@@ -52,27 +51,18 @@ const Icon = styled.img`
   width: 60px;
   height: 60px;
 `;
-const Ring = styled.img`
-  position: absolute;
-  top: -15px;
-  left: -16px;
-
-  @media only screen and (min-width: 600px) {
-    ${Wrapper}:hover & {
-      transform: rotate(30deg) scale(1.2) translate(1px, 1px);
-    }
-  }
-`;
 
 const IconWrapper = styled.div`
   width: 100px;
   height: 100px;
-  background: linear-gradient(200.44deg, #4F1EC0 13.57%, #AD4BDE 98.38%);
+  background: linear-gradient(200.44deg, #3E16BB 13.57%, #AD4BDE 98.38%);
   border-radius: 50%;
   display: grid;
   justify-content: center;
   align-content: center;
   justify-self: center;
+  border: 1.5px solid #292929;
+
 
   @media only screen and (min-width: 600px) {
     ${Wrapper}:hover & {
