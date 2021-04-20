@@ -1,28 +1,28 @@
 import Head from "next/head";
 import styled from "styled-components";
 import { BodyMain, H1 } from "../../components/styles/TextStyles";
-import { getListings, getListing } from "../../../utils/contentful";
+import { getProjects, getProject } from "../../../utils/contentful";
 import Image from "next/image";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
 import Utterances from "../../../utils/utterances";
 
 export async function getStaticPaths() {
-  const data = await getListings();
+  const data = await getProjects();
 
   return {
-    paths: data.articleCollection.items.map((listing) => ({
-      params: { slug: listing.slug },
+    paths: data.projectCollection.items.map((project) => ({
+      params: { slug: project.slug },
     })),
     fallback: false,
   };
 }
 
 export async function getStaticProps(context) {
-  const data = await getListing(context.params.slug);
+  const data = await getProject(context.params.slug);
 
   return {
-    props: { listing: data.articleCollection.items[0] },
+    props: { project: data.projectCollection.items[0] },
   };
 }
 
@@ -69,28 +69,28 @@ const Content = styled.div`
   padding: 1.2rem;
 `;
 
-export default function ArticlesPost({ listing }) {
+export default function ProjectPost({ project }) {
   return (
     <Wrapper>
       <Head>
-        <title>Code Shape - Articles</title>
+        <title>Code Shape - Projects</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header>
-        <Date>{listing.date}</Date>
-        <Title>{listing.title}</Title>
+        <Date>{project.date}</Date>
+        <Title>{project.title}</Title>
       </Header>
       <FeaturedImage>
         <Image
-          src={listing.featuredImage.url}
-          alt={listing.featuredImage.title}
-          width={listing.featuredImage.width}
-          height={listing.featuredImage.height}
+          src={project.featuredImage.url}
+          alt={project.featuredImage.title}
+          width={project.featuredImage.width}
+          height={project.featuredImage.height}
           layout="responsive"
           className="featuredImage"
         />
       </FeaturedImage>
-      <Content>{documentToReactComponents(listing.content.json)}</Content>
+      <Content>{documentToReactComponents(project.content.json)}</Content>
       <Utterances />
     </Wrapper>
   );

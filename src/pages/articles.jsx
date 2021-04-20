@@ -1,12 +1,13 @@
 import Head from "next/head";
 import styled from "styled-components";
-import { getListings } from "../../utils/contentful";
+import { getListings, getProjects } from "../../utils/contentful";
 import Link from "next/link";
 import Image from "next/image";
 import { H2, MediumText } from "../components/styles/TextStyles";
 import HeaderBackground from "../components/backgrounds/HeaderBackground";
 import GlassGradientIntro from "../components/intros/GlassGradientIntro";
 import CategorySection from "../components/sections/CategorySection";
+import SectionIntro from "../components/intros/SectionIntro";
 
 const Wrapper = styled.div`
   max-width: 70rem;
@@ -14,7 +15,16 @@ const Wrapper = styled.div`
   padding-top: 6rem;
 `;
 
-const Main = styled.main`
+const Articles = styled.div`
+  padding: 1.875rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-gap: 1.5rem;
+  justify-content: center;
+  align-content: center;
+`;
+
+const Projects = styled.div`
   padding: 1.875rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
@@ -91,15 +101,27 @@ const Excerpt = styled(MediumText)`
   color: #fff;
 `;
 
+const ProjectSection = styled.div`
+  margin: 0 auto;
+  justify-content: center;
+  align-content: center;
+`;
+
+const ProjectTitle = styled(H2)``;
+
 export async function getStaticProps() {
-  const data = await getListings();
+  const articles = await getListings();
+  const projects = await getProjects();
 
   return {
-    props: { listings: data.articlePostCollection.items },
+    props: {
+      listings: articles.articleCollection.items,
+      projects: projects.projectCollection.items,
+    },
   };
 }
 
-export default function Articles({ listings }) {
+export default function ArticlesPage({ listings, projects }) {
   return (
     <Wrapper>
       <Head>
@@ -113,7 +135,7 @@ export default function Articles({ listings }) {
         gradientColor="-webkit-linear-gradient(left, #F89929, #F5217B)"
       />
       <CategorySection />
-      <Main>
+      <Articles>
         {listings.map((listing) => (
           <Card key={listing.slug}>
             <Link key={listing.slug} href={`/articles/${listing.slug}`}>
@@ -135,7 +157,36 @@ export default function Articles({ listings }) {
             </Link>
           </Card>
         ))}
-      </Main>
+      </Articles>
+      <ProjectSection>
+        <SectionIntro
+          title="Discover Customer Cases"
+          description="One of our goals is to bring people forward through technology. Read more about our customer cases and how we helped them reach their audience."
+        />
+        <Projects>
+          {projects.map((project) => (
+            <Card key={project.slug}>
+              <Link key={project.slug} href={`/projects/${project.slug}`}>
+                <Content>
+                  <FeaturedImage>
+                    <Image
+                      src={project.featuredImage.url}
+                      alt={project.featuredImage.title}
+                      width="400"
+                      height="200"
+                      layout="responsive"
+                    />
+                  </FeaturedImage>
+                  <TextWrapper>
+                    <Title>{project.title}</Title>
+                    <Excerpt>{project.excerpt}</Excerpt>
+                  </TextWrapper>
+                </Content>
+              </Link>
+            </Card>
+          ))}
+        </Projects>
+      </ProjectSection>
     </Wrapper>
   );
 }

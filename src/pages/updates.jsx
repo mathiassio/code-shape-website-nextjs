@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   padding-top: 6rem;
 `;
 
-export default function Updates() {
+export default function UpdatesPage() {
   return (
     <Wrapper>
       <Head>

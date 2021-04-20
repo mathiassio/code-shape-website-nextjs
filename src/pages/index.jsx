@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   margin-top: 10rem;
 `;
 
-export default function Home() {
+export default function HomePage() {
   return (
     <Wrapper>
       <Head>
