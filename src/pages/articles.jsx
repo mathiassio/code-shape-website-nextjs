@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styled from "styled-components";
-import { getListings, getProjects } from "../../utils/contentful";
+import { getArticles, getProjects } from "../../utils/contentful";
 import Link from "next/link";
 import Image from "next/image";
 import { H2, MediumText } from "../components/styles/TextStyles";
@@ -110,7 +110,7 @@ const ProjectSection = styled.div`
 const ProjectTitle = styled(H2)``;
 
 export async function getStaticProps() {
-  const articles = await getListings();
+  const articles = await getArticles();
   const projects = await getProjects();
 
   return {
