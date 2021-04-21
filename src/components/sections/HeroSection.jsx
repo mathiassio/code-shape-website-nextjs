@@ -14,8 +14,8 @@ const ContentWrapper = styled.div`
   margin: 0 auto;
 `;
 
-const TextWrapper = styled.div`
-  max-width: 24rem;
+const TextWrapper = styled(motion.div)`
+  max-width: 31.8rem;
   display: grid;
   gap: 1.875rem;
   z-index: -1;
@@ -24,8 +24,7 @@ const TextWrapper = styled.div`
 const Title = styled(H1)`
   span {
     position: absolute;
-    margin-left: 20px;
-    // animation: wordswap 9s ease infinite;
+    animation: wordswap 9s ease infinite;
     opacity: 0;
   }
 
@@ -68,7 +67,9 @@ const Title = styled(H1)`
   }
 `;
 
-const Description = styled(BodyIntro)``;
+const Description = styled(BodyIntro)`
+  padding-top: 3rem;
+`;
 
 const Blob = styled.img`
   position: absolute;
@@ -79,8 +80,8 @@ const Blob = styled.img`
 
 const Navigation = styled.div`
   display: grid;
-  grid-template-columns: auto auto;
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(15.625rem, 1fr));
+  gap: 0.5rem;
 `;
 
 const Community = styled.div`
@@ -92,29 +93,22 @@ export default function HeroSection() {
     <Wrapper>
       <Blob src="/images/blobs/HeroSectionBlob.svg"></Blob>
       <ContentWrapper>
-        <TextWrapper>
+        <TextWrapper
+          initial={{ scale: 0.5, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          className="title has-text-weight-bold is-1 is-size-2-mobile
+            is-spaced"
+          layoutId="title"
+        >
           <Title>
-            <motion.h1
-              initial={{ scale: 0.5, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              className="title has-text-weight-bold is-1 is-size-2-mobile is-spaced"
-              layoutId="title"
-            >
-              Learn how to create great <span className="apps">apps</span>
-              <span className="websites">websites</span>
-              <span className="games">games</span>
-            </motion.h1>
+            Learn how to create great <br></br>
+            <span className="apps">apps</span>
+            <span className="websites">websites</span>
+            <span className="games">games</span>
           </Title>
           <Description>
-            <motion.h1
-              initial={{ scale: 0.5, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              className="title has-text-weight-bold is-1 is-size-2-mobile is-spaced"
-              layoutId="title"
-            >
-              We bring people forward through technology, and learning is the
-              best way to introduce insanely cool new things.
-            </motion.h1>
+            We bring people forward through technology, and learning is the best
+            way to introduce insanely cool new things.
           </Description>
           <Navigation>
             <ButtonWithAnimation
@@ -124,11 +118,18 @@ export default function HeroSection() {
               marginLeft="8px"
               marginTop="0px"
             />
-            <Community>
-              <Link href="/community">
-                <a>Join Community</a>
-              </Link>
-            </Community>
+            <ButtonWithAnimation
+              title="Join now"
+              subtitle=""
+              link="/community"
+              icon="images/icons/community_light.svg"
+              backgroundColor="linear-gradient(200.44deg, #F51D7E 13.57%, #F89B29 98.38%)"
+              className="button"
+              target="_blank"
+              marginLeft="8px"
+              marginTop="-5px"
+            />
+            <Community></Community>
           </Navigation>
         </TextWrapper>
         <ChatFlowContent />
