@@ -16,6 +16,7 @@ const Wrapper = styled.div`
   background: linear-gradient(#fff 10%, #6058FC 200%);
   position: relative;
   overflow: hidden;
+  margin: 0 auto;
 
   *,
   & {
@@ -50,12 +51,14 @@ const Subtitle = styled(SmallText)`
 const Icon = styled.img`
   width: 60px;
   height: 60px;
+  margin-left: ${props => props.marginLeft || "0px"};
+  margin-top: ${props => props.marginTop || "0px"};
 `;
 
 const IconWrapper = styled.div`
   width: 100px;
   height: 100px;
-  background: linear-gradient(200.44deg, #3E16BB 13.57%, #AD4BDE 98.38%);
+  background: ${props => props.backgroundColor || "black"};
   border-radius: 50%;
   display: grid;
   justify-content: center;
@@ -72,12 +75,12 @@ const IconWrapper = styled.div`
 `;
 
 export default function ButtonWithAnimation(props) {
-  const { title, subtitle, link, icon } = props;
+  const { title, subtitle, link, icon, backgroundColor, target, marginLeft, marginTop } = props;
   return (
-    <Link href={link || "/"} key={props}>
+    <Link href={link || "/"} target={target || "/"} key={props}>
       <Wrapper>
-        <IconWrapper>
-          <Icon src={icon || "/images/icons/image.svg"} className="icon" />
+        <IconWrapper backgroundColor={backgroundColor}>
+          <Icon src={icon || "/images/icons/image.svg"} className="icon" marginLeft={marginLeft} marginTop={marginTop}/>
         </IconWrapper>
         <TextWrapper>
           <Title>{title || "Get Started"}</Title>

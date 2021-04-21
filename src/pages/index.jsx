@@ -1,6 +1,7 @@
 import Head from "next/head";
 import styled from "styled-components";
 import HeroSection from "../components/sections/HeroSection";
+import OverviewSection from "../components/sections/OverviewSection";
 
 const Wrapper = styled.div`
   margin-top: 10rem;
@@ -21,6 +22,7 @@ export default function HomePage() {
         ></script>
       </Head>
       <HeroSection />
+      <OverviewSection />
     </Wrapper>
   );
 }

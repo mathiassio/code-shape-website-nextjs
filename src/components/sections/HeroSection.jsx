@@ -105,6 +105,9 @@ export default function HeroSection() {
           <ButtonWithAnimation
             icon="/images/icons/learner02_dm.svg"
             link="/learn"
+            backgroundColor="linear-gradient(200.44deg, #4F1EC0 13.57%, #AD4BDE 98.38%)"
+            marginLeft="8px"
+            marginTop="0px"
           />
         </TextWrapper>
         <ChatFlowContent />
