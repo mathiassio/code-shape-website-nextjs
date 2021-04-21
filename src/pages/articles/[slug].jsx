@@ -1,14 +1,14 @@
 import Head from "next/head";
 import styled from "styled-components";
 import { BodyMain, H1 } from "../../components/styles/TextStyles";
-import { getListings, getListing } from "../../../utils/contentful";
+import { getArticles, getArticle } from "../../../utils/contentful";
 import Image from "next/image";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
 import Utterances from "../../../utils/utterances";
 
 export async function getStaticPaths() {
-  const data = await getListings();
+  const data = await getArticles();
 
   return {
     paths: data.articleCollection.items.map((listing) => ({
@@ -19,7 +19,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const data = await getListing(context.params.slug);
+  const data = await getArticle(context.params.slug);
 
   return {
     props: { listing: data.articleCollection.items[0] },

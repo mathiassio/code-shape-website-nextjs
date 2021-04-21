@@ -8,8 +8,8 @@ const graphQLClient = new GraphQLClient(endpoint, {
   },
 });
 
-export async function getListings() {
-  const listingsQuery = gql`
+export async function getArticles() {
+  const articlesQuery = gql`
     {
       articleCollection {
         items {
@@ -27,7 +27,7 @@ export async function getListings() {
       }
     }
   `;
-  return graphQLClient.request(listingsQuery);
+  return graphQLClient.request(articlesQuery);
 }
 
 export async function getProjects() {
@@ -52,9 +52,27 @@ export async function getProjects() {
   return graphQLClient.request(projectsQuery);
 }
 
-export async function getListing(slug) {
-  const listingsQuery = gql`
-    query getListing($slug: String!) {
+export async function getPages() {
+  const pagesQuery = gql`
+    {
+      pageCollection {
+        items {
+          title
+          slug
+          subtitle
+          content {
+            json
+          }
+        }
+      }
+    }
+  `;
+  return graphQLClient.request(pagesQuery);
+}
+
+export async function getArticle(slug) {
+  const articlesQuery = gql`
+    query getArticle($slug: String!) {
       articleCollection(where: { slug: $slug }) {
         items {
           title
@@ -75,14 +93,14 @@ export async function getListing(slug) {
     }
   `;
 
-  return graphQLClient.request(listingsQuery, {
+  return graphQLClient.request(articlesQuery, {
     slug,
   });
 }
 
 export async function getProject(slug) {
   const projectQuery = gql`
-    query getListing($slug: String!) {
+    query getProject($slug: String!) {
       projectCollection(where: { slug: $slug }) {
         items {
           title
@@ -104,6 +122,27 @@ export async function getProject(slug) {
   `;
 
   return graphQLClient.request(projectQuery, {
+    slug,
+  });
+}
+
+export async function getPage(slug) {
+  const pageQuery = gql`
+    query getPage($slug: String!) {
+      pageCollection(where: { slug: $slug }) {
+        items {
+          title
+          slug
+          subtitle
+          content {
+            json
+          }
+        }
+      }
+    }
+  `;
+
+  return graphQLClient.request(pageQuery, {
     slug,
   });
 }
