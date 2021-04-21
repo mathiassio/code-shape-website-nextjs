@@ -22,7 +22,7 @@ export default function HomePage() {
         ></script>
       </Head>
       <HeroSection />
-      <OverviewSection />
+      {/* <OverviewSection /> */}
     </Wrapper>
   );
 }

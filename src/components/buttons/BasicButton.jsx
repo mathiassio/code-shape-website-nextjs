@@ -4,25 +4,25 @@ import styled from "styled-components";
 import { Caption2, SmallText } from "../styles/TextStyles";
 
 const Wrapper = styled.div`
-margin: 0 auto;  
-width: 150px;
-padding-top: 5px;
+  margin: 0 auto;
+  width: 150px;
+  padding-top: 5px;
   height: 50px;
   border-radius: 15px;
   align-content: center;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  background: linear-gradient(#fff 10%, #6058FC 200%);
+  background: linear-gradient(#fff 10%, #6058fc 200%);
 `;
 
 const TextWrapper = styled.div`
-display: grid;
-grid-template-rows: 20px 20px;
-align-items: center;
+  display: grid;
+  grid-template-rows: 20px 20px;
+  align-items: center;
 `;
 
 const Title = styled(Caption2)`
-color: #000;
-text-align: center;
+  color: #000;
+  text-align: center;
 `;
 
 const Subtitle = styled(SmallText)`

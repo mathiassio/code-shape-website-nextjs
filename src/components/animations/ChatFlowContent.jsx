@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25.625rem, 1fr));
-  top: 15rem;
+  top: 7rem;
   right: -25rem;
 
   @media screen and (max-width: 53.125rem) {
@@ -21,42 +21,29 @@ const Wrapper = styled.div`
 const NotificationsWrapper = styled.div`
   max-width: 22.5rem;
   display: grid;
-  gap: 2rem;
+  gap: 1.875rem;
   justify-self: center;
   align-items: center;
 `;
 
-const NotificationOne = styled(motion.div)`
-`;
+const NotificationOne = styled(motion.div)``;
 
-const NotificationTwo = styled(motion.div)`
-`;
+const NotificationTwo = styled(motion.div)``;
 
-const NotificationThree = styled(motion.div)`
-`;
+const NotificationThree = styled(motion.div)``;
 
-const NotificationFour = styled(motion.div)`
-`;
+const NotificationFour = styled(motion.div)``;
 
 const variants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1 },
 };
 
-const Background = styled.div`
-position: absolute;
-right: -25rem;
-top: -35rem;
-z-index: -1;
-opacity: .35;
-transform: scale(0.5) rotateX(20deg) rotateY(-20deg) perspective(500px);
-`
-
 export default function ChatFlowContent() {
   return (
     <Wrapper>
       <NotificationsWrapper>
-        <NotificationOne animate={{ x: -470 }} transition={{ duration: 0.5 }}>
+        <NotificationOne animate={{ x: -400 }} transition={{ duration: 0.5 }}>
           <MessageNotification
             link="enterprise"
             name="Julius"
@@ -66,7 +53,7 @@ export default function ChatFlowContent() {
             borderColor="3px solid#6058fc"
           />
         </NotificationOne>
-        <NotificationTwo animate={{ x: -550 }} transition={{ duration: 0.7 }}>
+        <NotificationTwo animate={{ x: -480 }} transition={{ duration: 0.7 }}>
           <MessageNotification
             link="community"
             name="Andreas"
@@ -76,7 +63,7 @@ export default function ChatFlowContent() {
             borderColor="3px solid #ad48ff"
           />
         </NotificationTwo>
-        <NotificationThree animate={{ x: -480 }} transition={{ duration: 0.9 }}>
+        <NotificationThree animate={{ x: -410 }} transition={{ duration: 0.9 }}>
           <MessageNotification
             link="learn"
             name="Melanie"
@@ -86,7 +73,7 @@ export default function ChatFlowContent() {
             borderColor="3px solid#E7286F"
           />
         </NotificationThree>
-        <NotificationFour animate={{ x: -650 }} transition={{ duration: 1.1 }}>
+        <NotificationFour animate={{ x: -550 }} transition={{ duration: 1.1 }}>
           <MessageNotificationReverted
             link="help"
             name="Code Shape"
@@ -97,9 +84,6 @@ export default function ChatFlowContent() {
           />
         </NotificationFour>
       </NotificationsWrapper>
-      <Background>
-        <img src="images/screenshots/discord_community.png" />
-      </Background>
     </Wrapper>
   );
 }

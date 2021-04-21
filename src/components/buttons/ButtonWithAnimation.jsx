@@ -13,10 +13,9 @@ const Wrapper = styled.div`
   align-content: center;
   gap: 20px;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  background: linear-gradient(#fff 10%, #6058FC 200%);
+  background: linear-gradient(#fff 10%, #6058fc 200%);
   position: relative;
   overflow: hidden;
-  margin: 0 auto;
 
   *,
   & {
@@ -40,7 +39,7 @@ const TextWrapper = styled.div`
 `;
 
 const Title = styled(Caption2)`
-color: #000;
+  color: #000;
 `;
 
 const Subtitle = styled(SmallText)`
@@ -51,21 +50,20 @@ const Subtitle = styled(SmallText)`
 const Icon = styled.img`
   width: 60px;
   height: 60px;
-  margin-left: ${props => props.marginLeft || "0px"};
-  margin-top: ${props => props.marginTop || "0px"};
+  margin-left: ${(props) => props.marginLeft || "0px"};
+  margin-top: ${(props) => props.marginTop || "0px"};
 `;
 
 const IconWrapper = styled.div`
   width: 100px;
   height: 100px;
-  background: ${props => props.backgroundColor || "black"};
+  background: ${(props) => props.backgroundColor || "black"};
   border-radius: 50%;
   display: grid;
   justify-content: center;
   align-content: center;
   justify-self: center;
   border: 1.5px solid #292929;
-
 
   @media only screen and (min-width: 600px) {
     ${Wrapper}:hover & {
@@ -75,12 +73,26 @@ const IconWrapper = styled.div`
 `;
 
 export default function ButtonWithAnimation(props) {
-  const { title, subtitle, link, icon, backgroundColor, target, marginLeft, marginTop } = props;
+  const {
+    title,
+    subtitle,
+    link,
+    icon,
+    backgroundColor,
+    target,
+    marginLeft,
+    marginTop,
+  } = props;
   return (
     <Link href={link || "/"} target={target || "/"} key={props}>
       <Wrapper>
         <IconWrapper backgroundColor={backgroundColor}>
-          <Icon src={icon || "/images/icons/image.svg"} className="icon" marginLeft={marginLeft} marginTop={marginTop}/>
+          <Icon
+            src={icon || "/images/icons/image.svg"}
+            className="icon"
+            marginLeft={marginLeft}
+            marginTop={marginTop}
+          />
         </IconWrapper>
         <TextWrapper>
           <Title>{title || "Get Started"}</Title>
