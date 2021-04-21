@@ -107,8 +107,6 @@ const ProjectSection = styled.div`
   align-content: center;
 `;
 
-const ProjectTitle = styled(H2)``;
-
 export async function getStaticProps() {
   const articles = await getArticles();
   const projects = await getProjects();
@@ -134,7 +132,7 @@ export default function ArticlesPage({ listings, projects }) {
         description="We believe we can create amazing things together by keeping our knowledge up to date. Therefore we will do our best to deliver that to you every week."
         gradientColor="-webkit-linear-gradient(left, #F89929, #F5217B)"
       />
-      <CategorySection />
+      {/* <CategorySection /> */}
       <Articles>
         {listings.map((listing) => (
           <Card key={listing.slug}>

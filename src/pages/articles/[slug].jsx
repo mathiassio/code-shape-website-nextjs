@@ -4,8 +4,10 @@ import { BodyMain, H1 } from "../../components/styles/TextStyles";
 import { getArticles, getArticle } from "../../../utils/contentful";
 import Image from "next/image";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { BLOCKS } from "@contentful/rich-text-types";
+import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 import Utterances from "../../../utils/utterances";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { obsidian } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 
 export async function getStaticPaths() {
   const data = await getArticles();
@@ -69,7 +71,77 @@ const Content = styled.div`
   padding: 1.2rem;
 `;
 
+const richTextDocument = {
+  nodeType: "document",
+  data: {},
+  content: [
+    {
+      nodeType: "paragraph",
+      data: {},
+      content: [
+        {
+          nodeType: "text",
+          value: "Hello",
+          data: {},
+          marks: [{ type: "bold" }],
+        },
+        {
+          nodeType: "text",
+          value: " world!",
+          data: {},
+          marks: [{ type: "italic" }],
+        },
+      ],
+    },
+  ],
+};
+
+const Bold = ({ children }) => <span className="bold">{children}</span>;
+
+const Italic = ({ children }) => <span className="italic">{children}</span>;
+
+const Underline = ({ children }) => (
+  <span className="underline">{children}</span>
+);
+
+const Text = ({ children }) => <p className="align-center">{children}</p>;
+
+const options = {
+  renderNode: {
+    [BLOCKS.PARAGRAPH]: (node, children) => {
+      if (
+        node.content.length === 1 &&
+        node.content[0].marks.find((x) => x.type === "code")
+      ) {
+        return <div>{children}</div>;
+      }
+      return <p>{children}</p>;
+    },
+  },
+  renderMark: {
+    [MARKS.BOLD]: (text) => <Bold>{text}</Bold>,
+    [MARKS.ITALIC]: (text) => <Bold>{text}</Bold>,
+    [MARKS.UNDERLINE]: (text) => <Bold>{text}</Bold>,
+    [MARKS.CODE]: (text) => {
+      return (
+        <SyntaxHighlighter
+          language="jsx"
+          style={obsidian}
+          showLineNumbers
+          lineProps={{
+            style: { wordBreak: "break-all", whiteSpace: "pre-wrap" },
+          }}
+          wrapLines={true}
+        >
+          {text}
+        </SyntaxHighlighter>
+      );
+    },
+  },
+};
+
 export default function ArticlesPost({ listing }) {
+  console.log(listing);
   return (
     <Wrapper>
       <Head>
@@ -90,7 +162,9 @@ export default function ArticlesPost({ listing }) {
           className="featuredImage"
         />
       </FeaturedImage>
-      <Content>{documentToReactComponents(listing.content.json)}</Content>
+      <Content>
+        {documentToReactComponents(listing.content.json, options)}
+      </Content>
       <Utterances />
     </Wrapper>
   );
