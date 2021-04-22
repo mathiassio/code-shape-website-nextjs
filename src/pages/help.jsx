@@ -7,7 +7,6 @@ const Wrapper = styled.div`
   padding-top: 6rem;
 `;
 
-```js
 export default function HelpPage() {
   return (
     <Wrapper>
@@ -24,4 +23,3 @@ export default function HelpPage() {
     </Wrapper>
   );
 }
-```;
