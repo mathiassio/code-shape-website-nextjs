@@ -120,7 +120,7 @@ export default function HeroSection() {
             />
             <ButtonWithAnimation
               title="Join now"
-              subtitle=""
+              subtitle="Collaborate"
               link="/community"
               icon="images/icons/community_light.svg"
               backgroundColor="linear-gradient(200.44deg, #F51D7E 13.57%, #F89B29 98.38%)"
