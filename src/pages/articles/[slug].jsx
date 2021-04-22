@@ -4,17 +4,14 @@ import { BodyMain, H1 } from "../../components/styles/TextStyles";
 import { getArticles, getArticle } from "../../../utils/contentful";
 import Image from "next/image";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 import Utterances from "../../../utils/utterances";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { obsidian } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 
 export async function getStaticPaths() {
   const data = await getArticles();
 
   return {
-    paths: data.articleCollection.items.map((listing) => ({
-      params: { slug: listing.slug },
+    paths: data.articleCollection.items.map((article) => ({
+      params: { slug: article.slug },
     })),
     fallback: false,
   };
@@ -24,7 +21,7 @@ export async function getStaticProps(context) {
   const data = await getArticle(context.params.slug);
 
   return {
-    props: { listing: data.articleCollection.items[0] },
+    props: { article: data.articleCollection.items[0] },
   };
 }
 
@@ -71,77 +68,16 @@ const Content = styled.div`
   padding: 1.2rem;
 `;
 
-const richTextDocument = {
-  nodeType: "document",
-  data: {},
-  content: [
-    {
-      nodeType: "paragraph",
-      data: {},
-      content: [
-        {
-          nodeType: "text",
-          value: "Hello",
-          data: {},
-          marks: [{ type: "bold" }],
-        },
-        {
-          nodeType: "text",
-          value: " world!",
-          data: {},
-          marks: [{ type: "italic" }],
-        },
-      ],
+export default function ArticlePost({ article }) {
+  const options = {
+    renderNode: {
+      "embedded-asset-block": (node) => {
+        const alt = node.data.target.fields.title["en-US"];
+        const url = node.data.target.fields.file["en-US"].url;
+        return <img alt={alt} src={url} className="embeddedImage" />;
+      },
     },
-  ],
-};
-
-const Bold = ({ children }) => <span className="bold">{children}</span>;
-
-const Italic = ({ children }) => <span className="italic">{children}</span>;
-
-const Underline = ({ children }) => (
-  <span className="underline">{children}</span>
-);
-
-const Text = ({ children }) => <p className="align-center">{children}</p>;
-
-const options = {
-  renderNode: {
-    [BLOCKS.PARAGRAPH]: (node, children) => {
-      if (
-        node.content.length === 1 &&
-        node.content[0].marks.find((x) => x.type === "code")
-      ) {
-        return <div>{children}</div>;
-      }
-      return <p>{children}</p>;
-    },
-  },
-  renderMark: {
-    [MARKS.BOLD]: (text) => <Bold>{text}</Bold>,
-    [MARKS.ITALIC]: (text) => <Bold>{text}</Bold>,
-    [MARKS.UNDERLINE]: (text) => <Bold>{text}</Bold>,
-    [MARKS.CODE]: (text) => {
-      return (
-        <SyntaxHighlighter
-          language="jsx"
-          style={obsidian}
-          showLineNumbers
-          lineProps={{
-            style: { wordBreak: "break-all", whiteSpace: "pre-wrap" },
-          }}
-          wrapLines={true}
-        >
-          {text}
-        </SyntaxHighlighter>
-      );
-    },
-  },
-};
-
-export default function ArticlesPost({ listing }) {
-  console.log(listing);
+  };
   return (
     <Wrapper>
       <Head>
@@ -149,22 +85,20 @@ export default function ArticlesPost({ listing }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header>
-        <Date>{listing.date}</Date>
-        <Title>{listing.title}</Title>
+        <Date>{article.date}</Date>
+        <Title>{article.title}</Title>
       </Header>
       <FeaturedImage>
         <Image
-          src={listing.featuredImage.url}
-          alt={listing.featuredImage.title}
-          width={listing.featuredImage.width}
-          height={listing.featuredImage.height}
+          src={article.featuredImage.url}
+          alt={article.featuredImage.title}
+          width={article.featuredImage.width}
+          height={article.featuredImage.height}
           layout="responsive"
           className="featuredImage"
         />
       </FeaturedImage>
-      <Content>
-        {documentToReactComponents(listing.content.json, options)}
-      </Content>
+      <Content>{documentToReactComponents(article.content.json)}</Content>
       <Utterances />
     </Wrapper>
   );
