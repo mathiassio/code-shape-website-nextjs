@@ -113,13 +113,13 @@ export async function getStaticProps() {
 
   return {
     props: {
-      listings: articles.articleCollection.items,
+      articles: articles.articleCollection.items,
       projects: projects.projectCollection.items,
     },
   };
 }
 
-export default function ArticlesPage({ listings, projects }) {
+export default function ArticlesPage({ articles, projects }) {
   return (
     <Wrapper>
       <Head>
@@ -134,22 +134,22 @@ export default function ArticlesPage({ listings, projects }) {
       />
       {/* <CategorySection /> */}
       <Articles>
-        {listings.map((listing) => (
-          <Card key={listing.slug}>
-            <Link key={listing.slug} href={`/articles/${listing.slug}`}>
+        {articles.map((article) => (
+          <Card key={article.slug}>
+            <Link key={article.slug} href={`/articles/${article.slug}`}>
               <Content>
                 <FeaturedImage>
                   <Image
-                    src={listing.featuredImage.url}
-                    alt={listing.featuredImage.title}
+                    src={article.featuredImage.url}
+                    alt={article.featuredImage.title}
                     width="400"
                     height="200"
                     layout="responsive"
                   />
                 </FeaturedImage>
                 <TextWrapper>
-                  <Title>{listing.title}</Title>
-                  <Excerpt>{listing.excerpt}</Excerpt>
+                  <Title>{article.title}</Title>
+                  <Excerpt>{article.excerpt}</Excerpt>
                 </TextWrapper>
               </Content>
             </Link>
