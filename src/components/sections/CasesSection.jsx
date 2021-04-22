@@ -33,19 +33,30 @@ margin-top: 2rem;
 margin-bottom: 2rem;
 position: relative;
 overflow: hidden;
-height: 800px;
+
+@media only screen and (min-width: 1200px) {
+  height: 50rem;
+}
+
+@media only screen and (max-width: 1200px) {
+  height: 66vw;
+}
+
 `;
 
 const Imac = styled.div`
 justify-self: center;
 position: absolute;
 z-index: 3;
+overflow: hidden;
 `;
 
 const ExampleWrapper = styled.div`
 margin: 0;
 padding: 0;
 justify-self: center;
+position: relative;
+display: grid;
 `;
 
 const ButtonWrapper = styled.div`
