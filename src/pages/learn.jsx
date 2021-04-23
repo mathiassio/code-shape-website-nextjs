@@ -14,6 +14,7 @@ export default function LearnPage() {
         <title>Code Shape - Learn</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <HeaderBackground image="../images/blobs/HeaderBlob01.svg" />
       <GlassGradientIntro
         title="Learning is part of life"
