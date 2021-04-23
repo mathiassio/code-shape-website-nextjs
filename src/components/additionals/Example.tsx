@@ -2,27 +2,32 @@ import * as React from "react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { wrap } from "popmotion";
-import { images } from "./image-data";
+
+export const images = [
+  "images/cases/case01.jpg",
+  "images/cases/case02.jpg",
+  "images/cases/case03.jpg",
+];
 
 const variants = {
   enter: (direction: number) => {
     return {
       x: direction > 0 ? 1000 : -1000,
-      opacity: 0
+      opacity: 0,
     };
   },
   center: {
     zIndex: 1,
     x: 0,
-    opacity: 1
+    opacity: 1,
   },
   exit: (direction: number) => {
     return {
       zIndex: 0,
       x: direction < 0 ? 1000 : -1000,
-      opacity: 0
+      opacity: 0,
     };
-  }
+  },
 };
 
 /**
@@ -63,7 +68,7 @@ export const Example = () => {
           exit="exit"
           transition={{
             x: { type: "spring", stiffness: 300, damping: 30 },
-            opacity: { duration: 0.2 }
+            opacity: { duration: 0.2 },
           }}
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
