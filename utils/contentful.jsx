@@ -8,6 +8,8 @@ const graphQLClient = new GraphQLClient(endpoint, {
   },
 });
 
+//Articles Queries
+
 export async function getArticles() {
   const articlesQuery = gql`
     {
@@ -17,6 +19,12 @@ export async function getArticles() {
           slug
           excerpt
           date
+          contentfulMetadata {
+            tags {
+              name
+              id
+            }
+          }
           featuredImage {
             title
             url
@@ -30,27 +38,93 @@ export async function getArticles() {
   return graphQLClient.request(articlesQuery);
 }
 
-export async function getProjects() {
-  const projectsQuery = gql`
-    {
-      projectCollection {
+export async function getArticle(slug) {
+  const articlesQuery = gql`
+    query getArticle($slug: String!) {
+      articleCollection(where: { slug: $slug }) {
         items {
           title
           slug
           excerpt
           date
+          contentfulMetadata {
+            tags {
+              name
+              id
+            }
+          }
           featuredImage {
             title
             url
             width
             height
           }
+          content {
+            json
+          }
         }
       }
     }
   `;
-  return graphQLClient.request(projectsQuery);
+
+  return graphQLClient.request(articlesQuery, {
+    slug,
+  });
 }
+
+//Authors Queries
+
+export async function getAuthors() {
+  const authorsQuery = gql`
+    {
+      authorCollection {
+        items {
+          name
+          photo {
+            title
+            url
+            width
+            height
+          }
+          title
+          biography
+          twitterLink
+          linkedinLink
+        }
+      }
+    }
+  `;
+  return graphQLClient.request(authorsQuery);
+}
+
+export async function getAuthor(slug) {
+  const authorQuery = gql`
+    query getAuthor($slug: String!) {
+      authorCollection(where: { slug: $slug }) {
+        items {
+          name
+          slug
+          photo {
+            title
+            url
+            width
+            height
+          }
+          title
+          biography
+          twitterLink
+          linkedinLink
+        }
+      }
+    }
+  `;
+
+  return graphQLClient.request(authorQuery, {
+    slug,
+  });
+}
+
+//Pages Queries
 
 export async function getPages() {
   const pagesQuery = gql`
@@ -70,10 +144,33 @@ export async function getPages() {
   return graphQLClient.request(pagesQuery);
 }
 
-export async function getArticle(slug) {
-  const articlesQuery = gql`
-    query getArticle($slug: String!) {
-      articleCollection(where: { slug: $slug }) {
+export async function getPage(slug) {
+  const pageQuery = gql`
+    query getPage($slug: String!) {
+      pageCollection(where: { slug: $slug }) {
+        items {
+          title
+          slug
+          subtitle
+          content {
+            json
+          }
+        }
+      }
+    }
+  `;
+
+  return graphQLClient.request(pageQuery, {
+    slug,
+  });
+}
+
+//Projects Queries
+
+export async function getProjects() {
+  const projectsQuery = gql`
+    {
+      projectCollection {
         items {
           title
           slug
@@ -85,17 +182,17 @@ export async function getArticle(slug) {
             width
             height
           }
-          content {
-            json
+          contentfulMetadata {
+            tags {
+              name
+              id
+            }
           }
         }
       }
     }
   `;
-
-  return graphQLClient.request(articlesQuery, {
-    slug,
-  });
+  return graphQLClient.request(projectsQuery);
 }
 
 export async function getProject(slug) {
@@ -116,33 +213,18 @@ export async function getProject(slug) {
           content {
             json
           }
-        }
-      }
-    }
-  `;
-
-  return graphQLClient.request(projectQuery, {
-    slug,
-  });
-}
-
-export async function getPage(slug) {
-  const pageQuery = gql`
-    query getPage($slug: String!) {
-      pageCollection(where: { slug: $slug }) {
-        items {
-          title
-          slug
-          subtitle
-          content {
-            json
+          contentfulMetadata {
+            tags {
+              name
+              id
+            }
           }
         }
       }
     }
   `;
 
-  return graphQLClient.request(pageQuery, {
+  return graphQLClient.request(projectQuery, {
     slug,
   });
 }

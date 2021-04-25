@@ -2,9 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { H2, BodyMain } from "../styles/TextStyles";
 
-const Wrapper = styled.div`
-  padding: 3rem 1.875rem 1rem 1.875rem;
-`;
+const Wrapper = styled.div``;
 
 const ContentWrapper = styled.div`
   max-width: 37.5rem;
@@ -21,6 +19,7 @@ const Title = styled(H2)`
   background: ${(props) =>
     props.gradientColor ||
     "-webkit-linear-gradient(left, #f89b29, #ff489a, #a255ff, #3a13b8)"};
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `;

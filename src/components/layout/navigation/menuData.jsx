@@ -44,6 +44,11 @@ export const footerMenuData = [
     icon: "/images/icons/help_light.svg",
     link: "/help",
   },
+  {
+    title: "About Us",
+    icon: "/images/icons/about_us.svg",
+    link: "/about",
+  },
 ];
 
 export const tooltipData = [
