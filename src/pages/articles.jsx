@@ -5,6 +5,7 @@ import Link from "next/link";
 import HeaderBackground from "../components/backgrounds/HeaderBackground";
 import GlassGradientIntro from "../components/intros/GlassGradientIntro";
 import SectionIntro from "../components/intros/SectionIntro";
+import { formatDates } from "../../utils/functions";
 
 const Wrapper = styled.div``;
 
@@ -25,6 +26,9 @@ export async function getStaticProps() {
 }
 
 export default function ArticlesPage({ articles, projects }) {
+  articles = formatDates(articles);
+  projects = formatDates(projects);
+
   return (
     <Wrapper className="mt-40">
       <Head>

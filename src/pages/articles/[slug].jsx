@@ -5,6 +5,7 @@ import { getArticles, getArticle } from "../../../utils/contentful";
 import Image from "next/image";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Utterances from "../../../utils/utterances";
+import { formatDate } from "../../../utils/functions";
 
 export async function getStaticPaths() {
   const data = await getArticles();
@@ -69,11 +70,15 @@ const Content = styled.div`
 `;
 
 export default function ArticlePost({ article }) {
+  article = formatDate(article);
+
   const options = {
     renderNode: {
       "embedded-asset-block": (node) => {
-        const alt = node.data.target.fields.title["en-US"];
-        const url = node.data.target.fields.file["en-US"].url;
+        console.log(node);
+        //  const alt = node.data.target.fields.title["en-US"];
+        const alt = "no;";
+        const url = node.data.target.sys.id;
         return <img alt={alt} src={url} className="embeddedImage" />;
       },
     },
@@ -98,7 +103,9 @@ export default function ArticlePost({ article }) {
           className="featuredImage"
         />
       </FeaturedImage>
-      <Content>{documentToReactComponents(article.content.json)}</Content>
+      <Content>
+        {documentToReactComponents(article.content.json, options)}
+      </Content>
       <Utterances />
     </Wrapper>
   );
