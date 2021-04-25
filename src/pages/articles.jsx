@@ -118,7 +118,7 @@ export default function ArticlesPage({ articles, projects }) {
         </div>
         <div className="relative max-w-7xl mx-auto">
           <SectionIntro
-            title="Discover Customer Cases"
+            title="Discover Case Studies"
             description="One of our goals is to bring people forward through technology. Read more about our customer cases and how we helped them reach their audience."
           />
           <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none ">
