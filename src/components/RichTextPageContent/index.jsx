@@ -1,40 +1,10 @@
-import Head from "next/head";
-import HeaderBackground from "../../components/backgrounds/HeaderBackground";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import styled from "styled-components";
-import RichTextPageContentStyles from "../../components/RichTextPageContent/Styles/RichTextPageContent.module.css";
-import TypographyStyles from "../../components/RichTextPageContent/Styles/Typography.module.css";
-import { formatDate } from "../../../utils/functions";
-import { getArticles, getArticle } from "../../../utils/contentful";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import RichTextPageContentStyles from "./Styles/RichTextPageContent.module.css";
+import TypographyStyles from "./Styles/Typography.module.css";
+import LinkIcon from "./svg/LinkIcon";
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
-import Utterances from "../../../utils/utterances";
-
-const Wrapper = styled.div``;
-
-const Header = styled.div``;
-
-const Content = styled.div``;
-
-export async function getStaticPaths() {
-  const data = await getArticles();
-
-  return {
-    paths: data.articleCollection.items.map((article) => ({
-      params: { slug: article.slug },
-    })),
-    fallback: false,
-  };
-}
-
-export async function getStaticProps(context) {
-  const data = await getArticle(context.params.slug);
-
-  return {
-    props: { article: data.articleCollection.items[0] },
-  };
-}
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 function slugifyString(string) {
   return string
@@ -46,13 +16,9 @@ function slugifyString(string) {
     .toLowerCase();
 }
 
-const DynamicCodeBlock = dynamic(() =>
-  import("../../components/RichTextPageContent/CodeBlock/index")
-);
+const DynamicCodeBlock = dynamic(() => import("./CodeBlock"));
 
-const DynamicVideoEmbed = dynamic(() =>
-  import("../../components/RichTextPageContent/VideoEmbed")
-);
+const DynamicVideoEmbed = dynamic(() => import("./VideoEmbed"));
 
 export function getRichTextRenderOptions(links, options) {
   const { renderH2Links, renderNativeImg } = options;
@@ -118,7 +84,7 @@ export function getRichTextRenderOptions(links, options) {
             </div>
           );
         } else {
-          <h2 className={TypographyStyles.heading__h2}>{children}</h2>;
+          return <h2 className={TypographyStyles.heading__h2}>{children}</h2>;
         }
       },
       [BLOCKS.HEADING_3]: (node, children) => (
@@ -174,6 +140,7 @@ export function getRichTextRenderOptions(links, options) {
         const { title, url, height, width, description } = assetBlockMap.get(
           node.data.target.sys.id
         );
+
         if (renderNativeImg) {
           return (
             <div className={RichTextPageContentStyles.page__imgContainer}>
@@ -198,41 +165,15 @@ export function getRichTextRenderOptions(links, options) {
   };
 }
 
-export default function ArticlePost({ article, renderH2Links }) {
-  article = formatDate(article);
+export default function RichTextPageContent(props) {
+  const { richTextBodyField, renderH2Links } = props;
 
   return (
-    <Wrapper className="mt-40">
-      <Head>
-        <title>Code Shape - Articles</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <HeaderBackground image="../images/blobs/HeaderBlob06.svg" />
-      <div className="relative py-16 overflow-hidden">
-        <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full"></div>
-        <div className="relative px-4 sm:px-6 lg:px-8">
-          <div className="text-lg max-w-prose mx-auto">
-            <h1>
-              <span className="block text-base text-center text-indigo-600 font-semibold tracking-wide uppercase">
-                {article.date}
-              </span>
-              <span className="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight sm:text-4xl">
-                {article.title}
-              </span>
-            </h1>
-          </div>
-          <div className="mt-6 prose md:prose-xl dark:prose-dark dark:md:prose-xl-dark mx-auto">
-            {documentToReactComponents(
-              article.content.json,
-              getRichTextRenderOptions(
-                article.content.links,
-                (renderH2Links = "true")
-              )
-            )}
-          </div>
-        </div>
-      </div>
-      <Utterances />
-    </Wrapper>
+    <div className={RichTextPageContentStyles.page__content}>
+      {documentToReactComponents(
+        richTextBodyField.json,
+        getRichTextRenderOptions(richTextBodyField.links, { renderH2Links })
+      )}
+    </div>
   );
 }

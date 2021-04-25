@@ -107,8 +107,7 @@ export default function ProjectPost({ project }) {
               </div>
             </div>
             <div className="mt-8 lg:mt-0">
-              <div className="text-base max-w-prose mx-auto lg:max-w-none"></div>
-              <div className="dark:text-white mt-5 prose prose-indigo mx-auto lg:max-w-none lg:row-start-1 lg:col-start-1">
+              <div className="mt-6 prose md:prose-xl dark:prose-dark dark:md:prose-xl-dark mx-auto lg:row-start-1 lg:col-start-1">
                 {documentToReactComponents(project.content.json)}
               </div>
             </div>

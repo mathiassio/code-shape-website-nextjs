@@ -41,7 +41,7 @@ export async function getArticles() {
 export async function getArticle(slug) {
   const articlesQuery = gql`
     query getArticle($slug: String!) {
-      articleCollection(where: { slug: $slug }) {
+      articleCollection(limit: 1, where: { slug: $slug }) {
         items {
           title
           slug
@@ -61,6 +61,26 @@ export async function getArticle(slug) {
           }
           content {
             json
+            links {
+              entries {
+                block {
+                  sys {
+                    id
+                  }
+                }
+              }
+              assets {
+                block {
+                  sys {
+                    id
+                  }
+                  url
+                  title
+                  width
+                  height
+                }
+              }
+            }
           }
         }
       }
@@ -147,13 +167,33 @@ export async function getPages() {
 export async function getPage(slug) {
   const pageQuery = gql`
     query getPage($slug: String!) {
-      pageCollection(where: { slug: $slug }) {
+      pageCollection(limit: 1, where: { slug: $slug }) {
         items {
           title
           slug
           subtitle
           content {
             json
+            links {
+              entries {
+                block {
+                  sys {
+                    id
+                  }
+                }
+              }
+              assets {
+                block {
+                  sys {
+                    id
+                  }
+                  url
+                  title
+                  width
+                  height
+                }
+              }
+            }
           }
         }
       }
@@ -198,7 +238,7 @@ export async function getProjects() {
 export async function getProject(slug) {
   const projectQuery = gql`
     query getProject($slug: String!) {
-      projectCollection(where: { slug: $slug }) {
+      projectCollection(limit: 1, where: { slug: $slug }) {
         items {
           title
           slug
@@ -212,6 +252,26 @@ export async function getProject(slug) {
           }
           content {
             json
+            links {
+              entries {
+                block {
+                  sys {
+                    id
+                  }
+                }
+              }
+              assets {
+                block {
+                  sys {
+                    id
+                  }
+                  url
+                  title
+                  width
+                  height
+                }
+              }
+            }
           }
           contentfulMetadata {
             tags {
