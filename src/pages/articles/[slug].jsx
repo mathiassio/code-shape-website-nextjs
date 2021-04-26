@@ -244,12 +244,9 @@ export default function ArticlePost({ article, renderH2Links }) {
               </div>
             </Author>
             <ImageWrapper className="mt-8">
-              <Image
+              <img
                 src={article.featuredImage.url}
                 alt={article.featuredImage.fileName}
-                width="240"
-                height="120"
-                layout="responsive"
                 className="rounded-md"
               />
             </ImageWrapper>
