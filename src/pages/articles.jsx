@@ -78,30 +78,30 @@ export default function ArticlesPage({ articles, projects }) {
                     </div>
                     <div className="mt-6 flex items-center">
                       <div className="flex-shrink-0">
-                        {/* <a href={article.author.href}>
-                      <span className="sr-only">{article.author.name}</span>
-                      <img
-                        className="h-10 w-10 rounded-full"
-                        src={article.author.imageUrl}
-                        alt=""
-                      />
-                    </a> */}
+                        <a href={article.author.slug}>
+                          <span className="sr-only">{article.author.name}</span>
+                          <img
+                            className="h-10 w-10 rounded-full"
+                            src={article.author.photo.url}
+                            alt={article.author.name}
+                          />
+                        </a>
                       </div>
                       <div className="ml-3">
-                        <p className="text-sm font-medium text-gray-900">
-                          {/* <a
-                          href={article.author.href}
-                          className="hover:underline"
-                        >
-                          {article.author.name}
-                        </a> */}
+                        <p className="text-sm font-medium text-indigo-600">
+                          <a
+                            href={article.author.slug}
+                            className="hover:underline"
+                          >
+                            {article.author.name}
+                          </a>
                         </p>
                         <div className="flex space-x-1 text-sm text-gray-500">
                           <time dateTime={article.datetime}>
                             {article.date}
                           </time>
-                          <span aria-hidden="true">&middot;</span>
-                          <span>{article.readingTime} read</span>
+                          {/* <span aria-hidden="true">&middot;</span> */}
+                          {/* <span>{article.readingTime} read</span> */}
                         </div>
                       </div>
                     </div>
@@ -153,30 +153,30 @@ export default function ArticlesPage({ articles, projects }) {
                     </div>
                     <div className="mt-6 flex items-center">
                       <div className="flex-shrink-0">
-                        {/* <a href={project.author.href}>
-                      <span className="sr-only">{project.author.name}</span>
-                      <img
-                        className="h-10 w-10 rounded-full"
-                        src={project.author.imageUrl}
-                        alt=""
-                      />
-                    </a> */}
+                        <a href={project.author.slug}>
+                          <span className="sr-only">{project.author.name}</span>
+                          <img
+                            className="h-10 w-10 rounded-full"
+                            src={project.author.photo.url}
+                            alt={project.author.name}
+                          />
+                        </a>
                       </div>
                       <div className="ml-3">
-                        <p className="text-sm font-medium text-gray-900">
-                          {/* <a
-                          href={project.author.href}
-                          className="hover:underline"
-                        >
-                          {project.author.name}
-                        </a> */}
+                        <p className="text-sm font-medium text-indigo-600">
+                          <a
+                            href={project.author.slug}
+                            className="hover:underline"
+                          >
+                            {project.author.name}
+                          </a>
                         </p>
                         <div className="flex space-x-1 text-sm text-gray-500">
                           <time dateTime={project.datetime}>
                             {project.date}
                           </time>
-                          <span aria-hidden="true">&middot;</span>
-                          <span>{project.readingTime} read</span>
+                          {/* <span aria-hidden="true">&middot;</span> */}
+                          {/* <span>{project.readingTime} read</span> */}
                         </div>
                       </div>
                     </div>

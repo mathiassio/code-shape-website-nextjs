@@ -15,6 +15,10 @@ const Wrapper = styled.div``;
 
 const Content = styled.div``;
 
+const Author = styled.div``;
+
+const ImageWrapper = styled.div``;
+
 export async function getStaticPaths() {
   const data = await getArticles();
 
@@ -207,7 +211,6 @@ export default function ArticlePost({ article, renderH2Links }) {
       </Head>
       <HeaderBackground image="../images/blobs/HeaderBlob06.svg" />
       <Content className="relative py-16 overflow-hidden">
-        <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full"></div>
         <div className="relative px-4 sm:px-6 lg:px-8">
           <div className="text-lg max-w-prose mx-auto">
             <h1>
@@ -218,7 +221,40 @@ export default function ArticlePost({ article, renderH2Links }) {
                 {article.title}
               </span>
             </h1>
+            <Author className="mt-6 grid grid-flow-col auto-cols-max justify-center content-center">
+              <div className="flex-shrink-0">
+                <a href={article.author.slug}>
+                  <span className="sr-only">{article.author.name}</span>
+                  <img
+                    className="h-10 w-10 rounded-full"
+                    src={article.author.photo.url}
+                    alt={article.author.name}
+                  />
+                </a>
+              </div>
+              <div className="ml-3">
+                <p className="text-sm font-medium text-indigo-600">
+                  <a href={article.author.slug} className="hover:underline">
+                    {article.author.name}
+                  </a>
+                </p>
+                <div className="flex space-x-1 text-sm text-gray-500">
+                  <div>{article.author.title}</div>
+                </div>
+              </div>
+            </Author>
+            <ImageWrapper className="mt-8">
+              <Image
+                src={article.featuredImage.url}
+                alt={article.featuredImage.fileName}
+                width="240"
+                height="120"
+                layout="responsive"
+                className="rounded-md"
+              />
+            </ImageWrapper>
           </div>
+
           <div className="mt-6 prose md:prose-xl dark:prose-dark dark:md:prose-xl-dark mx-auto">
             {documentToReactComponents(
               article.content.json,

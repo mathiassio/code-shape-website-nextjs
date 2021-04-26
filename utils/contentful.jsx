@@ -31,6 +31,19 @@ export async function getArticles() {
             width
             height
           }
+          author {
+            name
+            photo {
+              fileName
+              url
+              width
+              height
+            }
+            title
+            twitterLink
+            linkedinLink
+            slug
+          }
         }
       }
     }
@@ -58,6 +71,19 @@ export async function getArticle(slug) {
             url
             width
             height
+          }
+          author {
+            name
+            photo {
+              fileName
+              url
+              width
+              height
+            }
+            title
+            twitterLink
+            linkedinLink
+            slug
           }
           content {
             json
@@ -110,6 +136,7 @@ export async function getAuthors() {
           biography
           twitterLink
           linkedinLink
+          slug
         }
       }
     }
@@ -222,6 +249,19 @@ export async function getProjects() {
             width
             height
           }
+          author {
+            name
+            photo {
+              fileName
+              url
+              width
+              height
+            }
+            title
+            twitterLink
+            linkedinLink
+            slug
+          }
           contentfulMetadata {
             tags {
               name
@@ -249,6 +289,19 @@ export async function getProject(slug) {
             url
             width
             height
+          }
+          author {
+            name
+            photo {
+              fileName
+              url
+              width
+              height
+            }
+            title
+            twitterLink
+            linkedinLink
+            slug
           }
           content {
             json

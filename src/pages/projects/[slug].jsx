@@ -27,6 +27,8 @@ export async function getStaticProps(context) {
 
 const Wrapper = styled.div``;
 
+const Author = styled.div``;
+
 export default function ProjectPost({ project }) {
   return (
     <Wrapper className="mt-40">
@@ -46,6 +48,28 @@ export default function ProjectPost({ project }) {
               <h3 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight sm:text-4xl">
                 {project.title}
               </h3>
+              <Author className="mt-6 flex items-center">
+                <div className="flex-shrink-0">
+                  <a href={project.author.slug}>
+                    <span className="sr-only">{project.author.name}</span>
+                    <img
+                      className="h-10 w-10 rounded-full"
+                      src={project.author.photo.url}
+                      alt={project.author.name}
+                    />
+                  </a>
+                </div>
+                <div className="ml-3">
+                  <p className="text-sm font-medium text-indigo-600">
+                    <a href={project.author.slug} className="hover:underline">
+                      {project.author.name}
+                    </a>
+                  </p>
+                  <div className="flex space-x-1 text-sm text-gray-500">
+                    <div>{project.author.title}</div>
+                  </div>
+                </div>
+              </Author>
             </div>
           </div>
           <div className="mt-8 lg:grid lg:grid-cols-2 lg:gap-8">
