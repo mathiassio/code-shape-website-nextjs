@@ -13,8 +13,6 @@ import Utterances from "../../../utils/utterances";
 
 const Wrapper = styled.div``;
 
-const Header = styled.div``;
-
 const Content = styled.div``;
 
 export async function getStaticPaths() {
@@ -208,7 +206,7 @@ export default function ArticlePost({ article, renderH2Links }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HeaderBackground image="../images/blobs/HeaderBlob06.svg" />
-      <div className="relative py-16 overflow-hidden">
+      <Content className="relative py-16 overflow-hidden">
         <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full"></div>
         <div className="relative px-4 sm:px-6 lg:px-8">
           <div className="text-lg max-w-prose mx-auto">
@@ -231,7 +229,7 @@ export default function ArticlePost({ article, renderH2Links }) {
             )}
           </div>
         </div>
-      </div>
+      </Content>
       <Utterances />
     </Wrapper>
   );

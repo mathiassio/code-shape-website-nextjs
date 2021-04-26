@@ -3,9 +3,6 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   width: 100%;
-  .utterances {
-    max-width: 42rem;
-  }
 `;
 
 export default function Utterances({
