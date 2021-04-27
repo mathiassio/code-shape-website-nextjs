@@ -14,6 +14,7 @@
     "@tailwindcss/aspect-ratio": "^0.2.0",
     "@tailwindcss/typography": "^0.4.0",
     "contentful": "^8.2.1",
+
     "firebase": "^8.4.2",
     "firebase-admin": "^9.6.0",
     "framer-motion": "^4.1.3",
