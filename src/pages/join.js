@@ -32,7 +32,7 @@ export default function Join() {
   };
 
   return (
-    <div>
+    <div className="mt-40">
       <div>
         <div>Join now</div>
       </div>
