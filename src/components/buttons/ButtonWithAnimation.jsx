@@ -13,9 +13,13 @@ const Wrapper = styled.div`
   align-content: center;
   gap: 20px;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  background: linear-gradient(#fff 10%, #6058fc 200%);
   position: relative;
   overflow: hidden;
+
+  background: linear-gradient(#fff 10%, #6058fc 200%);
+  @media (prefers-color-scheme: dark) {
+    background: linear-gradient(#4A4A4A 10%, #3E00FF 250%);
+  }
 
   *,
   & {
@@ -40,11 +44,19 @@ const TextWrapper = styled.div`
 
 const Title = styled(Caption2)`
   color: #000;
+
+  @media (prefers-color-scheme: dark) {
+    color: #fff;
+  }
 `;
 
 const Subtitle = styled(SmallText)`
   opacity: 0.7;
   color: #000;
+
+  @media (prefers-color-scheme: dark) {
+    color: #fff;
+  }
 `;
 
 const Icon = styled.img`
