@@ -3,16 +3,19 @@ import styled from "styled-components";
 export const H1 = styled.h1`
   font-weight: bold;
   font-size: 60px;
+  line-height: 100%;
 `;
 
 export const H2 = styled.h2`
   font-weight: bold;
   font-size: 40px;
+  line-height: 100%;
 `;
 
 export const H3 = styled.h3`
   font-weight: bold;
   font-size: 30px;
+  line-height: 100%;
 `;
 
 export const BodyIntro = styled.p`

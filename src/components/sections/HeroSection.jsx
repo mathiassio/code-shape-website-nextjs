@@ -101,7 +101,7 @@ export default function HeroSection() {
           layoutId="title"
         >
           <Title>
-            Learn how to create great <br></br>
+            Learn how to create great <br />
             <span className="apps">apps</span>
             <span className="websites">websites</span>
             <span className="games">games</span>
