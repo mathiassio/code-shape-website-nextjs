@@ -59,7 +59,7 @@ export default function CommunityPage() {
       <ButtonWrapper>
         <ButtonWithAnimation
           title="Join now"
-          subtitle=""
+          subtitle="Collaborate"
           link="https://discord.com/invite/rUV9mYWV8K"
           icon="images/icons/community_light.svg"
           backgroundColor="linear-gradient(200.44deg, #F51D7E 13.57%, #F89B29 98.38%)"

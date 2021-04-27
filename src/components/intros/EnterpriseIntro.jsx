@@ -7,21 +7,21 @@ const Wrapper = styled.div`
 `;
 
 const TextWrapper = styled.div`
-margin: 0 auto;
-width: 23rem;
-line-height: 3em;
+  margin: 0 auto;
+  width: 23rem;
+  line-height: 3em;
 `;
 
 const Title = styled(H3)`
-font-weight: normal;
+  font-weight: normal;
 
-.time {
-    color: #F89B29;
-}
+  .time {
+    color: #f89b29;
+  }
 
-.yourself {
-    color: #F51D7E;
-}
+  .yourself {
+    color: #f51d7e;
+  }
 `;
 
 const Text = styled(BodyMain)``;
@@ -29,18 +29,17 @@ const Text = styled(BodyMain)``;
 export default function EnterpriseIntro() {
   return (
     <Wrapper>
-        <TextWrapper>
+      <TextWrapper>
         <Title>
-        No <span className="time">time</span> to learn?<br></br>
-No time to do it <span className="yourself">yourself</span>?
+          No <span className="time">time</span> to learn?<br></br>
+          No time to do it <span className="yourself">yourself</span>?
         </Title>
         <Text>
-        Be a part of a community that cares 
-about each other and how they reach
-their software development goals and 
-design goals. Are you ready?
+          Be a part of a community that cares about each other and how they
+          reach their software development goals and design goals. Are you
+          ready?
         </Text>
-        </TextWrapper>
+      </TextWrapper>
     </Wrapper>
   );
 }
