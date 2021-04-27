@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import CasesOverview from "../additionals/CasesOverview";
+import { Example } from "../additionals/Example"
 import ButtonWithAnimation from "../buttons/ButtonWithAnimation";
 import { BodyMain, H1 } from "../styles/TextStyles";
+import Image from "next/image";
 
 const Wrapper = styled.div`
 margin-top: 15rem;
@@ -23,15 +24,48 @@ const Text = styled(BodyMain)`
 text-align: center;
 width: 40rem;
 margin: 0 auto;
+padding: 0 2rem;
 `;
 
 const CaseWrapper = styled.div`
+display: grid;
 margin-top: 2rem;
-margin-bottom: 21rem;
+margin-bottom: 2rem;
+position: relative;
+overflow: hidden;
+
+@media only screen and (min-width: 1200px) {
+  height: 50rem;
+}
+
+@media only screen and (max-width: 1200px) {
+  height: 66vw;
+}
+
 `;
 
-export default function CasesSection(props) {
-  const { image01, image02, image03 } = props
+const Imac = styled.div`
+justify-self: center;
+position: absolute;
+z-index: 3;
+overflow: hidden;
+`;
+
+const ExampleWrapper = styled.div`
+margin: 0;
+padding: 0;
+justify-self: center;
+position: relative;
+display: grid;
+`;
+
+const ButtonWrapper = styled.div`
+display: grid;
+align-items: center;
+justify-items: center;
+`;
+
+export default function CasesSection() {
     return (
     <Wrapper>
         <TextWrapper>
@@ -44,8 +78,19 @@ the projects we have worked on.
 </Text>
         </TextWrapper>
         <CaseWrapper>
-            <CasesOverview />
+          <Imac>
+          <Image
+            src="/images/icons/imac.svg"
+            width="1200"
+            height="800"
+            className="imac"
+          />
+          </Imac>
+          <ExampleWrapper>
+            <Example />
+            </ExampleWrapper>
         </CaseWrapper>
+        <ButtonWrapper>
         <ButtonWithAnimation 
         title="View all"
         subtitle=""
@@ -56,6 +101,7 @@ the projects we have worked on.
         marginLeft="8px"
         marginTop="-8px"
         />
+        </ButtonWrapper>
     </Wrapper>
   );
 }
