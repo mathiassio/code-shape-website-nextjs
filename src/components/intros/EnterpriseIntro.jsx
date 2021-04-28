@@ -1,10 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { H3, BodyMain } from "../styles/TextStyles";
 
 const Wrapper = styled.div``;
 
 export default function EnterpriseIntro() {
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    var xhr = new XMLHttpRequest();
+    var url = process.env.NEXT_PUBLIC_HUBSPOT_FORM_URL;
+    var data = {
+      fields: [
+        {
+          name: "email",
+          value: email,
+        },
+      ],
+      context: {
+        pageUri: "www.codeshape.io/enterprise",
+        pageName: "Enterprise",
+      },
+    };
+
+    var final_data = JSON.stringify(data);
+
+    xhr.open("POST", url);
+    // Sets the value of the 'Content-Type' HTTP request headers to 'application/json'
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        alert(xhr.responseText); // Returns a 200 response if the submission is successful.
+      } else if (xhr.readyState === 4 && xhr.status === 403) {
+        alert(xhr.responseText); // Returns a 403 error if the portal isn't allowed to post submissions.
+      } else if (xhr.readyState === 4 && xhr.status === 404) {
+        alert(xhr.responseText); //Returns a 404 error if the formGuid isn't found
+      }
+    };
+
+    // Sends the request
+    xhr.send(final_data);
+  };
+
   return (
     <Wrapper>
       <div className="pb-8 sm:pb-12 lg:pb-12">
@@ -31,14 +68,19 @@ export default function EnterpriseIntro() {
                     waiting, start a chat and tell us about your project.
                   </p>
                 </div>
-                <form action="#" className="mt-8 sm:max-w-lg sm:w-full sm:flex">
+                <form
+                  onSubmit={handleSubmit}
+                  className="mt-8 sm:max-w-lg sm:w-full sm:flex"
+                >
                   <div className="min-w-0 flex-1">
                     <label htmlFor="hero_email" className="sr-only">
                       Email address
                     </label>
                     <input
                       id="hero_email"
-                      type="email"
+                      type="text"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       className="block w-full border border-gray-300 rounded-md px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                       placeholder="Enter your email"
                     />
