@@ -5,19 +5,13 @@ import ButtonWithAnimation from "../buttons/ButtonWithAnimation";
 import { BodyMain, H1 } from "../styles/TextStyles";
 import Image from "next/image";
 
-const Wrapper = styled.div`
-  margin-top: 15rem;
-`;
+const Wrapper = styled.div``;
 
 const TextWrapper = styled.div``;
 
 const Title = styled(H1)`
   text-align: center;
   margin-bottom: 1rem;
-
-  .worked {
-    color: #f89b29;
-  }
 `;
 
 const Text = styled(BodyMain)`
@@ -69,7 +63,7 @@ export default function CasesSection() {
     <Wrapper>
       <TextWrapper>
         <Title>
-          Cases we <span className="worked">worked</span> on
+          Cases we <span className="text-yellow-500">worked</span> on
         </Title>
         <Text>
           We want to bring people forward through technology. Have a look at the
