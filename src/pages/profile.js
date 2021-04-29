@@ -25,7 +25,7 @@ logout(firebase).then(() => {
 export default function Profile() {
   const user = getUser()
   const { displayName, email, emailVerified } = user;
-  const title = 'Congratiolations' + (displayName ? ' ' + displayName.split(' ')[0] : '');
+  const title = 'Congratulations' + (displayName ? ' ' + displayName.split(' ')[0] : '');
 
   return (
     <Wrapper>
