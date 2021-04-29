@@ -20,20 +20,6 @@ export default function HomePage() {
           defer
           src="//js.hs-scripts.com/8205013.js"
         ></script>
-        <script
-          charset="utf-8"
-          type="text/javascript"
-          src="//js.hsforms.net/forms/shell.js"
-        ></script>
-        <script>
-          hbspt.forms.create(
-          {
-            ({ region: `${process.env.NEXT_PUBLIC_HUBSPOT_REGION}` },
-            { portalId: `${process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID}` },
-            { formId: `${process.env.NEXT_PUBLIC_HUBSPOT_FORM_ID}` })
-          }
-          );
-        </script>
       </Head>
       <HeroSection />
       {/* <OverviewSection /> */}
