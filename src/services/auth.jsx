@@ -3,20 +3,20 @@ import { getAuth, signOut } from "firebase/auth";
 
 export const isBrowser = () => typeof window !== "undefined"
 
-// export const getUser = () =>
-//   isBrowser() && window.localStorage.getItem("user")
-//     ? JSON.parse(window.localStorage.getItem("user"))
-//     : {}
+export const getUser = () =>
+  isBrowser() && window.localStorage.getItem("user")
+    ? JSON.parse(window.localStorage.getItem("user"))
+    : {}
 
-export const getUser = () => {
-  firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    return user
-  } else {
-    // No user is signed in.
-  }
-});
-}
+// export const getUser = () => {
+//   firebase.auth().onAuthStateChanged(function(user) {
+//   if (user) {
+//     return user
+//   } else {
+//     // No user is signed in.
+//   }
+// });
+// }
 
 export const setUser = user =>
   isBrowser() && window.localStorage.setItem("user", JSON.stringify(user))
@@ -37,7 +37,7 @@ export const logout = (firebase) => {
 
 // export const logout = () => {
 //   const auth = firebase.getAuth();
-//   return signOut(auth).then(() => {
+//   return firebase.signOut(auth).then(() => {
 //     // Sign-out successful.
 //   }).catch((error) => {
 //     // An error happened.
