@@ -41,8 +41,8 @@ export default function CommunityPage() {
     <Wrapper>
       <HeaderBackground image="../images/blobs/HeaderBlob03.svg" />
       <GlassGradientIntro
-        title="People at it's core"
-        description="We believe that we can create better products together. Join our community and make an impact on learning and sharing everyday."
+        title="People at its core"
+        description="We believe that we can create better products together. Join our community and make an impact on learning and sharing every day."
         gradientColor="-webkit-linear-gradient(left, #F89929, #F5217B)"
       />
       <ContentWrapper>
