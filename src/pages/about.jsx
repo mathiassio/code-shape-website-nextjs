@@ -26,7 +26,7 @@ export default function About({ authors }) {
         <title>Code Shape - Articles</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <ContentWrapper className="mt-40 sm:mt-80 md:mt-96">
+      <ContentWrapper>
         <div className="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
           <div className="space-y-12 lg:grid lg:grid-cols-3 lg:gap-8 lg:space-y-0">
             <div className="space-y-5 sm:space-y-4">

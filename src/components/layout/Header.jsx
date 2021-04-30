@@ -4,7 +4,6 @@ import {
   CalendarIcon,
   ChartBarIcon,
   MenuIcon,
-  BookOpen,
   SupportIcon,
   ViewGridIcon,
   XIcon,
@@ -334,15 +333,16 @@ export default function Header() {
                       </div>
                       <div>
                         <a
-                          href="#"
+                          href="/login"
                           className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
                         >
                           Sign up
                         </a>
+
                         <p className="mt-6 text-center text-base font-medium ">
                           Existing customer?{" "}
                           <a
-                            href="#"
+                            href="/login"
                             className="text-indigo-600 hover:text-indigo-500"
                           >
                             Sign in
