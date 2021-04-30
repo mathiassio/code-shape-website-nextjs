@@ -167,7 +167,7 @@ export default function Header() {
                           <Popover.Button
                             className={classNames(
                               open
-                                ? "text-indigo-500"
+                                ? "text-indigo-600"
                                 : "text-gray-500 dark:text-gray-500",
                               "group rounded-md inline-flex items-center text-base font-medium hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-500 focus:ring-white p-1"
                             )}
@@ -176,7 +176,7 @@ export default function Header() {
                             <ChevronDownIcon
                               className={classNames(
                                 open
-                                  ? "text-indigo-500"
+                                  ? "text-indigo-600"
                                   : "text-gray-500 dark:text-gray-500",
                                 "ml-2 h-5 w-5 group-hover:text-indigo-500"
                               )}
@@ -234,7 +234,7 @@ export default function Header() {
                                         >
                                           <a
                                             href={post.href}
-                                            className="font-medium hover:text-white dark:text-gray-darkest"
+                                            className="font-medium hover:text-indigo-500 "
                                           >
                                             {post.name}
                                           </a>
@@ -344,7 +344,7 @@ export default function Header() {
                       <div>
                         <a
                           href="#"
-                          className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-500 hover:bg-indigo-700"
+                          className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
                         >
                           Sign up
                         </a>
