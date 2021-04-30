@@ -5,9 +5,10 @@ const navigation = {
     { name: "Feedback", href: "/learn/feedback" },
   ],
   support: [
-    { name: "Help Center", href: "/help" },
-    { name: "Documentation", href: "/docs" },
     { name: "Articles", href: "/articles" },
+    { name: "Documentation", href: "/docs" },
+    { name: "Help Center", href: "/help" },
+    { name: "Updates", href: "/updates" },
   ],
   company: [
     { name: "About", href: "/about" },
@@ -15,7 +16,7 @@ const navigation = {
   ],
   legal: [
     { name: "Privacy", href: "/privacy-policy" },
-    { name: "Terms", href: "#" },
+    { name: "Terms", href: "/terms" },
   ],
   social: [
     {
