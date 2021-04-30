@@ -1,5 +1,4 @@
 import Head from "next/head";
-import HeaderBackground from "../components/backgrounds/HeaderBackground";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import styled from "styled-components";
@@ -192,7 +191,7 @@ export function getRichTextRenderOptions(links, options) {
 }
 
 const Wrapper = styled.div`
-  margin: 10rem auto;
+  padding-top: 3.5rem;
 `;
 
 const HeaderWrapper = styled.div`
@@ -233,7 +232,6 @@ export default function Pages({ page, renderH2Links }) {
         <title>Code Shape - {page.title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HeaderBackground image="../images/blobs/HeaderBlob06.svg" />
       <HeaderWrapper>
         <TextWrapper>
           <TitleWrapper>{page.title}</TitleWrapper>

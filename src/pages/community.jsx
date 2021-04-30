@@ -2,14 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import GlassGradientIntro from "../components/intros/GlassGradientIntro";
 import CommunityIntro from "../components/intros/CommunityIntro";
-import HeaderBackground from "../components/backgrounds/HeaderBackground";
 import ButtonWithAnimation from "../components/buttons/ButtonWithAnimation";
 import Image from "next/image";
 
 const Wrapper = styled.div`
   max-width: 70rem;
   margin: 0 auto;
-  padding-top: 6rem;
+  padding-top: 3.5rem;
   display: grid;
   grid-gap: 1.875rem;
 `;
@@ -39,7 +38,6 @@ const ImageWrapper = styled.div`
 export default function CommunityPage() {
   return (
     <Wrapper>
-      <HeaderBackground image="../images/blobs/HeaderBlob03.svg" />
       <GlassGradientIntro
         title="People at its core"
         description="We believe that we can create better products together. Join our community and make an impact on learning and sharing every day."

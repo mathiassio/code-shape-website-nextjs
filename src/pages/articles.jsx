@@ -2,12 +2,13 @@ import Head from "next/head";
 import styled from "styled-components";
 import { getArticles, getProjects } from "../../utils/contentful";
 import Link from "next/link";
-import HeaderBackground from "../components/backgrounds/HeaderBackground";
 import GlassGradientIntro from "../components/intros/GlassGradientIntro";
 import SectionIntro from "../components/intros/SectionIntro";
 import { formatDates } from "../../utils/functions";
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  padding-top: 3.5rem;
+`;
 
 const ArticleWrapper = styled.div``;
 
@@ -30,12 +31,11 @@ export default function ArticlesPage({ articles, projects }) {
   projects = formatDates(projects);
 
   return (
-    <Wrapper className="mt-40">
+    <Wrapper>
       <Head>
         <title>Code Shape - Articles</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HeaderBackground image="../images/blobs/HeaderBlob02.svg" />
       <GlassGradientIntro
         title="Reading is making Meaning"
         description="We believe we can create amazing things together by keeping our knowledge up to date. Therefore we will do our best to deliver that to you every week."

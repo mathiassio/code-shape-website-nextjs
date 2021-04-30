@@ -16,7 +16,7 @@ const Title = styled(H1)`
 
 const Text = styled(BodyMain)`
   text-align: center;
-  width: 40rem;
+  max-width: 40rem;
   margin: 0 auto;
   padding: 0 2rem;
 `;

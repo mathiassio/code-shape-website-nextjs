@@ -4,7 +4,7 @@ export const themes = {
     text2: `rgba(0,0,0,0.7)`,
     primary: `#3913B8`,
     secondary: "#2FB5FC",
-    backgroundColor: `#f2f2f2`,
+    backgroundColor: `#ffffff`,
     card: {
       backgroundColor: `rgba(255, 255, 255, 0.6)`,
       boxShadow: `0px 50px 100px rgba(34, 79, 169, 0.3),
@@ -31,7 +31,7 @@ export const themes = {
   dark: {
     text1: `white`,
     text2: `rgba(255,255,255,0.7)`,
-    backgroundColor: `#202020`,
+    backgroundColor: `#101010`,
     card: {
       backgroundColor: `rgba(25, 24, 63, 0.98)`,
       boxShadow: `0px 30px 60px rgba(0, 0, 0, 0.25),

@@ -1,5 +1,4 @@
 import Head from "next/head";
-import HeaderBackground from "../../components/backgrounds/HeaderBackground";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import styled from "styled-components";
@@ -11,7 +10,9 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
 import Utterances from "../../../utils/utterances";
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  padding-top: 3.5rem;
+`;
 
 const Content = styled.div``;
 
@@ -204,12 +205,11 @@ export default function ArticlePost({ article, renderH2Links }) {
   article = formatDate(article);
 
   return (
-    <Wrapper className="mt-40">
+    <Wrapper>
       <Head>
         <title>Code Shape - Articles</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HeaderBackground image="../images/blobs/HeaderBlob06.svg" />
       <Content className="relative py-16 overflow-hidden">
         <div className="relative px-4 sm:px-6 lg:px-8">
           <div className="text-lg max-w-prose mx-auto">

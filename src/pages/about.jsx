@@ -1,10 +1,11 @@
 import React from "react";
 import Head from "next/head";
 import { getAuthors } from "../../utils/contentful";
-import HeaderBackground from "../components/backgrounds/HeaderBackground";
 import styled from "styled-components";
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  padding-top: 3.5rem;
+`;
 
 const ContentWrapper = styled.div``;
 
@@ -25,7 +26,6 @@ export default function About({ authors }) {
         <title>Code Shape - Articles</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HeaderBackground image="../images/blobs/HeaderBlob02.svg" />
       <ContentWrapper className="mt-40 sm:mt-80 md:mt-96">
         <div className="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
           <div className="space-y-12 lg:grid lg:grid-cols-3 lg:gap-8 lg:space-y-0">

@@ -1,5 +1,4 @@
 import Head from "next/head";
-import HeaderBackground from "../../components/backgrounds/HeaderBackground";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import styled from "styled-components";
@@ -192,19 +191,20 @@ export function getRichTextRenderOptions(links, options) {
   };
 }
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  padding-top: 3.5rem;
+`;
 
 const Author = styled.div``;
 
 export default function ProjectPost({ project, renderH2Links }) {
   project = formatDate(project);
   return (
-    <Wrapper className="mt-40">
+    <Wrapper>
       <Head>
         <title>Code Shape - Case {project.title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HeaderBackground image="../images/blobs/HeaderBlob06.svg" />
       <div className="overflow-hidden">
         <div className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
           <div className="hidden lg:block  absolute top-0 bottom-0 left-3/4 w-screen" />

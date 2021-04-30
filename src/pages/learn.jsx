@@ -1,10 +1,9 @@
 import Head from "next/head";
 import styled from "styled-components";
-import HeaderBackground from "../components/backgrounds/HeaderBackground";
 import GlassGradientIntro from "../components/intros/GlassGradientIntro";
 
 const Wrapper = styled.div`
-  padding-top: 6rem;
+  padding-top: 3.5rem;
 `;
 
 export default function LearnPage() {
@@ -14,8 +13,6 @@ export default function LearnPage() {
         <title>Code Shape - Learn</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <HeaderBackground image="../images/blobs/HeaderBlob01.svg" />
       <GlassGradientIntro
         title="Learning is part of life"
         description="Keep practice every day, and you will be able to accomplish amazing things in life. It's never too late to start learning a new skill."

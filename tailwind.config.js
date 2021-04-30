@@ -3,9 +3,25 @@ module.exports = {
   darkMode: "media",
   theme: {
     extend: {
+      fontSize: {
+        xs: ".75rem",
+        sm: ".875rem",
+        tiny: ".875rem",
+        base: "1rem",
+        lg: "1.125rem",
+        xl: "1.25rem",
+        "2xl": "1.5rem",
+        "3xl": "1.875rem",
+        "4xl": "2.25rem",
+        "5xl": "5rem",
+        "6xl": "6rem",
+        "7xl": "7rem",
+        "8xl": "8rem",
+        "9xl": "10rem",
+      },
       colors: {
         gray: {
-          darkest: "#151515",
+          darkest: "#202020",
           dark: "#3c4858",
           DEFAULT: "#c0ccda",
           light: "#e0e6ed",
