@@ -125,26 +125,26 @@ export default function GradientTransition() {
           <div class="process-steps-container container-medium with-padding">
             <div class="process-step-container process-step-1">
               <div class="process-step-title-container">
-                <h1 class="process-step-title text-8xl md:text-9xl">Learn.</h1>
-                <div class="process-step-title-overlay text-8xl md:text-9xl">
+                <h1 class="process-step-title text-7xl md:text-9xl">Learn.</h1>
+                <div class="process-step-title-overlay text-7xl md:text-9xl">
                   Learn.
                 </div>
               </div>
             </div>
             <div class="process-step-container process-step-2">
               <div class="process-step-title-container">
-                <h1 class="process-step-title text-8xl md:text-9xl">Create.</h1>
-                <div class="process-step-title-overlay text-8xl md:text-9xl">
+                <h1 class="process-step-title text-7xl md:text-9xl">Create.</h1>
+                <div class="process-step-title-overlay text-7xl md:text-9xl">
                   Create.
                 </div>
               </div>
             </div>
             <div class="process-step-container process-step-3">
               <div class="process-step-title-container">
-                <h1 class="process-step-title text-8xl md:text-9xl">
+                <h1 class="process-step-title text-7xl md:text-9xl">
                   Develop.
                 </h1>
-                <div class="process-step-title-overlay text-8xl md:text-9xl">
+                <div class="process-step-title-overlay text-7xl md:text-9xl">
                   Develop.
                 </div>
               </div>
