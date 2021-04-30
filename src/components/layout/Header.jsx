@@ -3,9 +3,8 @@ import { Popover, Transition } from "@headlessui/react";
 import {
   CalendarIcon,
   ChartBarIcon,
-  CursorClickIcon,
   MenuIcon,
-  ShieldCheckIcon,
+  BookOpen,
   SupportIcon,
   ViewGridIcon,
   XIcon,
@@ -26,13 +25,13 @@ const main = [
     name: "Articles",
     description: "Speak directly to your customers in a more meaningful way.",
     href: "/articles",
-    icon: CursorClickIcon,
+    icon: ChartBarIcon,
   },
   {
     name: "Community",
     description: "Your customers' data will be safe and secure.",
     href: "/community",
-    icon: ShieldCheckIcon,
+    icon: CalendarIcon,
   },
   {
     name: "Enterprise",
@@ -49,25 +48,17 @@ const resources = [
     href: "/help",
     icon: SupportIcon,
   },
-
-  {
-    name: "Events",
-    description:
-      "See what meet-ups and other events we might be planning near you.",
-    href: "#",
-    icon: CalendarIcon,
-  },
   {
     name: "Updates",
     description: "Get the latest updates from Code Shape.",
     href: "/updates",
-    icon: ShieldCheckIcon,
+    icon: CalendarIcon,
   },
   {
     name: "About us",
     description: "Take a look at who's behind the scenes.",
     href: "/about",
-    icon: ShieldCheckIcon,
+    icon: CalendarIcon,
   },
 ];
 const recentPosts = [
