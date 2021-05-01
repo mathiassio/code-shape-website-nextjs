@@ -39,11 +39,11 @@ function slugifyString(string) {
 }
 
 const DynamicCodeBlock = dynamic(() =>
-  import("../../components/RichTextPageContent/CodeBlock/")
+  import("../../components/RichTextPageContent/CodeBlock/index")
 );
 
 const DynamicVideoEmbed = dynamic(() =>
-  import("../../components/RichTextPageContent/VideoEmbed/")
+  import("../../components/RichTextPageContent/VideoEmbed/index")
 );
 
 export function getRichTextRenderOptions(links, options) {
