@@ -185,7 +185,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-12 border-t border-gray-200 pt-8">
+        <div className="mt-12 border-t border-gray-200 dark:border-gray-darkest pt-8">
           <p className="text-base text-gray-400 xl:text-center">
             &copy; {new Date().getFullYear()} Code Shape, Inc. All rights
             reserved.

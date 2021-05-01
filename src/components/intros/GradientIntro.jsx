@@ -12,24 +12,6 @@ const ContentWrapper = styled.div`
   grid-gap: 1.875rem;
   padding: 1.875rem;
   margin: 1.875rem;
-  border-radius: 1.25rem;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-
-  @supports (backdrop-filter: blur(40px)) or
-    (-webkit-backdrop-filter: blur(40px)) {
-    opacity: 0, 5;
-    background-color: transparent;
-    -webkit-backdrop-filter: blur(40px);
-    backdrop-filter: blur(40px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-  }
-
-  @-moz-document url-prefix() {
-    background-color: rgba(242, 242, 242, 0.9);
-    @media (prefers-color-scheme: dark) {
-      background-color: rgba(50, 50, 52, 0.9);
-    }
-  }
 `;
 
 const TextWrapper = styled.div`

@@ -13,7 +13,7 @@ const graphQLClient = new GraphQLClient(endpoint, {
 export async function getArticles() {
   const articlesQuery = gql`
     {
-      articleCollection {
+      articleCollection(order: date_DESC) {
         items {
           title
           slug
@@ -237,7 +237,7 @@ export async function getPage(slug) {
 export async function getProjects() {
   const projectsQuery = gql`
     {
-      projectCollection {
+      projectCollection(order: date_DESC) {
         items {
           title
           slug
@@ -338,6 +338,81 @@ export async function getProject(slug) {
   `;
 
   return graphQLClient.request(projectQuery, {
+    slug,
+  });
+}
+
+//Update Queries
+
+export async function getUpdates() {
+  const updatesQuery = gql`
+    {
+      updateCollection(order: date_DESC) {
+        items {
+          title
+          slug
+          url
+          date
+          featuredImage {
+            title
+            url
+            width
+            height
+          }
+          content {
+            json
+          }
+        }
+      }
+    }
+  `;
+  return graphQLClient.request(updatesQuery);
+}
+
+export async function getUpdate(slug) {
+  const updateQuery = gql`
+    query getUpdate($slug: String!) {
+      updateCollection(limit: 1, where: { slug: $slug }) {
+        items {
+          title
+          slug
+          url
+          date
+          featuredImage {
+            title
+            url
+            width
+            height
+          }
+          content {
+            json
+            links {
+              entries {
+                block {
+                  sys {
+                    id
+                  }
+                }
+              }
+              assets {
+                block {
+                  sys {
+                    id
+                  }
+                  url
+                  title
+                  width
+                  height
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  return graphQLClient.request(updateQuery, {
     slug,
   });
 }
