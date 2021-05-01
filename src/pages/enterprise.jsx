@@ -3,6 +3,7 @@ import styled from "styled-components";
 import EnterpriseIntro from "../components/intros/EnterpriseIntro";
 import GlassGradientIntro from "../components/intros/GlassGradientIntro";
 import CasesSection from "../components/sections/CasesSection";
+import ProductSection from "../components/sections/ProductSection";
 
 const Wrapper = styled.div`
   padding-top: 3.5rem;
@@ -22,6 +23,7 @@ export default function EnterprisePage() {
       />
       <EnterpriseIntro />
       <CasesSection />
+      <ProductSection />
     </Wrapper>
   );
 }
