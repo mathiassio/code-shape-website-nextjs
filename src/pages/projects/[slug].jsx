@@ -44,7 +44,7 @@ const DynamicCodeBlock = dynamic(() =>
 );
 
 const DynamicVideoEmbed = dynamic(() =>
-  import("../../components/RichTextPageContent/VideoEmbed")
+  import("../../components/RichTextPageContent/VideoEmbed/")
 );
 
 export function getRichTextRenderOptions(links, options) {

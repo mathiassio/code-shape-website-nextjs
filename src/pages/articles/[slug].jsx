@@ -50,11 +50,11 @@ function slugifyString(string) {
 }
 
 const DynamicCodeBlock = dynamic(() =>
-  import("../../components/RichTextPageContent/CodeBlock/index")
+  import("../../components/RichTextPageContent/CodeBlock/")
 );
 
 const DynamicVideoEmbed = dynamic(() =>
-  import("../../components/RichTextPageContent/VideoEmbed")
+  import("../../components/RichTextPageContent/VideoEmbed/")
 );
 
 export function getRichTextRenderOptions(links, options) {
