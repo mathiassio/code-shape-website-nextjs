@@ -1,7 +1,9 @@
 import Head from "next/head";
 import styled from "styled-components";
-
 import HeroSection from "../components/sections/HeroSection";
+import HomeCreateSection from "../components/sections/HomeCreateSection";
+import HomeDevelopSection from "../components/sections/HomeDevelopSection";
+import HomeLearnSection from "../components/sections/HomeLearnSection";
 import OverviewSection from "../components/sections/OverviewSection";
 
 const Wrapper = styled.div`
@@ -23,6 +25,9 @@ export default function HomePage() {
         ></script>
       </Head>
       <HeroSection />
+      <HomeLearnSection />
+      <HomeCreateSection />
+      <HomeDevelopSection />
       {/* <OverviewSection /> */}
     </Wrapper>
   );
