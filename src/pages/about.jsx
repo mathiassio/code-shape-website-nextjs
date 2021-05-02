@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import { getAuthors } from "../../utils/contentful";
+import { getAuthors } from "../utils/contentful";
 import styled from "styled-components";
 
 const Wrapper = styled.div`

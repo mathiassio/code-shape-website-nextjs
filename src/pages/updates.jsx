@@ -7,9 +7,9 @@ import RichTextPageContentStyles from "../components/RichTextPageContent/Styles/
 import TypographyStyles from "../components/RichTextPageContent/Styles/Typography.module.css";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
-import { getUpdates } from "../../utils/contentful";
+import { getUpdates } from "../utils/contentful";
 import IntroSimple from "../components/intros/IntroSimple";
-import { formatDates } from "../../utils/functions";
+import { formatDates } from "../utils/functions";
 
 const Wrapper = styled.div`
   padding-top: 1rem;

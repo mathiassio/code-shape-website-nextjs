@@ -4,11 +4,11 @@ import dynamic from "next/dynamic";
 import styled from "styled-components";
 import RichTextPageContentStyles from "../../components/RichTextPageContent/Styles/RichTextPageContent.module.css";
 import TypographyStyles from "../../components/RichTextPageContent/Styles/Typography.module.css";
-import { formatDate } from "../../../utils/functions";
-import { getArticles, getArticle } from "../../../utils/contentful";
+import { formatDate } from "../../utils/functions";
+import { getArticles, getArticle } from "../../utils/contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
-import Utterances from "../../../utils/utterances";
+import Utterances from "../../utils/utterances";
 
 const Wrapper = styled.div`
   padding-top: 3.5rem;
@@ -243,6 +243,9 @@ export default function ArticlePost({ article, renderH2Links }) {
                 </div>
               </div>
             </Author>
+          </div>
+
+          <div className="mt-6 prose md:prose-xl dark:prose-dark dark:md:prose-xl-dark mx-auto">
             <ImageWrapper className="mt-8">
               <img
                 src={article.featuredImage.url}
@@ -250,9 +253,6 @@ export default function ArticlePost({ article, renderH2Links }) {
                 className="rounded-md"
               />
             </ImageWrapper>
-          </div>
-
-          <div className="mt-6 prose md:prose-xl dark:prose-dark dark:md:prose-xl-dark mx-auto">
             {documentToReactComponents(
               article.content.json,
               getRichTextRenderOptions(

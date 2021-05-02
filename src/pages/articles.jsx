@@ -1,10 +1,10 @@
 import Head from "next/head";
 import styled from "styled-components";
-import { getArticles, getProjects } from "../../utils/contentful";
+import { getArticles, getCases } from "../utils/contentful";
 import Link from "next/link";
 import GlassGradientIntro from "../components/intros/GlassGradientIntro";
 import SectionIntro from "../components/intros/SectionIntro";
-import { formatDates } from "../../utils/functions";
+import { formatDates } from "../utils/functions";
 
 const Wrapper = styled.div`
   padding-top: 3.5rem;
@@ -12,23 +12,23 @@ const Wrapper = styled.div`
 
 const ArticleWrapper = styled.div``;
 
-const ProjectWrapper = styled.div``;
+const CaseWrapper = styled.div``;
 
 export async function getStaticProps() {
   const articles = await getArticles();
-  const projects = await getProjects();
+  const cases = await getCases();
 
   return {
     props: {
       articles: articles.articleCollection.items,
-      projects: projects.projectCollection.items,
+      cases: cases.caseCollection.items,
     },
   };
 }
 
-export default function ArticlesPage({ articles, projects }) {
+export default function ArticlesPage({ articles, cases }) {
   articles = formatDates(articles);
-  projects = formatDates(projects);
+  cases = formatDates(cases);
 
   return (
     <Wrapper>
@@ -112,7 +112,7 @@ export default function ArticlesPage({ articles, projects }) {
           </div>
         </div>
       </ArticleWrapper>
-      <ProjectWrapper className="relative pt- 16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
+      <CaseWrapper className="relative pt- 16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
         <div className="absolute inset-0">
           <div className=" h-1/3 sm:h-2/3" />
         </div>
@@ -122,61 +122,59 @@ export default function ArticlesPage({ articles, projects }) {
             description="One of our goals is to bring people forward through technology. Read more about our customer cases and how we helped them reach their audience."
           />
           <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none ">
-            {projects.map((project) => (
-              <Link key={project.slug} href={`/projects/${project.slug}`}>
+            {cases.map((item) => (
+              <Link key={item.slug} href={`/cases/${item.slug}`}>
                 <div
-                  key={project.title}
+                  key={item.title}
                   className="flex flex-col rounded-lg shadow-lg overflow-hidden hover:-translate-y-0.5 transform transition"
                 >
                   <div className="flex-shrink-0">
                     <img
                       className="h-48 w-full object-cover"
-                      src={project.featuredImage.url}
+                      src={item.featuredImage.url}
                       alt=""
                     />
                   </div>
                   <div className="flex-1 bg-white dark:bg-gray-darkest  p-6 flex flex-col justify-between">
                     <div className="flex-1">
                       <p className="text-sm font-medium text-indigo-600">
-                        {project.contentfulMetadata.tags.map((tag) => {
+                        {item.contentfulMetadata.tags.map((tag) => {
                           return <a href={tag.name}>{tag.name}</a>;
                         })}
                       </p>
-                      <a href={project.href} className="block mt-2">
+                      <a href={item.href} className="block mt-2">
                         <p className="text-xl font-semibold text-gray-900 dark:text-white">
-                          {project.title}
+                          {item.title}
                         </p>
                         <p className="mt-3 text-base text-gray-500 dark:text-gray-200">
-                          {project.excerpt}
+                          {item.excerpt}
                         </p>
                       </a>
                     </div>
                     <div className="mt-6 flex items-center">
                       <div className="flex-shrink-0">
-                        <a href={project.author.slug}>
-                          <span className="sr-only">{project.author.name}</span>
+                        <a href={item.author.slug}>
+                          <span className="sr-only">{item.author.name}</span>
                           <img
                             className="h-10 w-10 rounded-full"
-                            src={project.author.photo.url}
-                            alt={project.author.name}
+                            src={item.author.photo.url}
+                            alt={item.author.name}
                           />
                         </a>
                       </div>
                       <div className="ml-3">
                         <p className="text-sm font-medium text-indigo-600">
                           <a
-                            href={project.author.slug}
+                            href={item.author.slug}
                             className="hover:underline"
                           >
-                            {project.author.name}
+                            {item.author.name}
                           </a>
                         </p>
                         <div className="flex space-x-1 text-sm text-gray-500">
-                          <time dateTime={project.datetime}>
-                            {project.date}
-                          </time>
+                          <time dateTime={item.datetime}>{item.date}</time>
                           {/* <span aria-hidden="true">&middot;</span> */}
-                          {/* <span>{project.readingTime} read</span> */}
+                          {/* <span>{item.readingTime} read</span> */}
                         </div>
                       </div>
                     </div>
@@ -186,7 +184,7 @@ export default function ArticlesPage({ articles, projects }) {
             ))}
           </div>
         </div>
-      </ProjectWrapper>
+      </CaseWrapper>
     </Wrapper>
   );
 }

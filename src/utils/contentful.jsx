@@ -40,8 +40,8 @@ export async function getArticles() {
               height
             }
             title
-            twitterLink
-            linkedinLink
+            twitterProfile
+            linkedInProfile
             slug
           }
         }
@@ -52,7 +52,7 @@ export async function getArticles() {
 }
 
 export async function getArticle(slug) {
-  const articlesQuery = gql`
+  const articleQuery = gql`
     query getArticle($slug: String!) {
       articleCollection(limit: 1, where: { slug: $slug }) {
         items {
@@ -81,8 +81,8 @@ export async function getArticle(slug) {
               height
             }
             title
-            twitterLink
-            linkedinLink
+            twitterProfile
+            linkedInProfile
             slug
           }
           content {
@@ -92,6 +92,16 @@ export async function getArticle(slug) {
                 block {
                   sys {
                     id
+                  }
+                  __typename
+                  ... on VideoEmbed {
+                    title
+                    embedUrl
+                  }
+                  ... on CodeBlock {
+                    description
+                    language
+                    code
                   }
                 }
               }
@@ -113,7 +123,7 @@ export async function getArticle(slug) {
     }
   `;
 
-  return graphQLClient.request(articlesQuery, {
+  return graphQLClient.request(articleQuery, {
     slug,
   });
 }
@@ -123,7 +133,7 @@ export async function getArticle(slug) {
 export async function getAuthors() {
   const authorsQuery = gql`
     {
-      authorCollection {
+      authorCollection(order: name_ASC) {
         items {
           name
           photo {
@@ -132,10 +142,10 @@ export async function getAuthors() {
             width
             height
           }
-          title
           biography
-          twitterLink
-          linkedinLink
+          title
+          twitterProfile
+          linkedInProfile
           slug
         }
       }
@@ -150,7 +160,6 @@ export async function getAuthor(slug) {
       authorCollection(where: { slug: $slug }) {
         items {
           name
-          slug
           photo {
             title
             url
@@ -159,8 +168,9 @@ export async function getAuthor(slug) {
           }
           title
           biography
-          twitterLink
-          linkedinLink
+          twitterProfile
+          linkedInProfile
+          slug
         }
       }
     }
@@ -180,7 +190,7 @@ export async function getPages() {
         items {
           title
           slug
-          subtitle
+          date
           content {
             json
           }
@@ -198,7 +208,7 @@ export async function getPage(slug) {
         items {
           title
           slug
-          subtitle
+          date
           content {
             json
             links {
@@ -206,6 +216,16 @@ export async function getPage(slug) {
                 block {
                   sys {
                     id
+                  }
+                  __typename
+                  ... on VideoEmbed {
+                    title
+                    embedUrl
+                  }
+                  ... on CodeBlock {
+                    description
+                    language
+                    code
                   }
                 }
               }
@@ -232,12 +252,12 @@ export async function getPage(slug) {
   });
 }
 
-//Projects Queries
+//Cases Queries
 
-export async function getProjects() {
-  const projectsQuery = gql`
+export async function getCases() {
+  const casesQuery = gql`
     {
-      projectCollection(order: date_DESC) {
+      caseCollection(order: date_DESC) {
         items {
           title
           slug
@@ -258,8 +278,8 @@ export async function getProjects() {
               height
             }
             title
-            twitterLink
-            linkedinLink
+            twitterProfile
+            linkedInProfile
             slug
           }
           contentfulMetadata {
@@ -272,13 +292,13 @@ export async function getProjects() {
       }
     }
   `;
-  return graphQLClient.request(projectsQuery);
+  return graphQLClient.request(casesQuery);
 }
 
-export async function getProject(slug) {
-  const projectQuery = gql`
-    query getProject($slug: String!) {
-      projectCollection(limit: 1, where: { slug: $slug }) {
+export async function getCase(slug) {
+  const caseQuery = gql`
+    query getCase($slug: String!) {
+      caseCollection(limit: 1, where: { slug: $slug }) {
         items {
           title
           slug
@@ -299,8 +319,8 @@ export async function getProject(slug) {
               height
             }
             title
-            twitterLink
-            linkedinLink
+            twitterProfile
+            linkedInProfile
             slug
           }
           content {
@@ -310,6 +330,16 @@ export async function getProject(slug) {
                 block {
                   sys {
                     id
+                  }
+                  __typename
+                  ... on VideoEmbed {
+                    title
+                    embedUrl
+                  }
+                  ... on CodeBlock {
+                    description
+                    language
+                    code
                   }
                 }
               }
@@ -337,7 +367,129 @@ export async function getProject(slug) {
     }
   `;
 
-  return graphQLClient.request(projectQuery, {
+  return graphQLClient.request(caseQuery, {
+    slug,
+  });
+}
+
+//Showcase Queries
+
+export async function getShowcases() {
+  const showcasesQuery = gql`
+    {
+      showcaseCollection(order: date_DESC) {
+        items {
+          title
+          slug
+          url
+          excerpt
+          date
+          contentfulMetadata {
+            tags {
+              name
+              id
+            }
+          }
+          featuredImage {
+            title
+            url
+            width
+            height
+          }
+          author {
+            name
+            photo {
+              fileName
+              url
+              width
+              height
+            }
+            title
+            twitterProfile
+            linkedInProfile
+            slug
+          }
+        }
+      }
+    }
+  `;
+  return graphQLClient.request(showcasesQuery);
+}
+
+export async function getShowcase(slug) {
+  const showcaseQuery = gql`
+    query getShowcase($slug: String!) {
+      showcaseCollection(limit: 1, where: { slug: $slug }) {
+        items {
+          title
+          slug
+          url
+          excerpt
+          date
+          contentfulMetadata {
+            tags {
+              name
+              id
+            }
+          }
+          featuredImage {
+            title
+            url
+            width
+            height
+          }
+          author {
+            name
+            photo {
+              fileName
+              url
+              width
+              height
+            }
+            title
+            twitterProfile
+            linkedInProfile
+            slug
+          }
+          content {
+            json
+            links {
+              entries {
+                block {
+                  sys {
+                    id
+                  }
+                  __typename
+                  ... on VideoEmbed {
+                    title
+                    embedUrl
+                  }
+                  ... on CodeBlock {
+                    description
+                    language
+                    code
+                  }
+                }
+              }
+              assets {
+                block {
+                  sys {
+                    id
+                  }
+                  url
+                  title
+                  width
+                  height
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  return graphQLClient.request(showcaseQuery, {
     slug,
   });
 }
@@ -391,6 +543,16 @@ export async function getUpdate(slug) {
                 block {
                   sys {
                     id
+                  }
+                  __typename
+                  ... on VideoEmbed {
+                    title
+                    embedUrl
+                  }
+                  ... on CodeBlock {
+                    description
+                    language
+                    code
                   }
                 }
               }

@@ -5,7 +5,7 @@ import styled from "styled-components";
 import RichTextPageContentStyles from "../components/RichTextPageContent/Styles/RichTextPageContent.module.css";
 import TypographyStyles from "../components/RichTextPageContent/Styles/Typography.module.css";
 import { H1, BodyMain } from "../components/styles/TextStyles";
-import { getPages, getPage } from "../../utils/contentful";
+import { getPages, getPage } from "../utils/contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
 
