@@ -2,11 +2,13 @@ import React, { Fragment, useState, useEffect } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import {
   CalendarIcon,
-  ChartBarIcon,
   MenuIcon,
   SupportIcon,
   ViewGridIcon,
   XIcon,
+  AcademicCapIcon,
+  BookOpenIcon,
+  UserGroupIcon,
 } from "@heroicons/react/outline";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import styled from "styled-components";
@@ -18,13 +20,13 @@ const main = [
     description:
       "Get a better understanding of where your traffic is coming from.",
     href: "/learn",
-    icon: ChartBarIcon,
+    icon: AcademicCapIcon,
   },
   {
     name: "Articles",
     description: "Speak directly to your customers in a more meaningful way.",
     href: "/articles",
-    icon: ChartBarIcon,
+    icon: BookOpenIcon,
   },
   {
     name: "Community",
@@ -48,6 +50,13 @@ const resources = [
     icon: SupportIcon,
   },
   {
+    name: "Feedback",
+    description:
+      "When creating experiences, feedback is an essential part of the flow",
+    href: "/feedback",
+    icon: SupportIcon,
+  },
+  {
     name: "Updates",
     description: "Get the latest updates from Code Shape.",
     href: "/updates",
@@ -57,7 +66,7 @@ const resources = [
     name: "About us",
     description: "Take a look at who's behind the scenes.",
     href: "/about",
-    icon: CalendarIcon,
+    icon: UserGroupIcon,
   },
 ];
 const recentPosts = [
@@ -134,7 +143,7 @@ export default function Header() {
                     </Link>
                   </div>
                   <div className="-mr-2 -my-2 md:hidden">
-                    <Popover.Button className="rounded-md p-2 inline-flex items-center justify-center hover:text-indigo-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                    <Popover.Button className="rounded-md p-2 inline-flex items-center justify-center hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                       <span className="sr-only">Open menu</span>
                       <MenuIcon className="h-6 w-6" aria-hidden="true" />
                     </Popover.Button>
@@ -144,7 +153,7 @@ export default function Header() {
                       <Link href={item.href} key={item.name}>
                         <a
                           key={item.name}
-                          className="text-base font-medium text-gray-500 hover:text-indigo-500 p-1"
+                          className="text-base font-medium text-gray-500 hover:text-blue-500 p-1"
                         >
                           {item.name}
                         </a>
@@ -157,18 +166,18 @@ export default function Header() {
                           <Popover.Button
                             className={classNames(
                               open
-                                ? "text-indigo-600"
+                                ? "text-blue-600"
                                 : "text-gray-500 dark:text-gray-500",
-                              "group rounded-md inline-flex items-center text-base font-medium hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-500 focus:ring-white p-1"
+                              "group rounded-md inline-flex items-center text-base font-medium hover:text-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-500 focus:ring-white p-1"
                             )}
                           >
                             <span>More</span>
                             <ChevronDownIcon
                               className={classNames(
                                 open
-                                  ? "text-indigo-600"
+                                  ? "text-blue-600"
                                   : "text-gray-500 dark:text-gray-500",
-                                "ml-2 h-5 w-5 group-hover:text-indigo-500"
+                                "ml-2 h-5 w-5 group-hover:text-blue-500"
                               )}
                               aria-hidden="true"
                             />
@@ -197,11 +206,11 @@ export default function Header() {
                                       className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 dark:hover:bg-gray-darkest"
                                     >
                                       <item.icon
-                                        className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                                        className="flex-shrink-0 h-6 w-6 text-blue-600"
                                         aria-hidden="true"
                                       />
                                       <div className="ml-4">
-                                        <p className="text-base font-medium text-indigo-600">
+                                        <p className="text-base font-medium text-blue-600">
                                           {item.name}
                                         </p>
                                         <p className="mt-1 text-sm ">
@@ -211,9 +220,9 @@ export default function Header() {
                                     </a>
                                   ))}
                                 </div>
-                                <div className="px-5 py-5 sm:px-8 sm:py-8">
+                                {/* <div className="px-5 py-5 sm:px-8 sm:py-8">
                                   <div>
-                                    <h3 className="text-sm tracking-wide font-medium text-indigo-600 uppercase">
+                                    <h3 className="text-sm tracking-wide font-medium text-blue-600 uppercase">
                                       Recent Posts
                                     </h3>
                                     <ul className="mt-4 space-y-4">
@@ -224,7 +233,7 @@ export default function Header() {
                                         >
                                           <a
                                             href={post.href}
-                                            className="font-medium hover:text-indigo-500 "
+                                            className="font-medium hover:text-blue-500 "
                                           >
                                             {post.name}
                                           </a>
@@ -235,14 +244,14 @@ export default function Header() {
                                   <div className="mt-5 text-sm">
                                     <a
                                       href="/articles"
-                                      className="font-medium text-indigo-600 hover:text-indigo-500"
+                                      className="font-medium text-blue-600 hover:text-blue-500"
                                     >
                                       {" "}
                                       View all posts{" "}
                                       <span aria-hidden="true">&rarr;</span>
                                     </a>
                                   </div>
-                                </div>
+                                </div> */}
                               </div>
                             </Popover.Panel>
                           </Transition>
@@ -253,13 +262,14 @@ export default function Header() {
                   <div className="hidden md:flex items-center justify-end space-x-8 md:flex-1 lg:w-0">
                     <a
                       href="/login"
-                      className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-indigo-500"
+                      className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-blue-500"
                     >
                       Sign in
                     </a>
                     <a
                       href="/login"
-                      className="whitespace-nowrap bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700"
+                      className="whitespace-nowrap rounded-md shadow-sm py-2 px-4 inline-flex items-center justify-center text-base font-medium border border-transparent  bg-black text-white dark:bg-white dark:text-black hover:bg-transparent border-gray-400 focus:shadow-outline hover:border-black hover:text-black dark:hover:text-white dark:hover:border-white
+"
                     >
                       Sign up
                     </a>
@@ -288,12 +298,12 @@ export default function Header() {
                         <Link href="/">
                           <img
                             className="h-8 w-auto"
-                            src="/images/logos/logo.png"
+                            src="/images/logos/logo_blue.png"
                             alt="Workflow"
                           />
                         </Link>
                         <div className="-mr-2">
-                          <Popover.Button className=" rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-indigo-600  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                          <Popover.Button className=" rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-blue-600  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
                             <span className="sr-only">Close menu</span>
                             <XIcon className="h-6 w-6" aria-hidden="true" />
                           </Popover.Button>
@@ -325,7 +335,7 @@ export default function Header() {
                           <a
                             key={item.name}
                             href={item.href}
-                            className="text-base font-medium  rounded-md hover:bg-gray-50 dark:hover:bg-gray-darkest p-2 text-center"
+                            className="text-base font-medium p-2 hover:text-blue-700"
                           >
                             {item.name}
                           </a>
@@ -334,17 +344,14 @@ export default function Header() {
                       <div>
                         <a
                           href="/login"
-                          className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                          className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-700 hover:bg-blue-600"
                         >
                           Sign up
                         </a>
 
                         <p className="mt-6 text-center text-base font-medium ">
                           Existing customer?{" "}
-                          <a
-                            href="/login"
-                            className="text-indigo-600 hover:text-indigo-500"
-                          >
+                          <a href="/login" className="hover:text-blue-700">
                             Sign in
                           </a>
                         </p>

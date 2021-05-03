@@ -48,19 +48,11 @@ const BodyText = styled(BodyMain)`
 export default function HomeLearnSection() {
   return (
     <Wrapper className="max-w-6xl m-auto grid justify-center items-center">
-        <DropShape01 
-            title="Learn"
-            titleColor="linear-gradient(90deg, #F51D7E -10%, #F89B29 110%)"
-            icon="/images/icons/learner02_dm.svg"
-        />
-        <Title>
-            Start by learning
-        </Title>
-        <IntroText>
-            <Text>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</Text>
-            <Text>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</Text>
-        </IntroText>
-        <ContentWrapper>
+      <DropShape01
+        title="Learn"
+        titleColor="linear-gradient(90deg, #F51D7E -10%, #F89B29 110%)"
+        icon="/images/icons/learner02_dm.svg"
+      />
       <Title>Start by learning</Title>
       <IntroText>
         <Text>
@@ -73,29 +65,45 @@ export default function HomeLearnSection() {
         </Text>
       </IntroText>
       <ContentWrapper>
-        <Image
-          src="/images/screenshots/web_app_enterprise.svg"
-          width="1200"
-          height="800"
-          className="image"
-        />
-        <ContentText>
-          <ContentTitle>Learn with Community</ContentTitle>
-          <BodyText>
+        <Title>Start by learning</Title>
+        <IntroText>
+          <Text>
             Lorem ipsum is placeholder text commonly used in the graphic, print,
             and publishing industries for previewing layouts and visual mockups.
-          </BodyText>
-          <ContentTitle>Discover Courses</ContentTitle>
-          <BodyText>
+          </Text>
+          <Text>
             Lorem ipsum is placeholder text commonly used in the graphic, print,
             and publishing industries for previewing layouts and visual mockups.
-          </BodyText>
-          <ContentTitle>Get familiar with the great tools</ContentTitle>
-          <BodyText>
-            Lorem ipsum is placeholder text commonly used in the graphic, print,
-            and publishing industries for previewing layouts and visual mockups.
-          </BodyText>
-        </ContentText>
+          </Text>
+        </IntroText>
+        <ContentWrapper>
+          <Image
+            src="/images/screenshots/web_app_enterprise.svg"
+            width="1200"
+            height="800"
+            className="image"
+          />
+          <ContentText>
+            <ContentTitle>Learn with Community</ContentTitle>
+            <BodyText>
+              Lorem ipsum is placeholder text commonly used in the graphic,
+              print, and publishing industries for previewing layouts and visual
+              mockups.
+            </BodyText>
+            <ContentTitle>Discover Courses</ContentTitle>
+            <BodyText>
+              Lorem ipsum is placeholder text commonly used in the graphic,
+              print, and publishing industries for previewing layouts and visual
+              mockups.
+            </BodyText>
+            <ContentTitle>Get familiar with the great tools</ContentTitle>
+            <BodyText>
+              Lorem ipsum is placeholder text commonly used in the graphic,
+              print, and publishing industries for previewing layouts and visual
+              mockups.
+            </BodyText>
+          </ContentText>
+        </ContentWrapper>
       </ContentWrapper>
     </Wrapper>
   );
