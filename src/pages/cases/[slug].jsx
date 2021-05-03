@@ -4,28 +4,28 @@ import dynamic from "next/dynamic";
 import styled from "styled-components";
 import RichTextPageContentStyles from "../../components/RichTextPageContent/Styles/RichTextPageContent.module.css";
 import TypographyStyles from "../../components/RichTextPageContent/Styles/Typography.module.css";
-import { formatDate } from "../../../utils/functions";
-import { getProjects, getProject } from "../../../utils/contentful";
+import { formatDate } from "../../utils/functions";
+import { getCases, getCase } from "../../utils/contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
 import { CameraIcon } from "@heroicons/react/solid";
 
 export async function getStaticPaths() {
-  const data = await getProjects();
+  const data = await getCases();
 
   return {
-    paths: data.projectCollection.items.map((project) => ({
-      params: { slug: project.slug },
+    paths: data.caseCollection.items.map((item) => ({
+      params: { slug: item.slug },
     })),
     fallback: false,
   };
 }
 
 export async function getStaticProps(context) {
-  const data = await getProject(context.params.slug);
+  const data = await getCase(context.params.slug);
 
   return {
-    props: { project: data.projectCollection.items[0] },
+    props: { customercase: data.caseCollection.items[0] },
   };
 }
 
@@ -40,7 +40,7 @@ function slugifyString(string) {
 }
 
 const DynamicCodeBlock = dynamic(() =>
-  import("../../components/RichTextPageContent/CodeBlock/")
+  import("../../components/RichTextPageContent/CodeBlock")
 );
 
 const DynamicVideoEmbed = dynamic(() =>
@@ -197,12 +197,12 @@ const Wrapper = styled.div`
 
 const Author = styled.div``;
 
-export default function ProjectPost({ project, renderH2Links }) {
-  project = formatDate(project);
+export default function ProjectPost({ customercase, renderH2Links }) {
+  customercase = formatDate(customercase);
   return (
     <Wrapper>
       <Head>
-        <title>Code Shape - Case {project.title}</title>
+        <title>Code Shape - Case {customercase.title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="overflow-hidden">
@@ -212,31 +212,34 @@ export default function ProjectPost({ project, renderH2Links }) {
             <div>
               <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">
                 Case Study - {""}
-                {project.date}
+                {customercase.date}
               </h2>
 
               <h3 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight sm:text-4xl">
-                {project.title}
+                {customercase.title}
               </h3>
               <Author className="mt-6 flex items-center">
                 <div className="flex-shrink-0">
-                  <a href={project.author.slug}>
-                    <span className="sr-only">{project.author.name}</span>
+                  <a href={customercase.author.slug}>
+                    <span className="sr-only">{customercase.author.name}</span>
                     <img
                       className="h-10 w-10 rounded-full"
-                      src={project.author.photo.url}
-                      alt={project.author.name}
+                      src={customercase.author.photo.url}
+                      alt={customercase.author.name}
                     />
                   </a>
                 </div>
                 <div className="ml-3">
                   <p className="text-sm font-medium text-indigo-600">
-                    <a href={project.author.slug} className="hover:underline">
-                      {project.author.name}
+                    <a
+                      href={customercase.author.slug}
+                      className="hover:underline"
+                    >
+                      {customercase.author.name}
                     </a>
                   </p>
                   <div className="flex space-x-1 text-sm text-gray-500">
-                    <div>{project.author.title}</div>
+                    <div>{customercase.author.title}</div>
                   </div>
                 </div>
               </Author>
@@ -282,8 +285,8 @@ export default function ProjectPost({ project, renderH2Links }) {
                   <div className="aspect-w-12 aspect-h-7 lg:aspect-none">
                     <img
                       className="rounded-lg shadow-lg object-cover object-center"
-                      src={project.featuredImage.url}
-                      alt={project.featuredImage.title}
+                      src={customercase.featuredImage.url}
+                      alt={customercase.featuredImage.title}
                       width={1184}
                       height={1376}
                     />
@@ -294,7 +297,7 @@ export default function ProjectPost({ project, renderH2Links }) {
                       aria-hidden="true"
                     />
                     <span className="ml-2">
-                      Photograph of {project.featuredImage.title}
+                      Photograph of {customercase.featuredImage.title}
                     </span>
                   </figcaption>
                 </figure>
@@ -303,9 +306,9 @@ export default function ProjectPost({ project, renderH2Links }) {
             <div className="mt-8 lg:mt-0">
               <div className="mt-6 prose md:prose-xl dark:prose-dark dark:md:prose-xl-dark mx-auto lg:row-start-1 lg:col-start-1">
                 {documentToReactComponents(
-                  project.content.json,
+                  customercase.content.json,
                   getRichTextRenderOptions(
-                    project.content.links,
+                    customercase.content.links,
                     (renderH2Links = "true")
                   )
                 )}

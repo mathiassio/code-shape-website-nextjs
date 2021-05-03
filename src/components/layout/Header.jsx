@@ -128,7 +128,7 @@ export default function Header() {
                     <Link href="/">
                       <img
                         className="h-8 w-auto sm:h-10"
-                        src="/images/logos/logo.png"
+                        src="/images/logos/logo_blue.png"
                         alt=""
                       />
                     </Link>

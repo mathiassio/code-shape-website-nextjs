@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import { getAuthors } from "../../utils/contentful";
+import { getAuthors } from "../utils/contentful";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -40,7 +40,7 @@ export default function About({ authors }) {
               </p>
             </div>
             <div className="lg:col-span-2">
-              <ul className="space-y-12 sm:divide-y sm:divide-gray-200 sm:space-y-0 sm:-mt-8 lg:gap-x-8 lg:space-y-0">
+              <ul className="space-y-12 sm:divide-y dark:sm:divide-gray-darkest sm:divide-gray-200 sm:space-y-0 sm:-mt-8 lg:gap-x-8 lg:space-y-0">
                 {authors.map((author) => (
                   <li key={author.name} className="sm:py-8">
                     <div className="space-y-4 sm:grid sm:grid-cols-3 sm:items-start sm:gap-6 sm:space-y-0">

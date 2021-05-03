@@ -30,7 +30,7 @@ const Title = styled(H2)``;
 
 const Description = styled(BodyMain)``;
 
-export default function IntroText(props) {
+export default function IntroMinimal(props) {
   const { intro, title, description } = props;
   return (
     <Wrapper>

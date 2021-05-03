@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import GlassGradientIntro from "../components/intros/GlassGradientIntro";
-import CommunityIntro from "../components/intros/CommunityIntro";
+import IntroMinimal from "../components/intros/IntroMinimal";
 import ButtonWithAnimation from "../components/buttons/ButtonWithAnimation";
 import Image from "next/image";
 
@@ -44,7 +44,11 @@ export default function CommunityPage() {
         gradientColor="-webkit-linear-gradient(left, #F89929, #F5217B)"
       />
       <ContentWrapper>
-        <CommunityIntro />
+        <IntroMinimal
+          intro="Join us on Discord!"
+          title="Great things come from team work"
+          description="Be a part of a community that cares about each other and how they reach their software development goals and design goals. Are you ready?"
+        />
         <ImageWrapper>
           <Image
             src="/images/screenshots/discord_community.png"
