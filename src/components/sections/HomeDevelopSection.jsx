@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import DropShape from "../additionals/DropShape";
+import DropShape03 from "../additionals/DropShape03";
 import { H1, H3, BodyMain } from "../styles/TextStyles";
 import Image from "next/image";
 
@@ -47,8 +47,7 @@ margin-bottom: 2rem;
 export default function HomeDevelopSection() {
   return (
     <Wrapper className="max-w-6xl m-auto grid justify-center items-center">
-        <DropShape 
-            backgroundColor="linear-gradient(90deg, #47BED1 -10%, #2E7BC0 110%)"
+        <DropShape03
             title="Develop"
             titleColor="linear-gradient(90deg, #47BED1 -10%, #2E7BC0 110%)"
             icon="/images/icons/smartphone_dm_v002.svg"

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import DropShape from "../additionals/DropShape";
+import DropShape02 from "../additionals/DropShape02";
 import { H1, H3, BodyMain } from "../styles/TextStyles";
 import Image from "next/image";
 
@@ -48,8 +48,7 @@ margin-bottom: 2rem;
 export default function HomeCreateSection() {
   return (
     <Wrapper className="max-w-6xl m-auto grid justify-center items-center">
-        <DropShape 
-            backgroundColor="linear-gradient(90deg, #F51D7E -10%, #AD4BDE 110%)"
+        <DropShape02 
             title="Create"
             titleColor="linear-gradient(90deg, #F51D7E -10%, #AD4BDE 110%)"
             icon="/images/icons/graphics_dm_v003.svg"
