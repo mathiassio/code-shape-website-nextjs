@@ -52,19 +52,19 @@ export default function EnterpriseIntro() {
                 <div className="mt-6 sm:max-w-xl">
                   <h1 className="text-4xl font-extrabold  tracking-tight sm:text-5xl">
                     <span className="block">
-                      No <span className="text-indigo-500">time</span> to learn
-                      it, or do it{" "}
-                      <span className="text-yellow-500">yourself</span>?
+                      No <span className="text-logoBlue-dark">time</span> to
+                      learn it, or do it{" "}
+                      <span className="text-logoBlue-light">yourself</span>?
                     </span>
                   </h1>
-                  <p className="mt-6 text-xl">
+                  <p className="mt-4 text-1.5xl leading-normal md:text-2xl text-gray-500">
                     We know it can be challenging to find the time for every
                     aspect of the Business. Therefore, we will help you create
                     your dream product, whether that is a website, an app, or a
                     game for your company engagement.
                   </p>
-                  <p className="mt-6 text-xl">
-                    Sign up to get notified for when Workflow launches. While
+                  <p className="mt-4 text-1.5xl leading-normal md:text-2xl text-gray-500">
+                    Sign up to get notified for when Flow launches. While
                     waiting, start a chat and tell us about your project.
                   </p>
                 </div>
@@ -88,7 +88,7 @@ export default function EnterpriseIntro() {
                   <div className="mt-4 sm:mt-0 sm:ml-3">
                     <button
                       type="submit"
-                      className="block w-full rounded-md border border-transparent px-5 py-3 bg-indigo-600 text-base font-medium text-white shadow hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:px-10"
+                      className="block w-full rounded-md border border-transparent px-5 py-3 bg-logoBlue-dark text-base font-medium text-white shadow hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:px-10"
                     >
                       Notify me
                     </button>

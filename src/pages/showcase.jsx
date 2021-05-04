@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import styled from "styled-components";
-import IntroSimple from "../components/intros/IntroSimple";
+import PageIntro from "../components/intros/PageIntro";
 import { getShowcases } from "../utils/contentful";
 import { formatDates } from "../utils/functions";
 
@@ -28,7 +28,7 @@ export default function Showcase({ showcases }) {
         <title>Code Shape - Showcase</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <IntroSimple
+      <PageIntro
         title="Showcase"
         description="Discover the experiences we make, and get inspired to create incredible products."
       />

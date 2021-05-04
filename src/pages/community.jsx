@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import GlassGradientIntro from "../components/intros/GlassGradientIntro";
+import PageIntro from "../components/intros/PageIntro";
 import IntroMinimal from "../components/intros/IntroMinimal";
 import ButtonWithAnimation from "../components/buttons/ButtonWithAnimation";
 import Image from "next/image";
@@ -8,7 +8,6 @@ import Image from "next/image";
 const Wrapper = styled.div`
   max-width: 70rem;
   margin: 0 auto;
-  padding-top: 3.5rem;
   display: grid;
   grid-gap: 1.875rem;
 `;
@@ -38,12 +37,12 @@ const ImageWrapper = styled.div`
 export default function CommunityPage() {
   return (
     <Wrapper>
-      <GlassGradientIntro
-        title="People at its core"
+      <PageIntro
+        title="It is all about People"
         description="We believe that we can create better products together. Join our community and make an impact on learning and sharing every day."
-        gradientColor="-webkit-linear-gradient(left, #F89929, #F5217B)"
+        gradientColor="-webkit-linear-gradient(left, #F50686, #8725C2)"
       />
-      <ContentWrapper>
+      <ContentWrapper className="mt-8">
         <IntroMinimal
           intro="Join us on Discord!"
           title="Great things come from team work"
@@ -64,7 +63,7 @@ export default function CommunityPage() {
           subtitle="Collaborate"
           link="https://discord.com/invite/rUV9mYWV8K"
           icon="images/icons/community_light.svg"
-          backgroundColor="linear-gradient(200.44deg, #F51D7E 13.57%, #F89B29 98.38%)"
+          backgroundColor="linear-gradient(200.44deg, #F50686 13.57%, #8725C2 98.38%)"
           className="button"
           target="_blank"
           marginLeft="8px"

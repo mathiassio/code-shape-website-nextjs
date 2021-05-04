@@ -13,10 +13,6 @@ const TitleWrapper = styled(H1)`
   text-align: center;
   margin-bottom: 1rem;
   margin-top: 15rem;
-
-  .products {
-    color: #f89b29;
-  }
 `;
 
 const Text = styled(BodyMain)`
@@ -47,7 +43,7 @@ export default function ProductSection() {
   return (
     <Wrapper>
       <TitleWrapper>
-        <span className="products">Products</span> we offer
+        <span className="text-logoBlue-dark">Products</span> we offer
       </TitleWrapper>
       <Text>
         We offer you a cool way to incorporate new products into your daily

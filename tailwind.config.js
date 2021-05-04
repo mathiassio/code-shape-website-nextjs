@@ -22,6 +22,10 @@ module.exports = {
         "9xl": "10rem",
       },
       colors: {
+        logoBlue: {
+          dark: "#037de8",
+          light: "#0fd9d9",
+        },
         gray: {
           darkest: "#202020",
           dark: "#3c4858",

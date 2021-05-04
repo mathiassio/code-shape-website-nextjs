@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styled from "styled-components";
-import GlassGradientIntro from "../components/intros/GlassGradientIntro";
+import PageIntro from "../components/intros/PageIntro";
 import { useState } from "react";
 import Router from "next/router";
 import firebase from "firebase/app";
@@ -45,7 +45,7 @@ const Login = () => {
         <title>Code Shape - Login</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <GlassGradientIntro
+      <PageIntro
         title="Login"
         description=" "
         gradientColor="-webkit-linear-gradient(left, #F89929, #F5217B)"

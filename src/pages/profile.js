@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styled from "styled-components";
-import GlassGradientIntro from "../components/intros/GlassGradientIntro";
+import PageIntro from "../components/intros/PageIntro";
 import firebase from "firebase/app";
 import { getUser, logout, isLoggedIn } from "../services/auth";
 import Router from "next/router";
@@ -8,9 +8,7 @@ import { getAuth, signOut } from "firebase/auth";
 import initFirebase from "../services/firebase";
 
 initFirebase();
-const Wrapper = styled.div`
-  padding-top: 3.5rem;
-`;
+const Wrapper = styled.div``;
 
 const signUserOut = () =>
   logout(firebase)
@@ -26,7 +24,7 @@ export default function Profile() {
   const user = getUser();
   const { displayName, email, emailVerified } = user;
   const title =
-    "Congratulations" + (displayName ? " " + displayName.split(" ")[0] : "");
+    "Welcome" + (displayName ? " " + displayName.split(" ")[0] : "");
 
   return (
     <Wrapper>
@@ -34,20 +32,21 @@ export default function Profile() {
         <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <GlassGradientIntro
+      <PageIntro
         title={title}
-        description="You are now logged in!"
-        gradientColor="-webkit-linear-gradient(left, #F89929, #F5217B)"
+        description="While we wait for more content to arrive, go ahead and explore the articles and the community."
+        gradientColor="-webkit-linear-gradient(left, #037de8, #0fd9d9)"
       />
       <center>
         <a
+          className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-blue-500"
           href="/"
           onClick={(event) => {
             event.preventDefault();
             signUserOut();
           }}
         >
-          <u>Log out</u>
+          Sign out
         </a>
       </center>
     </Wrapper>

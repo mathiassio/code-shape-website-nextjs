@@ -2,12 +2,12 @@ import Head from "next/head";
 import styled from "styled-components";
 import { getArticles, getCases } from "../utils/contentful";
 import Link from "next/link";
-import GlassGradientIntro from "../components/intros/GlassGradientIntro";
+import PageIntro from "../components/intros/PageIntro";
 import SectionIntro from "../components/intros/SectionIntro";
 import { formatDates } from "../utils/functions";
 
 const Wrapper = styled.div`
-  padding-top: 3.5rem;
+  padding-top: rem;
 `;
 
 const ArticleWrapper = styled.div``;
@@ -36,12 +36,11 @@ export default function ArticlesPage({ articles, cases }) {
         <title>Code Shape - Articles</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <GlassGradientIntro
-        title="Reading is making Meaning"
-        description="We believe we can create amazing things together by keeping our knowledge up to date. Therefore we will do our best to deliver that to you every week."
-        gradientColor="-webkit-linear-gradient(left, #F89929, #F5217B)"
+      <PageIntro
+        title="Let's Read"
+        description="Reading is one of the most effective ways of learning, and we want to bring the learning experience to you."
       />
-      <ArticleWrapper className="relative pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
+      <ArticleWrapper className="relative px-4 sm:px-6 lg:px-8 pt-10 pb-10">
         <div className="absolute inset-0">
           <div className=" h-1/3 sm:h-2/3" />
         </div>
@@ -112,7 +111,7 @@ export default function ArticlesPage({ articles, cases }) {
           </div>
         </div>
       </ArticleWrapper>
-      <CaseWrapper className="relative pt- 16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
+      <CaseWrapper className="relative px-4 sm:px-6 lg:px-8 pt-10 pb-10">
         <div className="absolute inset-0">
           <div className=" h-1/3 sm:h-2/3" />
         </div>
@@ -120,6 +119,7 @@ export default function ArticlesPage({ articles, cases }) {
           <SectionIntro
             title="Discover Case Studies"
             description="One of our goals is to bring people forward through technology. Read more about our customer cases and how we helped them reach their audience."
+            gradientColor="-webkit-linear-gradient(left, #037de8, #0fd9d9)"
           />
           <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none ">
             {cases.map((item) => (

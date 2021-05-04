@@ -63,7 +63,7 @@ export default function CasesSection() {
     <Wrapper>
       <TextWrapper>
         <Title>
-          Cases we <span className="text-yellow-500">worked</span> on
+          Cases we <span className="text-logoBlue-dark">worked</span> on
         </Title>
         <Text>
           We want to bring people forward through technology. Have a look at the
@@ -89,7 +89,7 @@ export default function CasesSection() {
           subtitle="View More"
           link="/showcase"
           icon="images/icons/business_icon_light.svg"
-          backgroundColor="linear-gradient(200.44deg, #F51D7E 13.57%, #3E16BB 98.38%)"
+          backgroundColor="linear-gradient(200.44deg, #037de8 13.57%, #0fd9d9 98.38%)"
           className="button"
           marginLeft="8px"
           marginTop="-8px"

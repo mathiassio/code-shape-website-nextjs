@@ -8,7 +8,7 @@ import TypographyStyles from "../components/RichTextPageContent/Styles/Typograph
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
 import { getUpdates } from "../utils/contentful";
-import IntroSimple from "../components/intros/IntroSimple";
+import PageIntro from "../components/intros/PageIntro";
 import { formatDates } from "../utils/functions";
 
 const Wrapper = styled.div`
@@ -195,7 +195,7 @@ export default function UpdatesPage({ updates, renderH2Links }) {
         <title>Code Shape - Updates</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <IntroSimple
+      <PageIntro
         title="Updates"
         description="We’re constantly improving Code Shape. Discover the latest features and improvements."
       />
