@@ -1,83 +1,10 @@
 import React, { Fragment, useState, useEffect } from "react";
+import { main, more } from "./navigation/menuData";
 import { Popover, Transition } from "@headlessui/react";
-import {
-  CalendarIcon,
-  MenuIcon,
-  SupportIcon,
-  ViewGridIcon,
-  XIcon,
-  AcademicCapIcon,
-  BookOpenIcon,
-  UserGroupIcon,
-} from "@heroicons/react/outline";
 import { ChevronDownIcon } from "@heroicons/react/solid";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import styled from "styled-components";
 import Link from "next/link";
-
-const main = [
-  {
-    name: "Learn",
-    description:
-      "Get a better understanding of where your traffic is coming from.",
-    href: "/learn",
-    icon: AcademicCapIcon,
-  },
-  {
-    name: "Articles",
-    description: "Speak directly to your customers in a more meaningful way.",
-    href: "/articles",
-    icon: BookOpenIcon,
-  },
-  {
-    name: "Community",
-    description: "Your customers' data will be safe and secure.",
-    href: "/community",
-    icon: CalendarIcon,
-  },
-  {
-    name: "Enterprise",
-    description: "Connect with third-party tools that you're already using.",
-    href: "/enterprise",
-    icon: ViewGridIcon,
-  },
-];
-const resources = [
-  {
-    name: "Help Center",
-    description:
-      "Get all of your questions answered in our forums or contact support.",
-    href: "/help",
-    icon: SupportIcon,
-  },
-  {
-    name: "Feedback",
-    description:
-      "When creating experiences, feedback is an essential part of the flow",
-    href: "/feedback",
-    icon: SupportIcon,
-  },
-  {
-    name: "Updates",
-    description: "Get the latest updates from Code Shape.",
-    href: "/updates",
-    icon: CalendarIcon,
-  },
-  {
-    name: "About us",
-    description: "Take a look at who's behind the scenes.",
-    href: "/about",
-    icon: UserGroupIcon,
-  },
-];
-const recentPosts = [
-  { id: 1, name: "Boost your conversion rate", href: "#" },
-  {
-    id: 2,
-    name: "How to use search engine optimization to drive traffic to your site",
-    href: "#",
-  },
-  { id: 3, name: "Improve your customer experience", href: "#" },
-];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -199,7 +126,7 @@ export default function Header() {
                             >
                               <div className="rounded-lg Glass shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                                 <div className="relative  py-6 px-5 grid gap-6 sm:gap-8 sm:p-8">
-                                  {resources.map((item) => (
+                                  {more.map((item) => (
                                     <a
                                       key={item.name}
                                       href={item.href}
@@ -331,7 +258,7 @@ export default function Header() {
                     </div>
                     <div className="py-6 px-5 space-y-6">
                       <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-                        {resources.map((item) => (
+                        {more.map((item) => (
                           <a
                             key={item.name}
                             href={item.href}
