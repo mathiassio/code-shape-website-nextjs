@@ -71,7 +71,7 @@ export const footer = {
   ],
   support: [
     { name: "Articles", href: "/articles" },
-    { name: "Documentation", href: "/docs" },
+    // { name: "Documentation", href: "/docs" },
     { name: "Help Center", href: "/help" },
     { name: "Updates", href: "/updates" },
   ],
