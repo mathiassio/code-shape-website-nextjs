@@ -127,24 +127,22 @@ export default function Header() {
                               <div className="rounded-lg Glass shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                                 <div className="relative  py-6 px-5 grid gap-6 sm:gap-8 sm:p-8">
                                   {more.map((item) => (
-                                    <a
-                                      key={item.name}
-                                      href={item.href}
-                                      className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 dark:hover:bg-gray-darkest"
-                                    >
-                                      <item.icon
-                                        className="flex-shrink-0 h-6 w-6 text-blue-600"
-                                        aria-hidden="true"
-                                      />
-                                      <div className="ml-4">
-                                        <p className="text-base font-medium text-blue-600">
-                                          {item.name}
-                                        </p>
-                                        <p className="mt-1 text-sm ">
-                                          {item.description}
-                                        </p>
-                                      </div>
-                                    </a>
+                                    <Link key={item.name} href={item.href}>
+                                      <a className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 dark:hover:bg-gray-darkest">
+                                        <item.icon
+                                          className="flex-shrink-0 h-6 w-6 text-blue-600"
+                                          aria-hidden="true"
+                                        />
+                                        <div className="ml-4">
+                                          <p className="text-base font-medium text-blue-600">
+                                            {item.name}
+                                          </p>
+                                          <p className="mt-1 text-sm ">
+                                            {item.description}
+                                          </p>
+                                        </div>
+                                      </a>
+                                    </Link>
                                   ))}
                                 </div>
                                 {/* <div className="px-5 py-5 sm:px-8 sm:py-8">
