@@ -22,9 +22,9 @@ const Wrapper = styled.div`
     }
 
     @-moz-document url-prefix() {
-      background-color: rgba(242, 242, 242, 0.7);
+      background-color: rgba(242, 242, 242, 1);
       @media (prefers-color-scheme: dark) {
-        background-color: rgba(50, 50, 52, 0.7);
+        background-color: rgba(50, 50, 52, 1);
       }
     }
   }
