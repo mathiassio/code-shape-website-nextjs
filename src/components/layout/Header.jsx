@@ -187,19 +187,19 @@ export default function Header() {
                     </Popover>
                   </Popover.Group>
                   <div className="hidden md:flex items-center justify-end space-x-8 md:flex-1 lg:w-0">
-                    <a
-                      href="/login"
-                      className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-blue-500"
-                    >
-                      Sign in
-                    </a>
-                    <a
-                      href="/login"
-                      className="whitespace-nowrap rounded-md shadow-sm py-2 px-4 inline-flex items-center justify-center text-base font-medium border border-transparent  bg-black text-white dark:bg-white dark:text-black hover:bg-transparent border-gray-400 focus:shadow-outline hover:border-black hover:text-black dark:hover:text-white dark:hover:border-white
+                    <Link href="/login">
+                      <a className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-blue-500">
+                        Sign in
+                      </a>
+                    </Link>
+                    <Link href="/login">
+                      <a
+                        className="whitespace-nowrap rounded-md shadow-sm py-2 px-4 inline-flex items-center justify-center text-base font-medium border border-transparent  bg-black text-white dark:bg-white dark:text-black hover:bg-transparent border-gray-400 focus:shadow-outline hover:border-black hover:text-black dark:hover:text-white dark:hover:border-white
 "
-                    >
-                      Sign up
-                    </a>
+                      >
+                        Sign up
+                      </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -239,19 +239,21 @@ export default function Header() {
                       <div className="mt-6">
                         <nav className="grid gap-y-8">
                           {main.map((item) => (
-                            <a
-                              key={item.name}
-                              href={item.href}
-                              className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-darkest"
-                            >
-                              <item.icon
-                                className="flex-shrink-0 h-6 w-6 "
-                                aria-hidden="true"
-                              />
-                              <span className="ml-3 text-base font-medium ">
-                                {item.name}
-                              </span>
-                            </a>
+                            <Link key={item.name} href={item.href}>
+                              <a
+                                key={item.name}
+                                href={item.href}
+                                className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-darkest"
+                              >
+                                <item.icon
+                                  className="flex-shrink-0 h-6 w-6 "
+                                  aria-hidden="true"
+                                />
+                                <span className="ml-3 text-base font-medium ">
+                                  {item.name}
+                                </span>
+                              </a>
+                            </Link>
                           ))}
                         </nav>
                       </div>
@@ -259,28 +261,25 @@ export default function Header() {
                     <div className="py-6 px-5 space-y-6">
                       <div className="grid grid-cols-2 gap-y-4 gap-x-8">
                         {more.map((item) => (
-                          <a
-                            key={item.name}
-                            href={item.href}
-                            className="text-base font-medium p-2 hover:text-blue-700"
-                          >
-                            {item.name}
-                          </a>
+                          <Link key={item.name} href={item.href}>
+                            <a className="text-base font-medium p-2 hover:text-blue-700">
+                              {item.name}
+                            </a>
+                          </Link>
                         ))}
                       </div>
                       <div>
-                        <a
-                          href="/login"
-                          className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-700 hover:bg-blue-600"
-                        >
-                          Sign up
-                        </a>
+                        <Link href="/login">
+                          <a className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-700 hover:bg-blue-600">
+                            Sign up
+                          </a>
+                        </Link>
 
                         <p className="mt-6 text-center text-base font-medium ">
                           Existing customer?{" "}
-                          <a href="/login" className="hover:text-blue-700">
-                            Sign in
-                          </a>
+                          <Link href="/login">
+                            <a className="hover:text-blue-700">Sign in</a>
+                          </Link>
                         </p>
                       </div>
                     </div>

@@ -1,4 +1,5 @@
 import { footer } from "./navigation/menuData";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -20,14 +21,12 @@ export default function Footer() {
             </p>
             <div className="flex space-x-6">
               {footer.social.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-gray-400 hover:text-gray-500 dark:hover:text-gray-200"
-                >
-                  <span className="sr-only">{item.name}</span>
-                  <item.icon className="h-6 w-6" aria-hidden="true" />
-                </a>
+                <Link key={item.name} href={item.href}>
+                  <a className="text-gray-400 hover:text-gray-500 dark:hover:text-gray-200">
+                    <span className="sr-only">{item.name}</span>
+                    <item.icon className="h-6 w-6" aria-hidden="true" />
+                  </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -40,12 +39,11 @@ export default function Footer() {
                 <ul className="mt-4 space-y-4">
                   {footer.learn.map((item) => (
                     <li key={item.name}>
-                      <a
-                        href={item.href}
-                        className="text-base text-gray-500 hover:text-gray-900 dark:hover:text-gray-200"
-                      >
-                        {item.name}
-                      </a>
+                      <Link href={item.href}>
+                        <a className="text-base text-gray-500 hover:text-gray-900 dark:hover:text-gray-200">
+                          {item.name}
+                        </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -57,12 +55,11 @@ export default function Footer() {
                 <ul className="mt-4 space-y-4">
                   {footer.support.map((item) => (
                     <li key={item.name}>
-                      <a
-                        href={item.href}
-                        className="text-base text-gray-500 hover:text-gray-900 dark:hover:text-gray-200"
-                      >
-                        {item.name}
-                      </a>
+                      <Link href={item.href}>
+                        <a className="text-base text-gray-500 hover:text-gray-900 dark:hover:text-gray-200">
+                          {item.name}
+                        </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -76,12 +73,11 @@ export default function Footer() {
                 <ul className="mt-4 space-y-4">
                   {footer.company.map((item) => (
                     <li key={item.name}>
-                      <a
-                        href={item.href}
-                        className="text-base text-gray-500 hover:text-gray-900 dark:hover:text-gray-200"
-                      >
-                        {item.name}
-                      </a>
+                      <Link href={item.href}>
+                        <a className="text-base text-gray-500 hover:text-gray-900 dark:hover:text-gray-200">
+                          {item.name}
+                        </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -93,12 +89,11 @@ export default function Footer() {
                 <ul className="mt-4 space-y-4">
                   {footer.legal.map((item) => (
                     <li key={item.name}>
-                      <a
-                        href={item.href}
-                        className="text-base text-gray-500 hover:text-gray-900 dark:hover:text-gray-200"
-                      >
-                        {item.name}
-                      </a>
+                      <Link href={item.href}>
+                        <a className="text-base text-gray-500 hover:text-gray-900 dark:hover:text-gray-200">
+                          {item.name}
+                        </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
