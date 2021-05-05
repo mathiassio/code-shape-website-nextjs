@@ -204,7 +204,7 @@ export default function UpdatesPage({ updates, renderH2Links }) {
           <div className="space-y-12 lg:grid lg:grid-cols-3 lg:gap-8 lg:space-y-0 ">
             <div className="space-y-5 sm:space-y-4 ">
               <Link key={update.url} href={update.url}>
-                <div className="hover:text-indigo-600">
+                <div className="hover:text-indigo-600 sticky top-0 ...">
                   <h3 className="text-3xl font-extrabold tracking-tight sm:text-2xl">
                     {update.title}
                   </h3>
