@@ -41,11 +41,18 @@ export default function ArticlesPage({ articles, cases }) {
         description="Reading is one of the most effective ways of learning, and we want to bring the learning experience to you."
         gradientColor="-webkit-linear-gradient(left, #F89929, #F5217B)"
       />
+
       <ArticleWrapper className="relative px-4 sm:px-6 lg:px-8 pt-10 pb-10">
         <div className="absolute inset-0">
           <div className=" h-1/3 sm:h-2/3" />
         </div>
+
         <div className="relative max-w-7xl mx-auto">
+          <SectionIntro
+            gradientColor="-webkit-linear-gradient(left, #F89929, #F5217B)"
+            title="Discover the newest technologies"
+            description="Find content that you like them most, and use the category tags to narrow down your interests. Let us know if there is a topic you cannot find, and we will do our best to add it."
+          />
           <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
             {articles.map((article) => (
               <Link key={article.slug} href={`/articles/${article.slug}`}>

@@ -4,7 +4,6 @@ import HeroSection from "../components/sections/HeroSection";
 import HomeCreateSection from "../components/sections/HomeCreateSection";
 import HomeDevelopSection from "../components/sections/HomeDevelopSection";
 import HomeLearnSection from "../components/sections/HomeLearnSection";
-import OverviewSection from "../components/sections/OverviewSection";
 
 const Wrapper = styled.div`
   padding: 3.5rem;
@@ -28,7 +27,6 @@ export default function HomePage() {
       {/* <HomeLearnSection />
       <HomeCreateSection />
       <HomeDevelopSection /> */}
-      {/* <OverviewSection /> */}
     </Wrapper>
   );
 }

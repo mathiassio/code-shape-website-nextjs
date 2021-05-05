@@ -10,7 +10,7 @@ const Description = styled.div``;
 
 export default function HeroSection() {
   return (
-    <Wrapper className="max-w-6xl m-auto mx-4 grid justify-center items-center">
+    <Wrapper className="max-w-6xl m-auto ">
       <GradientTransition />
       <Buttons className="mt-5 sm:mt-8 sm:flex sm:justify-center ">
         <div className="rounded-md shadow">
