@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styled from "styled-components";
-import { getArticles, getCases } from "../utils/contentful";
+import { getPaginatedArticles, getPaginatedCases } from "../utils/contentful";
 import Link from "next/link";
 import PageIntro from "../components/intros/PageIntro";
 import SectionIntro from "../components/intros/SectionIntro";
@@ -15,8 +15,8 @@ const ArticleWrapper = styled.div``;
 const CaseWrapper = styled.div``;
 
 export async function getStaticProps() {
-  const articles = await getArticles();
-  const cases = await getCases();
+  const articles = await getPaginatedArticles();
+  const cases = await getPaginatedCases();
 
   return {
     props: {

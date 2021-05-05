@@ -10,6 +10,47 @@ const graphQLClient = new GraphQLClient(endpoint, {
 
 //Articles Queries
 
+export async function getPaginatedArticles() {
+  const articlesQuery = gql`
+    {
+      articleCollection(order: date_DESC, limit: 10) {
+        items {
+          title
+          slug
+          excerpt
+          date
+          contentfulMetadata {
+            tags {
+              name
+              id
+            }
+          }
+          featuredImage {
+            title
+            url
+            width
+            height
+          }
+          author {
+            name
+            photo {
+              fileName
+              url
+              width
+              height
+            }
+            title
+            twitterProfile
+            linkedInProfile
+            slug
+          }
+        }
+      }
+    }
+  `;
+  return graphQLClient.request(articlesQuery);
+}
+
 export async function getArticles() {
   const articlesQuery = gql`
     {
@@ -253,6 +294,47 @@ export async function getPage(slug) {
 }
 
 //Cases Queries
+
+export async function getPaginatedCases() {
+  const casesQuery = gql`
+    {
+      caseCollection(order: date_DESC, limit: 10) {
+        items {
+          title
+          slug
+          excerpt
+          date
+          featuredImage {
+            title
+            url
+            width
+            height
+          }
+          author {
+            name
+            photo {
+              fileName
+              url
+              width
+              height
+            }
+            title
+            twitterProfile
+            linkedInProfile
+            slug
+          }
+          contentfulMetadata {
+            tags {
+              name
+              id
+            }
+          }
+        }
+      }
+    }
+  `;
+  return graphQLClient.request(casesQuery);
+}
 
 export async function getCases() {
   const casesQuery = gql`
