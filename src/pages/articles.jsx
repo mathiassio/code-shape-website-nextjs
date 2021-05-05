@@ -39,6 +39,7 @@ export default function ArticlesPage({ articles, cases }) {
       <PageIntro
         title="Let's Read"
         description="Reading is one of the most effective ways of learning, and we want to bring the learning experience to you."
+        gradientColor="-webkit-linear-gradient(left, #F89929, #F5217B)"
       />
       <ArticleWrapper className="relative px-4 sm:px-6 lg:px-8 pt-10 pb-10">
         <div className="absolute inset-0">
@@ -119,7 +120,7 @@ export default function ArticlesPage({ articles, cases }) {
           <SectionIntro
             title="Discover Case Studies"
             description="One of our goals is to bring people forward through technology. Read more about our customer cases and how we helped them reach their audience."
-            gradientColor="-webkit-linear-gradient(left, #037de8, #0fd9d9)"
+            gradientColor="-webkit-linear-gradient(left, #F89929, #F5217B)"
           />
           <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none ">
             {cases.map((item) => (
