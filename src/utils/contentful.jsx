@@ -13,7 +13,7 @@ const graphQLClient = new GraphQLClient(endpoint, {
 export async function getPaginatedArticles() {
   const articlesQuery = gql`
     {
-      articleCollection(order: date_DESC, limit: 10) {
+      articleCollection(order: date_DESC, limit: 9) {
         items {
           title
           slug
@@ -298,7 +298,7 @@ export async function getPage(slug) {
 export async function getPaginatedCases() {
   const casesQuery = gql`
     {
-      caseCollection(order: date_DESC, limit: 10) {
+      caseCollection(order: date_DESC, limit: 9) {
         items {
           title
           slug

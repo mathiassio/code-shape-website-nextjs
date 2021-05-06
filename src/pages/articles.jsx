@@ -6,9 +6,7 @@ import PageIntro from "../components/intros/PageIntro";
 import SectionIntro from "../components/intros/SectionIntro";
 import { formatDates } from "../utils/functions";
 
-const Wrapper = styled.div`
-  padding-top: rem;
-`;
+const Wrapper = styled.div``;
 
 const ArticleWrapper = styled.div``;
 
@@ -50,8 +48,8 @@ export default function ArticlesPage({ articles, cases }) {
         <div className="relative max-w-7xl mx-auto">
           <SectionIntro
             gradientColor="-webkit-linear-gradient(left, #F89929, #F5217B)"
-            title="Discover the newest technologies"
-            description="Find content that you like them most, and use the category tags to narrow down your interests. Let us know if there is a topic you cannot find, and we will do our best to add it."
+            title="Discover New Content"
+            description="We bring new content to you every week. Use the category tags to narrow down your interests. If you find that you need more content, let us know what you need."
           />
           <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
             {articles.map((article) => (
@@ -116,6 +114,16 @@ export default function ArticlesPage({ articles, cases }) {
                 </div>
               </Link>
             ))}
+          </div>
+          <div className="text-center m-auto mt-10 mb-10">
+            <Link href="/articles/more/">
+              <a
+                type="button"
+                className="py-2 px-5 border border-transparent text-base font-medium rounded-md text-gray-500 transition-colors duration-150 border-gray-500 focus:shadow-outline hover:border-black hover:text-black dark:hover:text-white dark:hover:border-white"
+              >
+                More
+              </a>
+            </Link>
           </div>
         </div>
       </ArticleWrapper>
@@ -190,6 +198,16 @@ export default function ArticlesPage({ articles, cases }) {
                 </div>
               </Link>
             ))}
+          </div>
+          <div className="text-center m-auto mt-10 mb-10">
+            <Link href="/cases/more/">
+              <a
+                type="button"
+                className="py-2 px-5 border border-transparent text-base font-medium rounded-md text-gray-500 transition-colors duration-150 border-gray-500 focus:shadow-outline hover:border-black hover:text-black dark:hover:text-white dark:hover:border-white"
+              >
+                More
+              </a>
+            </Link>
           </div>
         </div>
       </CaseWrapper>
