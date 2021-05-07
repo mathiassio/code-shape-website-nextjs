@@ -116,10 +116,10 @@ export default function ArticlesPage({ articles, cases }) {
             ))}
           </div>
           <div className="text-center m-auto mt-10 mb-10">
-            <Link href="/articles/more/">
+            <Link href="/articles/more">
               <a
-                type="button"
-                className="py-2 px-5 border border-transparent text-base font-medium rounded-md text-gray-500 transition-colors duration-150 border-gray-500 focus:shadow-outline hover:border-black hover:text-black dark:hover:text-white dark:hover:border-white"
+                className="py-2 px-5 border border-transparent text-base font-medium rounded-md text-gray-500 transition-colors duration-150 border-gray-500 focus:shadow-outline hover:border-black hover:text-black dark:hover:text-white dark:hover:border-white
+            "
               >
                 More
               </a>
@@ -200,10 +200,10 @@ export default function ArticlesPage({ articles, cases }) {
             ))}
           </div>
           <div className="text-center m-auto mt-10 mb-10">
-            <Link href="/cases/more/">
+            <Link href="/cases/more">
               <a
-                type="button"
-                className="py-2 px-5 border border-transparent text-base font-medium rounded-md text-gray-500 transition-colors duration-150 border-gray-500 focus:shadow-outline hover:border-black hover:text-black dark:hover:text-white dark:hover:border-white"
+                className="py-2 px-5 border border-transparent text-base font-medium rounded-md text-gray-500 transition-colors duration-150 border-gray-500 focus:shadow-outline hover:border-black hover:text-black dark:hover:text-white dark:hover:border-white
+            "
               >
                 More
               </a>

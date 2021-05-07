@@ -120,10 +120,7 @@ export default function Header() {
                             leaveFrom="opacity-100 translate-y-0"
                             leaveTo="opacity-0 translate-y-1"
                           >
-                            <Popover.Panel
-                              static
-                              className="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0"
-                            >
+                            <Popover.Panel className="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0">
                               <div className="rounded-lg Glass shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                                 <div className="relative  py-6 px-5 grid gap-6 sm:gap-8 sm:p-8">
                                   {more.map((item) => (
@@ -214,7 +211,6 @@ export default function Header() {
               >
                 <Popover.Panel
                   focus
-                  static
                   className="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden "
                 >
                   <div className="rounded-lg shadow-lg  ring-1 ring-black ring-opacity-5 divide-y-2 divide-white dark:divide-gray-darkest Glass">
