@@ -1,10 +1,15 @@
 import Head from "next/head";
 import styled from "styled-components";
-import { getPaginatedArticles, getPaginatedCases } from "../utils/contentful";
+import {
+  getPaginatedArticles,
+  getPaginatedCases,
+  getArticles,
+} from "../utils/contentful";
 import Link from "next/link";
 import PageIntro from "../components/intros/PageIntro";
 import SectionIntro from "../components/intros/SectionIntro";
 import { formatDates } from "../utils/functions";
+import CategorySection from "../components/sections/CategorySection";
 
 const Wrapper = styled.div``;
 
@@ -15,16 +20,18 @@ const CaseWrapper = styled.div``;
 export async function getStaticProps() {
   const articles = await getPaginatedArticles();
   const cases = await getPaginatedCases();
+  const categories = await getArticles();
 
   return {
     props: {
       articles: articles.articleCollection.items,
       cases: cases.caseCollection.items,
+      categories: categories.articleCollection.items,
     },
   };
 }
 
-export default function ArticlesPage({ articles, cases }) {
+export default function ArticlesPage({ articles, cases, categories }) {
   articles = formatDates(articles);
   cases = formatDates(cases);
 
@@ -39,18 +46,17 @@ export default function ArticlesPage({ articles, cases }) {
         description="Reading is one of the most effective ways of learning, and we want to bring the learning experience to you."
         gradientColor="-webkit-linear-gradient(left, #F89929, #F5217B)"
       />
-
       <ArticleWrapper className="relative px-4 sm:px-6 lg:px-8 pt-10 pb-10">
         <div className="absolute inset-0">
           <div className=" h-1/3 sm:h-2/3" />
         </div>
-
         <div className="relative max-w-7xl mx-auto">
           <SectionIntro
             gradientColor="-webkit-linear-gradient(left, #F89929, #F5217B)"
             title="Discover New Content"
             description="We bring new content to you every week. Use the category tags to narrow down your interests. If you find that you need more content, let us know what you need."
           />
+          {/* <CategorySection categories={categories} /> */}
           <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
             {articles.map((article) => (
               <Link key={article.slug} href={`/articles/${article.slug}`}>
