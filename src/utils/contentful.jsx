@@ -222,6 +222,123 @@ export async function getAuthor(slug) {
   });
 }
 
+// Courses Queries
+
+export async function getCourses() {
+  const coursesQuery = gql`
+    {
+      courseCollection {
+        items {
+          title
+          subtitle
+          slug
+          featuredImage {
+            fileName
+            url
+            width
+            height
+          }
+          icon {
+            fileName
+            url
+            width
+            height
+          }
+          description
+          content {
+            json
+          }
+          instructor {
+            name
+            title
+            photo {
+              fileName
+              url
+              width
+              height
+            }
+          }
+        }
+      }
+    }
+  `;
+  return graphQLClient.request(coursesQuery);
+}
+
+export async function getCourse(slug) {
+  const courseQuery = gql`
+    query getCourse($slug: String!) {
+      courseCollection(limit: 1, where: { slug: $slug }) {
+        items {
+          title
+          subtitle
+          slug
+          featuredImage {
+            fileName
+            url
+            width
+            height
+          }
+          icon {
+            fileName
+            url
+            width
+            height
+          }
+          description
+          content {
+            json
+            links {
+              entries {
+                block {
+                  sys {
+                    id
+                  }
+                  __typename
+                  ... on VideoEmbed {
+                    title
+                    embedUrl
+                  }
+                  ... on CodeBlock {
+                    description
+                    language
+                    code
+                  }
+                }
+              }
+              assets {
+                block {
+                  sys {
+                    id
+                  }
+                  url
+                  title
+                  width
+                  height
+                }
+              }
+            }
+          }
+          instructor {
+            name
+            title
+            photo {
+              fileName
+              url
+              width
+              height
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  return graphQLClient.request(courseQuery, {
+    slug,
+  });
+}
+
 //Pages Queries
 
 export async function getPages() {
@@ -454,7 +571,54 @@ export async function getCase(slug) {
   });
 }
 
-//Showcase Queries
+//Instructors Queries
+
+export async function getInstructors() {
+  const instructorsQuery = gql`
+    {
+      instructorCollection {
+        items {
+          name
+          title
+          photo {
+            fileName
+            url
+            width
+            height
+          }
+          biography
+        }
+      }
+    }
+  `;
+  return graphQLClient.request(instructorsQuery);
+}
+
+export async function getInstructor(slug) {
+  const instructorQuery = gql`
+    query getInstructor($slug: String!) {
+      instructorCollection(where: { slug: $slug }) {
+        items {
+          name
+          title
+          photo {
+            fileName
+            url
+            width
+            height
+          }
+          biography
+        }
+      }
+    }
+  `;
+
+  return graphQLClient.request(instructorQuery, {
+    slug,
+  });
+}
+
+//Showcases Queries
 
 export async function getShowcases() {
   const showcasesQuery = gql`
