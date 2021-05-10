@@ -107,8 +107,8 @@ export default function EnterpriseIntro() {
               <div className="relative pl-4 -mr-40 sm:mx-auto sm:max-w-3xl sm:px-0 lg:max-w-none lg:h-full lg:pl-12">
                 <img
                   className="w-full rounded-md shadow-xl ring-1 ring-black ring-opacity-5 lg:h-full lg:w-auto lg:max-w-none"
-                  src="/images/screenshots/web_app_enterprise.svg"
-                  alt=""
+                  src="/images/screenshots/web_app_enterprise.png"
+                  alt="Code Shape Flow"
                 />
               </div>
             </div>
