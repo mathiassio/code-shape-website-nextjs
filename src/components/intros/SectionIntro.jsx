@@ -26,7 +26,7 @@ export default function GradientIntro(props) {
   return (
     <Wrapper>
       <ContentWrapper className="text-center m-auto max-w-md lg:max-w-xl lg:text-left lg:m-0">
-        <TextWrapper className="grid gap-5 max-w-sm">
+        <TextWrapper className="grid gap-5 max-w-md">
           <Title gradientColor={gradientColor}>
             {title || "Section Intro Text"}
           </Title>
