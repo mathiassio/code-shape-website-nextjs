@@ -21,7 +21,7 @@ const Description = styled(BodyMain)`
   margin: 0 auto;
 `;
 
-export default function GradientIntro(props) {
+export default function SectionIntro(props) {
   const { title, description, gradientColor } = props;
   return (
     <Wrapper>
