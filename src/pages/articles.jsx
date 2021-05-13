@@ -54,7 +54,7 @@ export default function ArticlesPage({ articles, cases, categories }) {
           <SectionIntro
             gradientColor="-webkit-linear-gradient(left, #F89929, #F5217B)"
             title="Discover New Content"
-            description="We bring new content to you every week. Use the category tags to narrow down your interests. If you find that you need more content, let us know what you need."
+            description="We bring new content to you every week. If you find that you need more content, let us know what you need."
           />
           {/* <CategorySection categories={categories} /> */}
           <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
