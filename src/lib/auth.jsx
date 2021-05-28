@@ -28,7 +28,7 @@ function useProvideAuth() {
       createUser(user.uid, userWithoutToken);
       setUser(user);
 
-      cookie.set("fast-feedback-auth", true, {
+      cookie.set("code-shape-auth", true, {
         expires: 1,
       });
 
@@ -36,7 +36,7 @@ function useProvideAuth() {
       return user;
     } else {
       setUser(false);
-      cookie.remove("fast-feedback-auth");
+      cookie.remove("code-shape-auth");
 
       setLoading(false);
       return false;
@@ -50,7 +50,7 @@ function useProvideAuth() {
       .signInWithEmailAndPassword(email, password)
       .then((response) => {
         handleUser(response.user);
-        Router.push("/sites");
+        Router.push("/profile");
       });
   };
 
