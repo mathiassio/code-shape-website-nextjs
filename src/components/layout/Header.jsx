@@ -191,7 +191,7 @@ export default function Header() {
                     </Popover>
                   </Popover.Group>
                   {auth.user && (
-                    <button className="ml-auto flex-shrink-0 p-1 rounded-full text-gray-500 hover:text-logoBlue-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-logoBlue-medium">
+                    <button className="hidden md:block ml-auto flex-shrink-0 p-1 rounded-full text-gray-500 hover:text-logoBlue-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-logoBlue-medium">
                       <span className="sr-only">View notifications</span>
                       <BellIcon className="h-6 w-6" aria-hidden="true" />
                     </button>
@@ -212,7 +212,7 @@ export default function Header() {
                     </div>
                   )}
                   {auth.user && (
-                    <Menu as="div" className="ml-3 relative hidden md:block ">
+                    <Menu as="div" className="ml-3 relative hidden md:block">
                       {({ open }) => (
                         <>
                           <div>
