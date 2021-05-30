@@ -1,10 +1,18 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { main, more } from "./navigation/menuData";
-import { Popover, Transition } from "@headlessui/react";
+import { Popover, Transition, Menu } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
-import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import {
+  MenuIcon,
+  XIcon,
+  BellIcon,
+  UserIcon,
+  LogoutIcon,
+  CogIcon,
+} from "@heroicons/react/outline";
 import styled from "styled-components";
 import Link from "next/link";
+import { useAuth } from "../../lib/auth";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -32,6 +40,7 @@ const Wrapper = styled.div`
 
 export default function Header() {
   const [navbar, setNavbar] = useState(false);
+  const auth = useAuth();
 
   const changeNavbar = () => {
     if (window.scrollY >= 80) {
@@ -70,7 +79,7 @@ export default function Header() {
                     </Link>
                   </div>
                   <div className="-mr-2 -my-2 md:hidden">
-                    <Popover.Button className="rounded-md p-2 inline-flex items-center justify-center hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                    <Popover.Button className="rounded-md p-2 inline-flex items-center justify-center hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-logoBlue-medium">
                       <span className="sr-only">Open menu</span>
                       <MenuIcon className="h-6 w-6" aria-hidden="true" />
                     </Popover.Button>
@@ -93,16 +102,16 @@ export default function Header() {
                           <Popover.Button
                             className={classNames(
                               open
-                                ? "text-blue-600"
+                                ? "text-logoBlue-medium"
                                 : "text-gray-500 dark:text-gray-500",
-                              "group rounded-md inline-flex items-center text-base font-medium hover:text-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-500 focus:ring-white p-1"
+                              "group rounded-md inline-flex items-center text-base font-medium hover:text-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-500 focus:ring-logoBlue-medium p-1"
                             )}
                           >
                             <span>More</span>
                             <ChevronDownIcon
                               className={classNames(
                                 open
-                                  ? "text-blue-600"
+                                  ? "text-logoBlue-medium"
                                   : "text-gray-500 dark:text-gray-500",
                                 "ml-2 h-5 w-5 group-hover:text-blue-500"
                               )}
@@ -127,11 +136,11 @@ export default function Header() {
                                     <Link key={item.name} href={item.href}>
                                       <a className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 dark:hover:bg-gray-darkest">
                                         <item.icon
-                                          className="flex-shrink-0 h-6 w-6 text-blue-600"
+                                          className="flex-shrink-0 h-6 w-6 text-logoBlue-medium"
                                           aria-hidden="true"
                                         />
                                         <div className="ml-4">
-                                          <p className="text-base font-medium text-blue-600">
+                                          <p className="text-base font-medium text-logoBlue-medium">
                                             {item.name}
                                           </p>
                                           <p className="mt-1 text-sm ">
@@ -181,21 +190,102 @@ export default function Header() {
                       )}
                     </Popover>
                   </Popover.Group>
-                  <div className="hidden md:flex items-center justify-end space-x-8 md:flex-1 lg:w-0">
-                    <Link href="/login">
-                      <a className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-blue-500">
-                        Sign in
-                      </a>
-                    </Link>
-                    <Link href="/login">
-                      <a
-                        className="whitespace-nowrap rounded-md shadow-sm py-2 px-4 inline-flex items-center justify-center text-base font-medium border border-transparent  bg-black text-white dark:bg-white dark:text-black hover:bg-transparent border-gray-400 focus:shadow-outline hover:border-black hover:text-black dark:hover:text-white dark:hover:border-white
-"
-                      >
-                        Sign up
-                      </a>
-                    </Link>
-                  </div>
+                  {auth.user && (
+                    <button className="hidden md:block ml-auto flex-shrink-0 p-1 rounded-full text-gray-500 hover:text-logoBlue-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-logoBlue-medium">
+                      <span className="sr-only">View notifications</span>
+                      <BellIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  )}
+                  {/* user is not signed OR has not created username */}
+                  {!auth.user && (
+                    <div className="hidden md:flex items-center justify-end space-x-8 md:flex-1 lg:w-0">
+                      <Link href="/signin">
+                        <a className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-logoBlue-medium">
+                          Sign in
+                        </a>
+                      </Link>
+                      <Link href="/signup">
+                        <a className="whitespace-nowrap rounded-md shadow-sm py-2 px-4 inline-flex items-center justify-center text-base font-medium border border-transparent  bg-black text-white dark:bg-white dark:text-black hover:bg-transparent border-gray-400 focus:shadow-outline hover:border-black hover:text-black dark:hover:text-white dark:hover:border-white">
+                          Sign up
+                        </a>
+                      </Link>
+                    </div>
+                  )}
+                  {auth.user && (
+                    <Menu as="div" className="ml-3 relative hidden md:block">
+                      {({ open }) => (
+                        <>
+                          <div>
+                            <Menu.Button className="max-w-xs flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-logoBlue-medium">
+                              <span className="sr-only">Open user menu</span>
+                              <img
+                                className="h-8 w-8 rounded-full"
+                                src={auth.user.photoUrl}
+                                alt=""
+                              />
+                            </Menu.Button>
+                          </div>
+                          <Transition
+                            show={open}
+                            as={Fragment}
+                            enter="transition ease-out duration-200"
+                            enterFrom="transform opacity-0 scale-95"
+                            enterTo="transform opacity-100 scale-100"
+                            leave="transition ease-in duration-75"
+                            leaveFrom="transform opacity-100 scale-100"
+                            leaveTo="transform opacity-0 scale-95"
+                          >
+                            <Menu.Items
+                              static
+                              className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 Glass dark:bg-gray-darkest ring-1 ring-black ring-opacity-5 focus:outline-none"
+                            >
+                              <div className="grid gap-y-4 m-2">
+                                <a
+                                  key="/profile"
+                                  href="profile"
+                                  className="mx-1 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-darkest"
+                                >
+                                  <UserIcon
+                                    className="flex-shrink-0 h-6 w-6 "
+                                    aria-hidden="true"
+                                  />
+                                  <span className="ml-3 text-base font-medium ">
+                                    Profile
+                                  </span>
+                                </a>
+                                {/* <a
+                                  key="/profile"
+                                  href="profile"
+                                  className="mx-1 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-darkest"
+                                >
+                                  <CogIcon
+                                    className="flex-shrink-0 h-6 w-6 "
+                                    aria-hidden="true"
+                                  />
+                                  <span className="ml-3 text-base font-medium ">
+                                    Settings
+                                  </span>
+                                </a> */}
+                                <button
+                                  key="signout_from_small_menu"
+                                  onClick={(e) => auth.signout()}
+                                  className="mx-1 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-darkest"
+                                >
+                                  <LogoutIcon
+                                    className="flex-shrink-0 h-6 w-6 "
+                                    aria-hidden="true"
+                                  />
+                                  <span className="ml-3 text-base font-medium ">
+                                    Sign Out
+                                  </span>
+                                </button>
+                              </div>
+                            </Menu.Items>
+                          </Transition>
+                        </>
+                      )}
+                    </Menu>
+                  )}
                 </div>
               </div>
 
@@ -224,7 +314,7 @@ export default function Header() {
                           />
                         </Link>
                         <div className="-mr-2">
-                          <Popover.Button className=" rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-blue-600  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
+                          <Popover.Button className=" rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-logoBlue-medium  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-logoBlue-medium">
                             <span className="sr-only">Close menu</span>
                             <XIcon className="h-6 w-6" aria-hidden="true" />
                           </Popover.Button>
@@ -252,30 +342,106 @@ export default function Header() {
                         </nav>
                       </div>
                     </div>
+                    {auth.user && (
+                      <div className="pt-4 pb-3">
+                        <div className="flex items-center px-4">
+                          <div className="flex-shrink-0">
+                            <img
+                              className="h-10 w-10 rounded-full"
+                              src={auth.user.photoUrl}
+                              alt=""
+                            />
+                          </div>
+                          <div className="ml-3">
+                            <div className="text-base font-medium text-logoBlue-medium">
+                              {auth.user.name}
+                            </div>
+                            <div className="text-sm font-medium text-gray-500">
+                              {auth.user.email}
+                            </div>
+                          </div>
+                          <button className="ml-auto flex-shrink-0 p-1 rounded-full text-gray-500 hover:text-logoBlue-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-logoBlue-medium">
+                            <span className="sr-only">View notifications</span>
+                            <BellIcon className="h-6 w-6" aria-hidden="true" />
+                          </button>
+                        </div>
+                        <div className="pt-5 pb-6 px-5 space-y-6">
+                          <div className="mt-6">
+                            <div className="grid gap-y-8">
+                              <a
+                                key="profile_from_hamburger_menu"
+                                href="profile"
+                                className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-darkest"
+                              >
+                                <UserIcon
+                                  className="flex-shrink-0 h-6 w-6 "
+                                  aria-hidden="true"
+                                />
+                                <span className="ml-3 text-base font-medium ">
+                                  Profile
+                                </span>
+                              </a>
+                              {/* <a
+                                key="/profile"
+                                href="profile"
+                                className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-darkest"
+                              >
+                                <CogIcon
+                                  className="flex-shrink-0 h-6 w-6 "
+                                  aria-hidden="true"
+                                />
+                                <span className="ml-3 text-base font-medium ">
+                                  Settings
+                                </span>
+                              </a> */}
+                              <button
+                                key="signout_from_hamburger_menu"
+                                onClick={(e) => auth.signout()}
+                                className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-darkest"
+                              >
+                                <LogoutIcon
+                                  className="flex-shrink-0 h-6 w-6 "
+                                  aria-hidden="true"
+                                />
+                                <span className="ml-3 text-base font-medium ">
+                                  Sign Out
+                                </span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                    <div className="mt-3 space-y-1"></div>
                     <div className="py-6 px-5 space-y-6">
                       <div className="grid grid-cols-2 gap-y-4 gap-x-8">
                         {more.map((item) => (
                           <Link key={item.name} href={item.href}>
-                            <a className="text-base font-medium p-2 hover:text-blue-700">
+                            <a className="text-base font-medium p-2 hover:text-logoBlue-medium flex justify-center text-left">
                               {item.name}
                             </a>
                           </Link>
                         ))}
                       </div>
-                      <div>
-                        <Link href="/login">
-                          <a className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-700 hover:bg-blue-600">
-                            Sign up
-                          </a>
-                        </Link>
-
-                        <p className="mt-6 text-center text-base font-medium ">
-                          Existing customer?{" "}
-                          <Link href="/login">
-                            <a className="hover:text-blue-700">Sign in</a>
+                      {/* user is not signed OR has not created username */}
+                      {!auth.user && (
+                        <div>
+                          <Link href="/signup">
+                            <a className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-logoBlue-medium hover:bg-blue-400">
+                              Sign up
+                            </a>
                           </Link>
-                        </p>
-                      </div>
+
+                          <p className="mt-6 text-center text-base font-medium ">
+                            Already have an account?{" "}
+                            <Link href="/signin">
+                              <a className="hover:text-logoBlue-medium">
+                                Sign in
+                              </a>
+                            </Link>
+                          </p>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </Popover.Panel>
