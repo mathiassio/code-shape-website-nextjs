@@ -14,6 +14,7 @@
     "@heroicons/react": "^1.0.1",
     "@stripe/stripe-js": "^1.15.0",
     "@tailwindcss/aspect-ratio": "^0.2.0",
+    "@tailwindcss/forms": "^0.3.2",
     "@tailwindcss/typography": "^0.4.0",
     "contentful": "^8.2.1",
     "firebase": "^8.6.2",

@@ -23,10 +23,12 @@ module.exports = {
       },
       colors: {
         logoBlue: {
-          dark: "#037de8",
+          dark: "#4061A8",
+          medium: "#516CA8",
           light: "#0fd9d9",
         },
         gray: {
+          evenDarker: "#0F0F0F",
           darkest: "#202020",
           dark: "#3c4858",
           DEFAULT: "#c0ccda",
@@ -76,5 +78,6 @@ module.exports = {
   plugins: [
     require("@tailwindcss/typography"),
     require("@tailwindcss/aspect-ratio"),
+    require("@tailwindcss/forms"),
   ],
 };

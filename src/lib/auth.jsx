@@ -68,6 +68,20 @@ function useProvideAuth() {
       });
   };
 
+  const signinWithApple = (redirect) => {
+    setLoading(true);
+    return firebase
+      .auth()
+      .signInWithPopup(new firebase.auth.OAuthProvider("apple.com"))
+      .then((response) => {
+        handleUser(response.user);
+
+        if (redirect) {
+          Router.push(redirect);
+        }
+      });
+  };
+
   const signinWithGoogle = (redirect) => {
     setLoading(true);
     return firebase
@@ -102,6 +116,7 @@ function useProvideAuth() {
     loading,
     signinWithEmail,
     signinWithGitHub,
+    signinWithApple,
     signinWithGoogle,
     signout,
   };
