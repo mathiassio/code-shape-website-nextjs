@@ -158,7 +158,7 @@ const SignIn = () => {
       <p className="mt-4 text-center text-sm text-gray-600">
         Or{" "}
         <a
-          href="#"
+          href="/signup"
           className="font-medium text-logoBlue-dark hover:text-logoBlue-medium"
         >
           Create Your Account
