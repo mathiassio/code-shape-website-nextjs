@@ -190,6 +190,12 @@ export default function Header() {
                       )}
                     </Popover>
                   </Popover.Group>
+                  {auth.user && (
+                    <button className="ml-auto flex-shrink-0 p-1 rounded-full text-gray-500 hover:text-logoBlue-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-logoBlue-medium">
+                      <span className="sr-only">View notifications</span>
+                      <BellIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  )}
                   {/* user is not signed OR has not created username */}
                   {!auth.user && (
                     <div className="hidden md:flex items-center justify-end space-x-8 md:flex-1 lg:w-0">
