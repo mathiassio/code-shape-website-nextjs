@@ -23,7 +23,7 @@ export default function IntroSimple(props) {
           gradientColor={gradientColor}
           className="text-4.5xl md:text-5xl font-extrabold"
         >
-          {title || "Boost your productivity. Start using Workflow today."}
+          {title || "REPLACE TEXT"}
         </Title>
         <Description className="mt-4 text-1.5xl leading-normal md:text-2xl text-gray-500">
           {description ||
