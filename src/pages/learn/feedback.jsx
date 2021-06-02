@@ -22,6 +22,7 @@ export default function FeedbackPage() {
         projectId="60b48f4d92f1880004fb29fe"
         email="true"
         primaryColor="#0395E4"
+        frf-water="none"
       />
     </Wrapper>
   );
