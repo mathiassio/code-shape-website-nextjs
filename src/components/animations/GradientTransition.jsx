@@ -1,161 +1,71 @@
-import React from "react";
-import styled from "styled-components";
+import { useEffect, useRef } from "react";
 
-const Wrapper = styled.div`
-  .section-process {
-    --gradient-color-1: #f7813a;
-    --gradient-color-2: #f22176;
-    --gradient-color-3: #fa0583;
-    --gradient-color-4: #7e28c7;
-    --gradient-color-5: #037de8;
-    --gradient-color-6: #0fd9d9;
-    .process-steps-container {
-      .process-step-container {
-        .process-step-title-container {
-          margin-top: -16px;
-          position: relative;
-          .process-step-title,
-          .process-step-title-overlay {
-            font-family: -apple-system, system-ui, BlinkMacSystemFont,
-              "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-
-            font-weight: 900;
-            margin: 0;
-            line-height: 1.2em;
-            letter-spacing: -4px;
-          }
-          .process-step-title {
-          }
-          .process-step-title-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: auto;
-            padding-right: 30px;
-            height: 100%;
-            opacity: 1;
-            -webkit-text-fill-color: transparent;
-            -webkit-background-clip: text;
-            background-clip: text;
-          }
-        }
-
-        &.process-step-1 {
-          .process-step-title-overlay {
-            background-image: linear-gradient(
-              90deg,
-              var(--gradient-color-1),
-              var(--gradient-color-2)
-            );
-            animation: animated-gradient-title-1 8s infinite;
-          }
-        }
-
-        &.process-step-2 {
-          .process-step-title-overlay {
-            background-image: linear-gradient(
-              90deg,
-              var(--gradient-color-3),
-              var(--gradient-color-4)
-            );
-            animation: animated-gradient-title-2 8s infinite;
-          }
-        }
-
-        &.process-step-3 {
-          .process-step-title-overlay {
-            background-image: linear-gradient(
-              90deg,
-              var(--gradient-color-5),
-              var(--gradient-color-6)
-            );
-            animation: animated-gradient-title-3 8s infinite;
-          }
-        }
-      }
-    }
-
-    @keyframes animated-gradient-title-1 {
-      0%,
-      16.667%,
-      100% {
-        opacity: 1;
-      }
-
-      33.333%,
-      83.333% {
-        opacity: 0;
-      }
-    }
-
-    @keyframes animated-gradient-title-2 {
-      0%,
-      16.667%,
-      66.667%,
-      100% {
-        opacity: 0;
-      }
-
-      33.333%,
-      50% {
-        opacity: 1;
-      }
-    }
-
-    @keyframes animated-gradient-title-3 {
-      0%,
-      50%,
-      100% {
-        opacity: 0;
-      }
-
-      66.667%,
-      83.333% {
-        opacity: 1;
-      }
-    }
-  }
-`;
+// Add `text-transparent` class to activate the gradient
+function GradientText({ text, from, to, style = {} }) {
+  return (
+    <span
+      className={`relative bg-clip-text bg-gradient-to-r ${from} ${to}`}
+      style={style}
+    >
+      {text}
+    </span>
+  );
+}
 
 export default function GradientTransition() {
+  const dspRef = useRef();
+
+  useEffect(() => {
+    const dspContainer = dspRef.current;
+
+    const tween = {
+      css: {
+        color: "transparent",
+      },
+      repeat: 1,
+      yoyo: true,
+    };
+
+    // Use dynamic import for gsap to make sure that it's loaded in client side
+    (async () => {
+      const { TimelineMax } = await import("gsap");
+
+      const tl = new TimelineMax({ repeat: -1 });
+      for (let i = 0; i < dspContainer.children.length; i++) {
+        tl.to(dspContainer.children[i], 1.2, tween);
+      }
+    })();
+  }, []);
+
   return (
-    <Wrapper className="grid justify-center">
-      <section class="section-process">
-        <div class="section-container">
-          <div class="process-steps-container container-medium with-padding">
-            <div class="process-step-container process-step-1">
-              <div class="process-step-title-container">
-                <h1 class="process-step-title text-5xl sm:text-7xl md:text-9xl">
-                  Learn.
-                </h1>
-                <div class="process-step-title-overlay text-5xl sm:text-7xl md:text-9xl">
-                  Learn.
-                </div>
-              </div>
-            </div>
-            <div class="process-step-container process-step-2">
-              <div class="process-step-title-container">
-                <h1 class="process-step-title text-5xl sm:text-7xl md:text-9xl">
-                  Create.
-                </h1>
-                <div class="process-step-title-overlay text-5xl sm:text-7xl md:text-9xl">
-                  Create.
-                </div>
-              </div>
-            </div>
-            <div class="process-step-container process-step-3">
-              <div class="process-step-title-container">
-                <h1 class="process-step-title text-5xl sm:text-7xl md:text-9xl">
-                  Develop.
-                </h1>
-                <div class="process-step-title-overlay text-5xl sm:text-7xl md:text-9xl">
-                  Develop.
-                </div>
-              </div>
-            </div>
+    <div className="antialiased">
+      <main>
+        <div>
+          <div
+            ref={dspRef}
+            className="mb-12 flex flex-col items-center justify-center font-extrabold tracking-tighter text-6xl md:text-10xl"
+            style={{ lineHeight: 1.2 }}
+          >
+            <GradientText
+              text="Learn."
+              from="from-red-600"
+              to="to-yellow-500"
+              style={{ bottom: "-0.2em" }}
+            />
+            <GradientText
+              text="Create."
+              from="from-purple-600"
+              to="to-pink-600"
+            />
+            <GradientText
+              text="Deliver."
+              from="from-logoBlue-light"
+              to="to-blueCustom-normal"
+              style={{ top: "-0.2em" }}
+            />
           </div>
         </div>
-      </section>
-    </Wrapper>
+      </main>
+    </div>
   );
 }

@@ -1,8 +1,15 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   purge: ["./public/**/*.html", "./src/**/*.{js,jsx,ts,tsx,vue}"],
   darkMode: "media",
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["Inter var", ...defaultTheme.fontFamily.sans],
+        display: ["Inter var"],
+        body: ["Inter var"],
+      },
       fontSize: {
         xs: ".75rem",
         sm: ".875rem",
@@ -20,12 +27,16 @@ module.exports = {
         "7xl": "6.5rem",
         "8xl": "8rem",
         "9xl": "10rem",
+        "10xl": "12rem",
       },
       colors: {
         logoBlue: {
           dark: "#4061A8",
           medium: "#516CA8",
           light: "#0fd9d9",
+        },
+        blueCustom: {
+          normal: "#037de8",
         },
         gray: {
           evenDarker: "#0F0F0F",
