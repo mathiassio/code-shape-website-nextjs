@@ -740,6 +740,48 @@ export async function getShowcase(slug) {
   });
 }
 
+export async function getLimitedShowcases() {
+  const limitedShowcasesQuery = gql`
+    {
+      showcaseCollection(order: date_DESC, limit: 6) {
+        items {
+          title
+          slug
+          url
+          excerpt
+          date
+          contentfulMetadata {
+            tags {
+              name
+              id
+            }
+          }
+          featuredImage {
+            title
+            url
+            width
+            height
+          }
+          author {
+            name
+            photo {
+              fileName
+              url
+              width
+              height
+            }
+            title
+            twitterProfile
+            linkedInProfile
+            slug
+          }
+        }
+      }
+    }
+  `;
+  return graphQLClient.request(limitedShowcasesQuery);
+}
+
 //Update Queries
 
 export async function getUpdates() {
