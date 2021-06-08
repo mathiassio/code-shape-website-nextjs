@@ -3,23 +3,45 @@ import {
   SupportIcon,
   ViewGridIcon,
   AcademicCapIcon,
+  VideoCameraIcon,
   BookOpenIcon,
   UserGroupIcon,
 } from "@heroicons/react/outline";
 
 export const main = [
   {
+    name: "Community",
+    description: "Your customers' data will be safe and secure.",
+    href: "/community",
+    icon: CalendarIcon,
+  },
+  {
+    name: "Enterprise",
+    description: "Connect with third-party tools that you're already using.",
+    href: "/enterprise",
+    icon: ViewGridIcon,
+  },
+];
+
+export const mobile = [
+  {
     name: "Learn",
     description:
-      "Get a better understanding of where your traffic is coming from.",
-    href: "/learn",
+      "Get all of your questions answered in our forums or contact support.",
+    href: "/articles",
     icon: AcademicCapIcon,
   },
   {
     name: "Articles",
-    description: "Speak directly to your customers in a more meaningful way.",
+    description: "Reading is one of the most effective ways of learning.",
     href: "/articles",
     icon: BookOpenIcon,
+  },
+  {
+    name: "Courses",
+    description: "Learn how to build amazing things.",
+    href: "/learn/courses",
+    icon: VideoCameraIcon,
   },
   {
     name: "Community",
@@ -34,6 +56,22 @@ export const main = [
     icon: ViewGridIcon,
   },
 ];
+
+export const learn = [
+  {
+    name: "Articles",
+    description: "Reading is one of the most effective ways of learning.",
+    href: "/articles",
+    icon: BookOpenIcon,
+  },
+  {
+    name: "Courses",
+    description: "Learn how to build amazing things.",
+    href: "/learn/courses",
+    icon: VideoCameraIcon,
+  },
+];
+
 export const more = [
   {
     name: "Help Center",
@@ -67,7 +105,7 @@ export const footer = {
   learn: [
     { name: "Get Started", href: "/learn" },
     { name: "Courses", href: "/learn/courses" },
-    { name: "Feedback", href: "/learn/feedback" },
+    { name: "Feedback", href: "/feedback" },
   ],
   support: [
     { name: "Articles", href: "/articles" },

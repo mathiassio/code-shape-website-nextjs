@@ -21,9 +21,6 @@ export default function HomePage() {
         ></script>
       </Head>
       <HeroSection />
-      {/* <HomeLearnSection />
-      <HomeCreateSection />
-      <HomeDevelopSection /> */}
     </Wrapper>
   );
 }

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styled from "styled-components";
-import PageIntro from "../../components/intros/PageIntro";
+import PageIntro from "../components/intros/PageIntro";
 import loadable from "@loadable/component";
 const Feedback = loadable(() => import("feeder-react-feedback/dist/Feedback"));
 import "feeder-react-feedback/dist/feeder-react-feedback.css";

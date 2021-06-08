@@ -1,5 +1,5 @@
-import React, { Fragment, useState, useEffect } from "react";
-import { main, more } from "./navigation/menuData";
+import React, { Fragment, useState } from "react";
+import { main, learn, more, mobile } from "./navigation/menuData";
 import { Popover, Transition, Menu } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import {
@@ -35,6 +35,14 @@ const Wrapper = styled.div`
         background-color: rgba(50, 50, 52, 1);
       }
     }
+  }
+
+  .gradient {
+    background: ${(props) =>
+      props.gradientColor || "-webkit-linear-gradient(left, #037de8, #0fd9d9)"};
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 `;
 
@@ -85,6 +93,67 @@ export default function Header() {
                     </Popover.Button>
                   </div>
                   <Popover.Group as="nav" className="hidden md:flex space-x-10">
+                    <Popover className="relative">
+                      {({ open }) => (
+                        <>
+                          <Popover.Button
+                            className={classNames(
+                              open
+                                ? "text-logoBlue-medium"
+                                : "text-gray-500 dark:text-gray-500",
+                              "group rounded-md inline-flex items-center text-base font-medium hover:text-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-500 focus:ring-logoBlue-medium p-1"
+                            )}
+                          >
+                            <span>Learn</span>
+                            <ChevronDownIcon
+                              className={classNames(
+                                open
+                                  ? "text-logoBlue-medium"
+                                  : "text-gray-500 dark:text-gray-500",
+                                "ml-2 h-5 w-5 group-hover:text-blue-500"
+                              )}
+                              aria-hidden="true"
+                            />
+                          </Popover.Button>
+
+                          <Transition
+                            show={open}
+                            as={Fragment}
+                            enter="transition ease-out duration-200"
+                            enterFrom="opacity-0 translate-y-1"
+                            enterTo="opacity-100 translate-y-0"
+                            leave="transition ease-in duration-150"
+                            leaveFrom="opacity-100 translate-y-0"
+                            leaveTo="opacity-0 translate-y-1"
+                          >
+                            <Popover.Panel className="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0">
+                              <div className="rounded-lg Glass shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                                <div className="relative  py-6 px-5 grid gap-6 sm:gap-8 sm:p-8">
+                                  {learn.map((item) => (
+                                    <Link key={item.name} href={item.href}>
+                                      <a className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 dark:hover:bg-gray-darkest">
+                                        <item.icon
+                                          className="flex-shrink-0 h-6 w-6 text-logoBlue-medium"
+                                          aria-hidden="true"
+                                        />
+                                        <div className="ml-4">
+                                          <p className="text-base font-medium text-logoBlue-medium">
+                                            {item.name}
+                                          </p>
+                                          <p className="mt-1 text-sm ">
+                                            {item.description}
+                                          </p>
+                                        </div>
+                                      </a>
+                                    </Link>
+                                  ))}
+                                </div>
+                              </div>
+                            </Popover.Panel>
+                          </Transition>
+                        </>
+                      )}
+                    </Popover>
                     {main.map((item) => (
                       <Link href={item.href} key={item.name}>
                         <a
@@ -322,7 +391,7 @@ export default function Header() {
                       </div>
                       <div className="mt-6">
                         <nav className="grid gap-y-8">
-                          {main.map((item) => (
+                          {mobile.map((item) => (
                             <Link key={item.name} href={item.href}>
                               <a
                                 key={item.name}
@@ -353,10 +422,10 @@ export default function Header() {
                             />
                           </div>
                           <div className="ml-3">
-                            <div className="text-base font-medium text-logoBlue-medium">
+                            <div className="text-base font-semibold gradient">
                               {auth.user.name}
                             </div>
-                            <div className="text-sm font-medium text-gray-500">
+                            <div className="text-sm font-medium text-gray-500 dark:text-gray-400">
                               {auth.user.email}
                             </div>
                           </div>
