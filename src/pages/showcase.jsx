@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Link from "next/link";
 import styled from "styled-components";
 import PageIntro from "../components/intros/PageIntro";
 import { getShowcases } from "../utils/contentful";
@@ -40,7 +39,7 @@ export default function Showcase({ showcases }) {
                 {showcases.map((showcase) => (
                   <li key={showcase.title}>
                     <div className="space-y-4">
-                      <Link href={showcase.url}>
+                      <a href={showcase.url} target="_blank">
                         <div className="aspect-w-3 aspect-h-2 hover:-translate-y-0.5 transform transition">
                           <img
                             className="object-cover shadow-lg rounded-lg"
@@ -48,7 +47,7 @@ export default function Showcase({ showcases }) {
                             alt=""
                           />
                         </div>
-                      </Link>
+                      </a>
                     </div>
                   </li>
                 ))}
