@@ -6,6 +6,7 @@ import {
   VideoCameraIcon,
   BookOpenIcon,
   UserGroupIcon,
+  PencilAltIcon,
 } from "@heroicons/react/outline";
 
 export const main = [
@@ -85,7 +86,7 @@ export const more = [
     description:
       "When creating experiences, feedback is an essential part of the flow",
     href: "/feedback",
-    icon: SupportIcon,
+    icon: PencilAltIcon,
   },
   {
     name: "Updates",

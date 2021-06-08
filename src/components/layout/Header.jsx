@@ -259,12 +259,7 @@ export default function Header() {
                       )}
                     </Popover>
                   </Popover.Group>
-                  {auth.user && (
-                    <button className="hidden md:block ml-auto flex-shrink-0 p-1 rounded-full text-gray-500 hover:text-logoBlue-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-logoBlue-medium">
-                      <span className="sr-only">View notifications</span>
-                      <BellIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  )}
+
                   {/* user is not signed OR has not created username */}
                   {!auth.user && (
                     <div className="hidden md:flex items-center justify-end space-x-8 md:flex-1 lg:w-0">
@@ -281,48 +276,49 @@ export default function Header() {
                     </div>
                   )}
                   {auth.user && (
-                    <Menu as="div" className="ml-3 relative hidden md:block">
-                      {({ open }) => (
-                        <>
-                          <div>
-                            <Menu.Button className="max-w-xs flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-logoBlue-medium">
-                              <span className="sr-only">Open user menu</span>
-                              <img
-                                className="h-8 w-8 rounded-full"
-                                src={auth.user.photoUrl}
-                                alt=""
-                              />
-                            </Menu.Button>
-                          </div>
-                          <Transition
-                            show={open}
-                            as={Fragment}
-                            enter="transition ease-out duration-200"
-                            enterFrom="transform opacity-0 scale-95"
-                            enterTo="transform opacity-100 scale-100"
-                            leave="transition ease-in duration-75"
-                            leaveFrom="transform opacity-100 scale-100"
-                            leaveTo="transform opacity-0 scale-95"
-                          >
-                            <Menu.Items
-                              static
-                              className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 Glass dark:bg-gray-darkest ring-1 ring-black ring-opacity-5 focus:outline-none"
+                    <div className="hidden md:flex items-center justify-end space-x-8 md:flex-1 lg:w-0">
+                      <Menu as="div" className="ml-3 relative hidden md:block">
+                        {({ open }) => (
+                          <>
+                            <div>
+                              <Menu.Button className="max-w-xs flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-logoBlue-medium">
+                                <span className="sr-only">Open user menu</span>
+                                <img
+                                  className="h-8 w-8 rounded-full"
+                                  src={auth.user.photoUrl}
+                                  alt=""
+                                />
+                              </Menu.Button>
+                            </div>
+                            <Transition
+                              show={open}
+                              as={Fragment}
+                              enter="transition ease-out duration-200"
+                              enterFrom="transform opacity-0 scale-95"
+                              enterTo="transform opacity-100 scale-100"
+                              leave="transition ease-in duration-75"
+                              leaveFrom="transform opacity-100 scale-100"
+                              leaveTo="transform opacity-0 scale-95"
                             >
-                              <div className="grid gap-y-4 m-2">
-                                <a
-                                  key="/profile"
-                                  href="profile"
-                                  className="mx-1 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-darkest"
-                                >
-                                  <UserIcon
-                                    className="flex-shrink-0 h-6 w-6 "
-                                    aria-hidden="true"
-                                  />
-                                  <span className="ml-3 text-base font-medium ">
-                                    Profile
-                                  </span>
-                                </a>
-                                {/* <a
+                              <Menu.Items
+                                static
+                                className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 Glass dark:bg-gray-darkest ring-1 ring-black ring-opacity-5 focus:outline-none"
+                              >
+                                <div className="grid gap-y-4 m-2">
+                                  <a
+                                    key="/profile"
+                                    href="profile"
+                                    className="mx-1 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-darkest"
+                                  >
+                                    <UserIcon
+                                      className="flex-shrink-0 h-6 w-6 "
+                                      aria-hidden="true"
+                                    />
+                                    <span className="ml-3 text-base font-medium ">
+                                      Profile
+                                    </span>
+                                  </a>
+                                  {/* <a
                                   key="/profile"
                                   href="profile"
                                   className="mx-1 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-darkest"
@@ -335,25 +331,26 @@ export default function Header() {
                                     Settings
                                   </span>
                                 </a> */}
-                                <button
-                                  key="signout_from_small_menu"
-                                  onClick={(e) => auth.signout()}
-                                  className="mx-1 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-darkest"
-                                >
-                                  <LogoutIcon
-                                    className="flex-shrink-0 h-6 w-6 "
-                                    aria-hidden="true"
-                                  />
-                                  <span className="ml-3 text-base font-medium ">
-                                    Sign Out
-                                  </span>
-                                </button>
-                              </div>
-                            </Menu.Items>
-                          </Transition>
-                        </>
-                      )}
-                    </Menu>
+                                  <button
+                                    key="signout_from_small_menu"
+                                    onClick={(e) => auth.signout()}
+                                    className="mx-1 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-darkest"
+                                  >
+                                    <LogoutIcon
+                                      className="flex-shrink-0 h-6 w-6 "
+                                      aria-hidden="true"
+                                    />
+                                    <span className="ml-3 text-base font-medium ">
+                                      Sign Out
+                                    </span>
+                                  </button>
+                                </div>
+                              </Menu.Items>
+                            </Transition>
+                          </>
+                        )}
+                      </Menu>
+                    </div>
                   )}
                 </div>
               </div>
