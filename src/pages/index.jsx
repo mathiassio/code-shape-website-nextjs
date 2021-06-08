@@ -1,9 +1,6 @@
 import Head from "next/head";
 import styled from "styled-components";
 import HeroSection from "../components/sections/HeroSection";
-import HomeCreateSection from "../components/sections/HomeCreateSection";
-import HomeDevelopSection from "../components/sections/HomeDevelopSection";
-import HomeLearnSection from "../components/sections/HomeLearnSection";
 
 const Wrapper = styled.div`
   padding: 3.5rem;
