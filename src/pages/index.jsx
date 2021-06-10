@@ -13,11 +13,8 @@ export default function HomePage() {
         <title>Code Shape - Home</title>
         <link rel="icon" href="/favicon.ico" />
         <script
-          type="text/javascript"
-          id="hs-script-loader"
+          src="//code.tidio.co/hypd4ps4dy1riahfaqmg3edky54i80mi.js"
           async
-          defer
-          src="//js.hs-scripts.com/8205013.js"
         ></script>
       </Head>
       <HeroSection />
