@@ -76,6 +76,26 @@ const SignIn = () => {
               </div>
             </div>
 
+            <div class="mt-6 block p-5 text-sm md:font-sans text-gray-800">
+              <input type="checkbox" class="inline-block border-0  "></input>
+              <span display="inline" class="">
+                {" "}
+                I have read and I accept the{" "}
+                <a class="" href="/terms" target="_blank" data-test="Link">
+                  <span class="text-logoBlue-medium">Terms of Use </span>
+                </a>{" "}
+                and{" "}
+                <a
+                  class=""
+                  href="/privacy-policy"
+                  target="_blank"
+                  data-test="Link"
+                >
+                  <span class="text-logoBlue-medium">Privacy Policy</span>{" "}
+                </a>
+              </span>
+            </div>
+
             <div>
               <button
                 type="submit"
