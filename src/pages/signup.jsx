@@ -5,7 +5,7 @@ const SignIn = () => {
   const auth = useAuth();
 
   return (
-    <div className=" flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <img
           className="mx-auto h-12 w-auto"
@@ -15,6 +15,25 @@ const SignIn = () => {
         <h2 className="mt-6 text-center text-3xl font-extrabold text-logoBlue-dark">
           Sign up to Code Shape
         </h2>
+        <p className="mt-4 text-center text-sm text-gray-600">
+          By signing up for an account, you automatically agree and accept the{" "}
+          <a
+            href="/terms-of-use"
+            target="_blank"
+            className="text-logoBlue-medium"
+          >
+            Terms of Use{" "}
+          </a>{" "}
+          and the{" "}
+          <a
+            href="/privacy-policy"
+            target="_blank"
+            className="text-logoBlue-medium"
+          >
+            Privacy Policy
+          </a>
+          .
+        </p>
       </div>
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md dark:bg-gray-darkest rounded-lg">
         <div className="py-8 px-4 shadow sm:rounded-lg sm:px-10">
@@ -30,8 +49,8 @@ const SignIn = () => {
                 <input
                   id="name"
                   name="name"
-                  type="name"
-                  autoComplete="name"
+                  type="text"
+                  autoComplete="text"
                   required
                   className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 />
@@ -74,26 +93,6 @@ const SignIn = () => {
                   className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 />
               </div>
-            </div>
-
-            <div class="mt-6 block p-5 text-sm md:font-sans text-gray-800">
-              <input type="checkbox" class="inline-block border-0  "></input>
-              <span display="inline" class="">
-                {" "}
-                I have read and I accept the{" "}
-                <a class="" href="/terms" target="_blank" data-test="Link">
-                  <span class="text-logoBlue-medium">Terms of Use </span>
-                </a>{" "}
-                and{" "}
-                <a
-                  class=""
-                  href="/privacy-policy"
-                  target="_blank"
-                  data-test="Link"
-                >
-                  <span class="text-logoBlue-medium">Privacy Policy</span>{" "}
-                </a>
-              </span>
             </div>
 
             <div>
