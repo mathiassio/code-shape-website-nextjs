@@ -148,6 +148,38 @@ export default function Header() {
                                     </Link>
                                   ))}
                                 </div>
+                                {/* <div className="px-5 py-5 sm:px-8 sm:py-8">
+                                  <div>
+                                    <h3 className="text-sm tracking-wide font-medium text-blue-600 uppercase">
+                                      Recent Posts
+                                    </h3>
+                                    <ul className="mt-4 space-y-4">
+                                      {recentPosts.map((post) => (
+                                        <li
+                                          key={post.id}
+                                          className="text-base truncate"
+                                        >
+                                          <a
+                                            href={post.href}
+                                            className="font-medium hover:text-blue-500 "
+                                          >
+                                            {post.name}
+                                          </a>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                  <div className="mt-5 text-sm">
+                                    <a
+                                      href="/articles/more"
+                                      className="font-medium text-blue-600 hover:text-blue-500"
+                                    >
+                                      {" "}
+                                      View all posts{" "}
+                                      <span aria-hidden="true">&rarr;</span>
+                                    </a>
+                                  </div>
+                                </div>*/}
                               </div>
                             </Popover.Panel>
                           </Transition>
@@ -220,38 +252,6 @@ export default function Header() {
                                     </Link>
                                   ))}
                                 </div>
-                                {/* <div className="px-5 py-5 sm:px-8 sm:py-8">
-                                  <div>
-                                    <h3 className="text-sm tracking-wide font-medium text-blue-600 uppercase">
-                                      Recent Posts
-                                    </h3>
-                                    <ul className="mt-4 space-y-4">
-                                      {recentPosts.map((post) => (
-                                        <li
-                                          key={post.id}
-                                          className="text-base truncate"
-                                        >
-                                          <a
-                                            href={post.href}
-                                            className="font-medium hover:text-blue-500 "
-                                          >
-                                            {post.name}
-                                          </a>
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  </div>
-                                  <div className="mt-5 text-sm">
-                                    <a
-                                      href="/articles"
-                                      className="font-medium text-blue-600 hover:text-blue-500"
-                                    >
-                                      {" "}
-                                      View all posts{" "}
-                                      <span aria-hidden="true">&rarr;</span>
-                                    </a>
-                                  </div>
-                                </div> */}
                               </div>
                             </Popover.Panel>
                           </Transition>

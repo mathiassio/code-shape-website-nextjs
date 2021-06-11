@@ -10,8 +10,49 @@ const graphQLClient = new GraphQLClient(endpoint, {
 
 //Articles Queries
 
+export async function getRecentArticles() {
+  const recentArticlesQuery = gql`
+    {
+      articleCollection(order: date_DESC, limit: 3) {
+        items {
+          title
+          slug
+          excerpt
+          date
+          contentfulMetadata {
+            tags {
+              name
+              id
+            }
+          }
+          featuredImage {
+            title
+            url
+            width
+            height
+          }
+          author {
+            name
+            photo {
+              fileName
+              url
+              width
+              height
+            }
+            title
+            twitterProfile
+            linkedInProfile
+            slug
+          }
+        }
+      }
+    }
+  `;
+  return graphQLClient.request(recentArticlesQuery);
+}
+
 export async function getPaginatedArticles() {
-  const articlesQuery = gql`
+  const paginatedArticlesQuery = gql`
     {
       articleCollection(order: date_DESC, limit: 9) {
         items {
@@ -48,7 +89,7 @@ export async function getPaginatedArticles() {
       }
     }
   `;
-  return graphQLClient.request(articlesQuery);
+  return graphQLClient.request(paginatedArticlesQuery);
 }
 
 export async function getArticles() {

@@ -4,6 +4,7 @@ import {
   getPaginatedArticles,
   getPaginatedCases,
   getArticles,
+  getRecentArticles,
 } from "../utils/contentful";
 import Link from "next/link";
 import PageIntro from "../components/intros/PageIntro";
@@ -21,12 +22,14 @@ export async function getStaticProps() {
   const articles = await getPaginatedArticles();
   const cases = await getPaginatedCases();
   const categories = await getArticles();
+  const recentArticles = await getRecentArticles();
 
   return {
     props: {
       articles: articles.articleCollection.items,
       cases: cases.caseCollection.items,
       categories: categories.articleCollection.items,
+      recentArticles: recentArticles.articleCollection.items,
     },
   };
 }
