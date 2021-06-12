@@ -3,7 +3,14 @@ import Page from "../components/Page";
 
 const SignIn = () => {
   const auth = useAuth();
-
+  const registerUser = event => {
+    event.preventDefault()
+    const target = event.target;
+    const email = target.email.value;
+    const password = target.email.value;
+    const name = target.name.value;
+    auth.signinWithEmail(email,password,name)
+  }
   return (
     <div className="flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -37,7 +44,7 @@ const SignIn = () => {
       </div>
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md dark:bg-gray-darkest rounded-lg">
         <div className="py-8 px-4 shadow sm:rounded-lg sm:px-10">
-          <form className="space-y-6" action="#" method="POST">
+          <form className="space-y-6" action="#" method="POST" onSubmit={registerUser}>
             <div>
               <label
                 htmlFor="name"
@@ -68,7 +75,7 @@ const SignIn = () => {
                 <input
                   id="email"
                   name="email"
-                  type="email"
+                  type="text"
                   autoComplete="email"
                   required
                   className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
