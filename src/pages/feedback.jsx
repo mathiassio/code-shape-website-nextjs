@@ -2,7 +2,7 @@ import Head from "next/head";
 import styled from "styled-components";
 import PageIntro from "../components/intros/PageIntro";
 import {
-  AnnotationIcon,
+  PaperClipIcon,
   GlobeAltIcon,
   LightningBoltIcon,
   ScaleIcon,
@@ -25,13 +25,13 @@ const feedback = [
     name: "Image or Video",
     description:
       "Providing a screenshot or video might help to explain the information faster. We care about your time, and we want you to spend as much time on learning rather than being a bug hunter.",
-    icon: LightningBoltIcon,
+    icon: PaperClipIcon,
   },
   {
     name: "Be Caring",
     description:
       "Regardless of what type of feedback is shared, it is crucial to remain positive and caring. Keeping the tone inspiring, constructive and valuable is often the fastest way to see results.",
-    icon: AnnotationIcon,
+    icon: GlobeAltIcon,
   },
 ];
 
