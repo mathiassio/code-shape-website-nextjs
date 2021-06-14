@@ -1,15 +1,8 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
-
 module.exports = {
   purge: ["./public/**/*.html", "./src/**/*.{js,jsx,ts,tsx,vue}"],
   darkMode: "media",
   theme: {
     extend: {
-      fontFamily: {
-        sans: ["Inter var", ...defaultTheme.fontFamily.sans],
-        display: ["Inter var"],
-        body: ["Inter var"],
-      },
       fontSize: {
         xs: ".75rem",
         sm: ".875rem",
