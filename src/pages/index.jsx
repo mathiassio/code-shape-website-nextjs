@@ -2,9 +2,7 @@ import Head from "next/head";
 import styled from "styled-components";
 import HeroSection from "../components/sections/HeroSection";
 
-const Wrapper = styled.div`
-  padding: 3.5rem;
-`;
+const Wrapper = styled.div``;
 
 export default function HomePage() {
   return (
