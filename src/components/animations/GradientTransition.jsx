@@ -58,7 +58,7 @@ export default function GradientTransition() {
               to="to-pink-600"
             />
             <GradientText
-              text="Deliver."
+              text="Share."
               from="from-logoBlue-light"
               to="to-blueCustom-normal"
               style={{ top: "-0.2em" }}
