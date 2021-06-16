@@ -276,7 +276,7 @@ export default function Header() {
                     </div>
                   )}
                   {auth.user && (
-                    <div className="hidden md:flex items-center justify-end space-x-8 md:flex-1 lg:w-0">
+                    <div className="hidden md:flex items-center justify-end space-x-8 md:flex-1 lg:w-0 z-10">
                       <Menu as="div" className="ml-3 relative hidden md:block">
                         {({ open }) => (
                           <>
@@ -318,19 +318,19 @@ export default function Header() {
                                       Profile
                                     </span>
                                   </a>
-                                  {/* <a
-                                  key="/profile"
-                                  href="profile"
-                                  className="mx-1 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-darkest"
-                                >
-                                  <CogIcon
-                                    className="flex-shrink-0 h-6 w-6 "
-                                    aria-hidden="true"
-                                  />
-                                  <span className="ml-3 text-base font-medium ">
-                                    Settings
-                                  </span>
-                                </a> */}
+                                  <a
+                                    key="/settings/profile"
+                                    href="settings/profile"
+                                    className="mx-1 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-darkest"
+                                  >
+                                    <CogIcon
+                                      className="flex-shrink-0 h-6 w-6 "
+                                      aria-hidden="true"
+                                    />
+                                    <span className="ml-3 text-base font-medium ">
+                                      Settings
+                                    </span>
+                                  </a>
                                   <button
                                     key="signout_from_small_menu"
                                     onClick={(e) => auth.signout()}
@@ -447,9 +447,9 @@ export default function Header() {
                                   Profile
                                 </span>
                               </a>
-                              {/* <a
-                                key="/profile"
-                                href="profile"
+                              <a
+                                key="/settings/profile"
+                                href="settings/profile"
                                 className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-darkest"
                               >
                                 <CogIcon
@@ -459,7 +459,7 @@ export default function Header() {
                                 <span className="ml-3 text-base font-medium ">
                                   Settings
                                 </span>
-                              </a> */}
+                              </a>
                               <button
                                 key="signout_from_hamburger_menu"
                                 onClick={(e) => auth.signout()}

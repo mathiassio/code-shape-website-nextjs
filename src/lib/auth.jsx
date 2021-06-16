@@ -43,17 +43,19 @@ function useProvideAuth() {
     }
   };
 
-  const signinWithEmail = (email,password,name) => {
+  const signinWithEmail = (email, password, name) => {
     setLoading(true);
     return firebase
       .auth()
-      .[name ? 'createUserWithEmailAndPassword' : 'signInWithEmailAndPassword'](email, password)
+      [name ? "createUserWithEmailAndPassword" : "signInWithEmailAndPassword"](
+        email,
+        password
+      )
       .then((response) => {
         handleUser(response.user);
         Router.push("/profile");
       });
   };
-
 
   const signinWithGitHub = (redirect) => {
     setLoading(true);

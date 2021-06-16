@@ -53,7 +53,7 @@ export default function ArticlesPage({ cases }) {
                       alt=""
                     />
                   </div>
-                  <div className="flex-1 bg-white dark:bg-gray-darkest  p-6 flex flex-col justify-between">
+                  <div className="flex-1 bg-white dark:bg-gray-darker  p-6 flex flex-col justify-between">
                     <div className="flex-1">
                       <p className="text-sm font-medium text-indigo-600">
                         {item.contentfulMetadata.tags.map((tag) => {

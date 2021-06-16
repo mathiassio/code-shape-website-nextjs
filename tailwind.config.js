@@ -32,12 +32,11 @@ module.exports = {
           normal: "#037de8",
         },
         gray: {
-          evenDarker: "#0F0F0F",
-          darkest: "#202020",
-          dark: "#3c4858",
-          DEFAULT: "#c0ccda",
-          light: "#e0e6ed",
-          lightest: "#f9fafc",
+          darkest: "#0F0F0F",
+          darker: "#101010",
+          dark: "#151515",
+          light: "#202020",
+          lightest: "#252525",
         },
       },
       typography(theme) {

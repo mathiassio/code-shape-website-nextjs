@@ -24,7 +24,7 @@ export default function ProfilePage() {
       />
 
       <section aria-labelledby="profile-overview-title">
-        <div className="rounded-lg overflow-hidden shadow max-w-3xl m-auto bg-gray-50 dark:bg-gray-darkest">
+        <div className="rounded-lg overflow-hidden shadow max-w-3xl m-auto bg-gray-50 dark:bg-gray-dark">
           <h2 className="sr-only" id="profile-overview-title">
             Profile Overview
           </h2>
