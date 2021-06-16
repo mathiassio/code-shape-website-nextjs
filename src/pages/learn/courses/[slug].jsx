@@ -7,7 +7,6 @@ import TypographyStyles from "../../../components/RichTextPageContent/Styles/Typ
 import { getCourses, getCourse } from "../../../utils/contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
-import Utterances from "../../../utils/utterances";
 
 const Wrapper = styled.div`
   padding-top: 3.5rem;
@@ -257,7 +256,6 @@ export default function CoursePage({ course, renderH2Links }) {
           </div>
         </div>
       </Content>
-      <Utterances />
     </Wrapper>
   );
 }
