@@ -23,7 +23,7 @@ export default function About({ authors }) {
   return (
     <Wrapper>
       <Head>
-        <title>Code Shape - Articles</title>
+        <title>Code Shape - About</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ContentWrapper>
