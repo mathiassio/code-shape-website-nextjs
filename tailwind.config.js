@@ -3,26 +3,27 @@ module.exports = {
   darkMode: "media",
   theme: {
     extend: {
-      fontSize: {
-        xs: ".75rem",
-        sm: ".875rem",
-        tiny: ".875rem",
-        base: "1rem",
-        lg: "1.125rem",
-        xl: "1.25rem",
-        "1.5xl": "1.4rem",
-        "2xl": "1.5rem",
-        "3xl": "1.875rem",
-        "4xl": "2.25rem",
-        "4.5xl": "3.25rem",
-        "5xl": "5rem",
-        "6xl": "6rem",
-        "7xl": "6.5rem",
-        "8xl": "8rem",
-        "9xl": "10rem",
-        "10xl": "12rem",
+      animation: {
+        blob: "blob 7s infinite",
+      },
+      keyframes: {
+        blob: {
+          "0%": {
+            transform: "translate(0px, 0px) scale(1)",
+          },
+          "33%": {
+            transform: "translate(30px, -50px) scale(1.1)",
+          },
+          "66%": {
+            transform: "translate(-20px, 20px) scale(0.9)",
+          },
+          "100%": {
+            transform: "translate(0px, 0px) scale(1)",
+          },
+        },
       },
       colors: {
+        teal: "#0fd9d9",
         logoBlue: {
           dark: "#4061A8",
           medium: "#516CA8",
