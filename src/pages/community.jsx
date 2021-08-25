@@ -50,7 +50,7 @@ export default function CommunityPage() {
         />
         <ImageWrapper>
           <Image
-            src="/images/screenshots/discord_community.png"
+            src="/images/screenshots/element_community.png"
             width="1200"
             height="800"
             className="image"
@@ -61,7 +61,7 @@ export default function CommunityPage() {
         <ButtonWithAnimation
           title="Join now"
           subtitle="Collaborate"
-          link="https://discord.com/invite/rUV9mYWV8K"
+          link="https://matrix.to/#/!DIarrAEFsXOjVqLlUI:matrix.org?via=matrix.org"
           icon="images/icons/community_light.svg"
           backgroundColor="linear-gradient(200.44deg, #F50686 13.57%, #8725C2 98.38%)"
           className="button"
