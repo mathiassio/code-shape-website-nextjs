@@ -44,7 +44,7 @@ export default function CommunityPage() {
       />
       <ContentWrapper className="mt-8">
         <IntroMinimal
-          intro="Join us on Discord!"
+          intro="Join us on Element!"
           title="Great things come from team work"
           description="Be a part of a community that cares about each other and how they reach their software development goals and design goals. Are you ready?"
         />
