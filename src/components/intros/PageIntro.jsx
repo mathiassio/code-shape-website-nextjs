@@ -21,7 +21,7 @@ export default function IntroSimple(props) {
       <ContentWrapper className="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
         <Title
           gradientColor={gradientColor}
-          className="text-4.5xl md:text-5xl font-extrabold"
+          className="text-4xl md:text-5xl font-extrabold"
         >
           {title || "REPLACE TEXT"}
         </Title>
