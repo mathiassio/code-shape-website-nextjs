@@ -1,6 +1,7 @@
+import { useEffect } from "react";
 import CodeBlockStyles from "./CodeBlock.module.css";
 import Prism from "prismjs";
-import { useEffect } from "react";
+import "prismjs/themes/prism-tomorrow.css";
 
 export default function CodeBlock(props) {
   useEffect(() => {
