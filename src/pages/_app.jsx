@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps, router }) {
-  const router = useRouter();
+  const nextrouter = useRouter();
 
   useEffect(() => {
     const handleRouteChange = (url) => {
@@ -16,11 +16,11 @@ function MyApp({ Component, pageProps, router }) {
         page_path: url,
       });
     };
-    router.events.on("routeChangeComplete", handleRouteChange);
+    nextrouter.events.on("routeChangeComplete", handleRouteChange);
     return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
+      nextrouter.events.off("routeChangeComplete", handleRouteChange);
     };
-  }, [router.events]);
+  }, [nextrouter.events]);
 
   return (
     <AuthProvider>
