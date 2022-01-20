@@ -107,7 +107,7 @@ export default function HeroSection() {
               We bring people forward through technology, and learning is the
               best way to introduce insanely cool new things.
             </p>
-            <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
+            {/* <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
               <div className="rounded-md shadow">
                 <Link href="/learn">
                   <a className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md md:py-4 md:text-lg md:px-10 bg-black text-white dark:bg-white dark:text-black hover:bg-transparent border-gray-400 focus:shadow-outline hover:border-black hover:text-black dark:hover:text-white dark:hover:border-white">
@@ -122,7 +122,7 @@ export default function HeroSection() {
                   </a>
                 </Link>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="relative w-full h-64 sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full">
