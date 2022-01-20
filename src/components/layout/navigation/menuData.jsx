@@ -10,12 +10,12 @@ import {
 } from "@heroicons/react/outline";
 
 export const main = [
-  {
-    name: "Community",
-    description: "Your customers' data will be safe and secure.",
-    href: "/community",
-    icon: CalendarIcon,
-  },
+  // {
+  //   name: "Community",
+  //   description: "Your customers' data will be safe and secure.",
+  //   href: "/community",
+  //   icon: CalendarIcon,
+  // },
   {
     name: "Enterprise",
     description: "Connect with third-party tools that you're already using.",
@@ -44,12 +44,12 @@ export const mobile = [
     href: "/learn/courses",
     icon: VideoCameraIcon,
   },
-  {
-    name: "Community",
-    description: "Your customers' data will be safe and secure.",
-    href: "/community",
-    icon: CalendarIcon,
-  },
+  // {
+  //   name: "Community",
+  //   description: "Your customers' data will be safe and secure.",
+  //   href: "/community",
+  //   icon: CalendarIcon,
+  // },
   {
     name: "Enterprise",
     description: "Connect with third-party tools that you're already using.",
@@ -65,22 +65,22 @@ export const learn = [
     href: "/articles",
     icon: BookOpenIcon,
   },
-  {
-    name: "Courses",
-    description: "Learn how to build amazing things.",
-    href: "/learn/courses",
-    icon: VideoCameraIcon,
-  },
+  // {
+  //   name: "Courses",
+  //   description: "Learn how to build amazing things.",
+  //   href: "/learn/courses",
+  //   icon: VideoCameraIcon,
+  // },
 ];
 
 export const more = [
-  {
-    name: "Help Center",
-    description:
-      "Get all of your questions answered in our forums or contact support.",
-    href: "/help",
-    icon: SupportIcon,
-  },
+  // {
+  //   name: "Help Center",
+  //   description:
+  //     "Get all of your questions answered in our forums or contact support.",
+  //   href: "/help",
+  //   icon: SupportIcon,
+  // },
   {
     name: "Feedback",
     description:
@@ -104,14 +104,14 @@ export const more = [
 
 export const footer = {
   learn: [
-    { name: "Get Started", href: "/learn" },
-    { name: "Courses", href: "/learn/courses" },
+    // { name: "Get Started", href: "/learn" },
+    // { name: "Courses", href: "/learn/courses" },
     { name: "Feedback", href: "/feedback" },
   ],
   support: [
     { name: "Articles", href: "/articles" },
     // { name: "Documentation", href: "/docs" },
-    { name: "Help Center", href: "/help" },
+    // { name: "Help Center", href: "/help" },
     { name: "Updates", href: "/updates" },
   ],
   company: [
@@ -120,7 +120,7 @@ export const footer = {
   ],
   legal: [
     { name: "Privacy", href: "/privacy-policy" },
-    { name: "Terms", href: "/terms" },
+    // { name: "Terms", href: "/terms" },
   ],
   social: [
     {
