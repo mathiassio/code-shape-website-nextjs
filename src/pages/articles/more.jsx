@@ -81,23 +81,25 @@ export default function ArticlesPage({ articles }) {
                           />
                         </a>
                       </div>
-                      <div className="ml-3">
-                        <p className="text-sm font-medium text-indigo-600">
-                          <a
-                            href={article.author.slug}
-                            className="hover:underline"
-                          >
-                            {article.author.name}
-                          </a>
-                        </p>
-                        <div className="flex space-x-1 text-sm text-gray-500">
-                          <time dateTime={article.datetime}>
-                            {article.date}
-                          </time>
-                          {/* <span aria-hidden="true">&middot;</span> */}
-                          {/* <span>{article.readingTime} read</span> */}
+                      {article.author ? (
+                        <div className="ml-3">
+                          <p className="text-sm font-medium text-indigo-600">
+                            <a
+                              href={article.author.slug}
+                              className="hover:underline"
+                            >
+                              {article.author.name}
+                            </a>
+                          </p>
+                          <div className="flex space-x-1 text-sm text-gray-500">
+                            <time dateTime={article.datetime}>
+                              {article.date}
+                            </time>
+                            {/* <span aria-hidden="true">&middot;</span> */}
+                            {/* <span>{article.readingTime} read</span> */}
+                          </div>
                         </div>
-                      </div>
+                      ) : null}
                     </div>
                   </div>
                 </div>

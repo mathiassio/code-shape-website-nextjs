@@ -43,6 +43,7 @@ export async function getRecentArticles() {
             twitterProfile
             linkedInProfile
             slug
+            isWorking
           }
         }
       }
@@ -84,6 +85,7 @@ export async function getPaginatedArticles() {
             twitterProfile
             linkedInProfile
             slug
+            isWorking
           }
         }
       }
@@ -125,6 +127,7 @@ export async function getArticles() {
             twitterProfile
             linkedInProfile
             slug
+            isWorking
           }
         }
       }
@@ -166,6 +169,7 @@ export async function getArticle(slug) {
             twitterProfile
             linkedInProfile
             slug
+            isWorking
           }
           content {
             json
@@ -229,6 +233,7 @@ export async function getAuthors() {
           twitterProfile
           linkedInProfile
           slug
+          isWorking
         }
       }
     }
@@ -253,6 +258,7 @@ export async function getAuthor(slug) {
           twitterProfile
           linkedInProfile
           slug
+          isWorking
         }
       }
     }
@@ -480,6 +486,7 @@ export async function getPaginatedCases() {
             twitterProfile
             linkedInProfile
             slug
+            isWorking
           }
           contentfulMetadata {
             tags {
@@ -562,6 +569,7 @@ export async function getCase(slug) {
             twitterProfile
             linkedInProfile
             slug
+            isWorking
           }
           content {
             json
@@ -695,6 +703,7 @@ export async function getShowcases() {
             twitterProfile
             linkedInProfile
             slug
+            isWorking
           }
         }
       }
@@ -737,6 +746,7 @@ export async function getShowcase(slug) {
             twitterProfile
             linkedInProfile
             slug
+            isWorking
           }
           content {
             json
@@ -815,6 +825,7 @@ export async function getLimitedShowcases() {
             twitterProfile
             linkedInProfile
             slug
+            isWorking
           }
         }
       }
